@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StardewVelly_InnyEngine_Win32API", "StardewVelly_InnyEngine_Win32API\StardewVelly_InnyEngine_Win32API.vcxproj", "{83FA2F15-A228-4B18-9CF2-F3994D048004}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_StardewVelly_InnyEngine", "StardewVelly_InnyEngine_Win32API\StardewVelly_InnyEngine_Win32API.vcxproj", "{83FA2F15-A228-4B18-9CF2-F3994D048004}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StardewVelly_InnyEngine_SOURCE", "StardewVelly_InnyEngine_SOURCE\StardewVelly_InnyEngine_SOURCE.vcxitems", "{B6A55C54-DF23-4F83-84FE-4C97F40566BC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StardewVelly_InnyEngine_WINDOW", "StardewVelly_InnyEngine_WINDOW\StardewVelly_InnyEngine_WINDOW.vcxproj", "{478399CA-7D17-420D-825B-93B43A2D4BF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,11 +25,23 @@ Global
 		{83FA2F15-A228-4B18-9CF2-F3994D048004}.Release|x64.Build.0 = Release|x64
 		{83FA2F15-A228-4B18-9CF2-F3994D048004}.Release|x86.ActiveCfg = Release|Win32
 		{83FA2F15-A228-4B18-9CF2-F3994D048004}.Release|x86.Build.0 = Release|Win32
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Debug|x64.ActiveCfg = Debug|x64
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Debug|x64.Build.0 = Debug|x64
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Debug|x86.ActiveCfg = Debug|Win32
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Debug|x86.Build.0 = Debug|Win32
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Release|x64.ActiveCfg = Release|x64
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Release|x64.Build.0 = Release|x64
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Release|x86.ActiveCfg = Release|Win32
+		{478399CA-7D17-420D-825B-93B43A2D4BF7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD7C2882-46F8-4174-9CC7-EF3CF588C0E7}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		StardewVelly_InnyEngine_SOURCE\StardewVelly_InnyEngine_SOURCE.vcxitems*{478399ca-7d17-420d-825b-93b43a2d4bf7}*SharedItemsImports = 4
+		StardewVelly_InnyEngine_SOURCE\StardewVelly_InnyEngine_SOURCE.vcxitems*{b6a55c54-df23-4f83-84fe-4c97f40566bc}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal
