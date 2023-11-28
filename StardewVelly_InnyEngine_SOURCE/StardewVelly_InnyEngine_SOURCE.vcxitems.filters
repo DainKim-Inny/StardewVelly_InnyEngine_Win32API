@@ -37,6 +37,9 @@
     <Filter Include="Resource">
       <UniqueIdentifier>{167994ef-bc3a-406d-bb04-2e969566e13c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{2e5eb349-493e-47c5-9a86-e37da1e5bd13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SetVector.cpp">
       <Filter>SetVector</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp">
+      <Filter>Layer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +127,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SetVector.h">
       <Filter>SetVector</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Enums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h">
+      <Filter>Layer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

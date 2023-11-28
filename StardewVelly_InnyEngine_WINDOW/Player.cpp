@@ -1,4 +1,7 @@
 #include "Player.h"
+#include "Input.h"
+#include "Transform.h"
+#include "Time.h"
 
 namespace in
 {
@@ -15,6 +18,14 @@ namespace in
 	void Player::LateUpdate()
 	{
 		GameObject::LateUpdate();
+
+		//if (Input::GetKey(eKeyCode::A))
+		//{
+		//	Transform* tr = GetComponent<Transform>();
+		//	SetVector pos = tr->GetPosition();
+		//	pos.x += 100.0f * Time::DeltaTime();
+		//	tr->SetPos(pos);
+		//}
 	}
 	
 	void Player::Render(HDC hdc)

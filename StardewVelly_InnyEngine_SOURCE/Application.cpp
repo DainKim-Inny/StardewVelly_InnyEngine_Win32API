@@ -48,7 +48,7 @@ namespace in
 
 	void Application::LateUpdate()
 	{
-
+		SceneManger::LateUpdate();
 	}
 
 	void Application::Render()
