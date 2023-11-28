@@ -13,6 +13,9 @@
     <Filter Include="Input">
       <UniqueIdentifier>{9d61bf1c-4427-494b-ad67-48d2bab3c435}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{67c26468-bf9e-472c-a72e-e8317e8eb13a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp">
@@ -23,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp">
+      <Filter>Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h">
       <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Time.h">
+      <Filter>Time</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -50,6 +50,6 @@ namespace in
 
 				mKeys[i].bPressed = false;
 			}
+		}
 	}
-
 }
