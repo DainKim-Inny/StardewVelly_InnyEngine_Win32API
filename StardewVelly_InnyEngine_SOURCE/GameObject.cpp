@@ -5,36 +5,47 @@
 namespace in
 {
 	GameObject::GameObject()
-		: mX(0.0f), mY(0.0f)
 	{
 	}
 
 	GameObject::~GameObject()
 	{
+		for (Component* comp : mComponents)
+		{
+			delete comp;
+			comp = nullptr;
+		}
 	}
 	
+	void GameObject::Initialize()
+	{
+		for (Component* comp : mComponents)
+		{
+			comp->Initialize();
+		}
+	}
+
 	void GameObject::Update()
 	{
-		float speed = 0.0f;
-
-		if(Input::GetKey(eKeyCode::A))
+		for (Component* comp : mComponents)
 		{
-			mX -= speed * Time::DeltaTime();
+			comp->Update();
 		}
 	}
 	
 	void GameObject::LateUpdate()
 	{
+		for (Component* comp : mComponents)
+		{
+			comp->LateUpdate();
+		}
 	}
 	
 	void GameObject::Render(HDC hdc)
 	{
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-		Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
-
-		SelectObject(hdc, oldBrush);
-		DeleteObject(blueBrush);
+		for (Component* comp : mComponents)
+		{
+			comp->Render(hdc);
+		}
 	}
 }

@@ -1,4 +1,8 @@
 #include "TitleScene.h"
+#include "GameObject.h"
+#include "Player.h"
+#include "Transform.h"
+#include "SpriteRenderer.h"
 
 namespace in
 {
@@ -12,9 +16,16 @@ namespace in
 	
 	void TitleScene::Initialize()
 	{
-		GameObject* obj = new GameObject();
-		obj->SetPosition(100, 100);
-		AddGameObject(obj);
+		Player* p1 = new Player();
+		
+		Transform* tr = p1->AddComponent<Transform>();
+		tr->SetPos(500, 500);
+		tr->SetName(L"p1_TR");
+
+		SpriteRenderer* sr = p1->AddComponent<SpriteRenderer>();
+		sr->SetName(L"p1_SR");
+
+		AddGameObject(p1);
 	}
 	
 	void TitleScene::Update()

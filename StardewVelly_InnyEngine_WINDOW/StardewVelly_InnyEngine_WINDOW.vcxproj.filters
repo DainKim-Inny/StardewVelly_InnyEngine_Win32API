@@ -11,16 +11,25 @@
     <Filter Include="Scene\TitleScene">
       <UniqueIdentifier>{37250200-abd0-48d4-9981-be8f8e7137b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{14c9ffa1-8dde-45d3-b4ab-86d0284acc51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene\TitleScene</Filter>
     </ClInclude>
     <ClInclude Include="LoadScenes.h" />
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
