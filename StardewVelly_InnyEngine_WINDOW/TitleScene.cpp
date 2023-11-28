@@ -16,16 +16,17 @@ namespace in
 	
 	void TitleScene::Initialize()
 	{
-		Player* p1 = new Player();
+		Player* bg = new Player();
 		
-		Transform* tr = p1->AddComponent<Transform>();
-		tr->SetPos(500, 500);
-		tr->SetName(L"p1_TR");
+		Transform* tr = bg->AddComponent<Transform>();
+		tr->SetPos(SetVector(0, 0));
+		tr->SetName(L"Title");
 
-		SpriteRenderer* sr = p1->AddComponent<SpriteRenderer>();
+		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"p1_SR");
+		sr->ImageLoad(L"..\\Resource\\Texture\\TitleScene\\StardewPanorama.png");
 
-		AddGameObject(p1);
+		AddGameObject(bg);
 	}
 	
 	void TitleScene::Update()

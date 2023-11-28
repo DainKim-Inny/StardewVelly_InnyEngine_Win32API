@@ -2,6 +2,8 @@
 #include "Entity.h"
 #include "Component.h"
 
+using namespace std;
+
 namespace in
 {
 	class SpriteRenderer : public Component
@@ -15,7 +17,11 @@ namespace in
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-	private:
+		void ImageLoad(const wstring& path);
 
+	private:
+		Gdiplus::Image* mImage;
+		UINT mWidth;
+		UINT mHeight;
 	};
 }

@@ -14,6 +14,18 @@
     <Filter Include="Player">
       <UniqueIdentifier>{14c9ffa1-8dde-45d3-b4ab-86d0284acc51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\IntroScene">
+      <UniqueIdentifier>{4e5663e1-da39-4170-8343-e93c7233fd3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\PlayScene">
+      <UniqueIdentifier>{87d70d6d-8410-49d8-8494-77d5fac9ccf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\SaveScene">
+      <UniqueIdentifier>{13a7bef6-4bef-4ce5-b130-34b45a0b205b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\EndingScene">
+      <UniqueIdentifier>{87990c5a-66be-47eb-9f2a-727fc200cb41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScene.h">

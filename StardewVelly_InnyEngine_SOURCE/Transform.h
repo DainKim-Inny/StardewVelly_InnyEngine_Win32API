@@ -1,15 +1,10 @@
 #pragma once
 #include "Entity.h"
 #include "Component.h"
+#include "SetVector.h"
 
 namespace in
 {
-	struct Pos
-	{
-		int mX;
-		int mY;
-	};
-
 	class Transform : public Component
 	{
 	public:
@@ -21,12 +16,10 @@ namespace in
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetPos(int x, int y) { mX = x; mY = y; }
-		int GetX() { return mX; }
-		int GetY() { return mY; }
+		void SetPos(SetVector pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
+		SetVector GetPosition() { return mPosition; }
 
 	private:
-		int mX;
-		int mY;
+		SetVector mPosition;
 	};
 }

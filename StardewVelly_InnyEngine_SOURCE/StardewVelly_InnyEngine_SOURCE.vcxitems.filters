@@ -31,6 +31,12 @@
     <Filter Include="Component\Transform">
       <UniqueIdentifier>{3491b0be-d918-448c-8b89-1508ec814342}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SetVector">
+      <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{167994ef-bc3a-406d-bb04-2e969566e13c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp">
@@ -62,6 +68,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SpriteRenderer.cpp">
       <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SetVector.cpp">
+      <Filter>SetVector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +112,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SetVector.h">
+      <Filter>SetVector</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
