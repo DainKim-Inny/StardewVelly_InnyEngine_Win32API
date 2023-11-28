@@ -18,6 +18,13 @@ namespace in
 		void Render();
 
 	private:
+		void clearRenderTarger();
+		void copyRenderTarget(HDC source, HDC dest);
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void InitializeEtc();
+
+	private:
 		HWND mHwnd;
 		HDC mHdc;
 
@@ -26,7 +33,5 @@ namespace in
 
 		UINT mWidth;
 		UINT mHeight;
-
-		GameObject mPlayer;
 	};
 }

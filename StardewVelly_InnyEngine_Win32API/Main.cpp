@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "StardewVelly_InnyEngine_Win32API.h"
 #include "..\\StardewVelly_InnyEngine_SOURCE\\Application.h"
+#include "..\\StardewVelly_InnyEngine_WINDOW\\LoadScenes.h"
 
 in::Application application;
 
@@ -124,6 +125,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // Load Scenes
+   in::LoadScenes();
 
    return TRUE;
 }

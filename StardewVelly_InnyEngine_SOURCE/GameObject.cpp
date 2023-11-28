@@ -29,5 +29,12 @@ namespace in
 	
 	void GameObject::Render(HDC hdc)
 	{
+		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+
+		Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
+
+		SelectObject(hdc, oldBrush);
+		DeleteObject(blueBrush);
 	}
 }
