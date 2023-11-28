@@ -40,6 +40,9 @@ namespace in
 
 			return component;
 		}
+		
+	private:
+		void initializeTransform();
 
 	private:
 		vector<Component*> mComponents;

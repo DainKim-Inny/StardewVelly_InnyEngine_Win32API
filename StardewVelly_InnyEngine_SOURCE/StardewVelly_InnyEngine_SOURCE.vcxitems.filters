@@ -134,5 +134,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h">
       <Filter>Layer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Object.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

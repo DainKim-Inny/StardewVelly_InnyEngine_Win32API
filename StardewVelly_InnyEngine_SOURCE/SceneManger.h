@@ -13,6 +13,7 @@ namespace in
 		{
 			T* scene = new T();
 			scene->SetName(name);
+			mActiveScene = scene;
 			scene->Initialize();
 
 			mScene.insert(make_pair(name, scene));
@@ -20,21 +21,9 @@ namespace in
 			return scene;
 		}
 
-		static Scene* LoadScene(const wstring& name)
-		{
-			if (mActiveScene)
-				mActiveScene->OnExit();
 
-			map<wstring, Scene*>::iterator iter = mScene.find(name);
-			
-			if (iter == mScene.end())
-				return nullptr;
-
-			mActiveScene = iter->second;
-			mActiveScene->OnEnter();
-
-			return iter->second;
-		}
+		static Scene* LoadScene(const wstring& name);
+		static Scene* GetActiveScene() { return mActiveScene; }
 
 		static void Initailize();
 		static void Update();

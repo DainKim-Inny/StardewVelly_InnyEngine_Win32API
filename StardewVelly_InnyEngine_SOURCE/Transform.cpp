@@ -3,6 +3,7 @@
 namespace in
 {
 	Transform::Transform()
+		: mPosition{}
 	{
 	}
 
