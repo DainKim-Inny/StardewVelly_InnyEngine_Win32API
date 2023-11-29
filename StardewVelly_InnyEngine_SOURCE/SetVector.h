@@ -21,5 +21,8 @@ namespace in
 		{
 
 		}
+
+		static SetVector One;
+		static SetVector Zero;
 	};
 }

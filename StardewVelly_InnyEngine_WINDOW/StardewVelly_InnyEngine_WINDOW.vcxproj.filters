@@ -35,6 +35,7 @@
     <ClInclude Include="Player.h">
       <Filter>Player</Filter>
     </ClInclude>
+    <ClInclude Include="LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TitleScene.cpp">

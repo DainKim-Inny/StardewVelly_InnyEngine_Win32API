@@ -6,6 +6,8 @@
 #include "Input.h"
 #include "SceneManger.h"
 #include "Object.h"
+#include "Texture.h"
+#include "Resources.h"
 
 namespace in
 {
@@ -21,10 +23,11 @@ namespace in
 	void TitleScene::Initialize()
 	{
 		{
-			bg = Object::Instantiate<Player>(eLayerType::BackGround, SetVector(0.0f, 0.0f));
+			bg = Object::Instantiate<Player>(eLayerType::BackGround);
 
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->ImageLoad(L"..\\Resource\\Texture\\TitleScene\\StardewPanorama.png");
+			Texture* bg = Resources::Find<Texture>(L"BackGround");
+			sr->SetTexture(bg);
 
 			Scene::Initialize();
 		}

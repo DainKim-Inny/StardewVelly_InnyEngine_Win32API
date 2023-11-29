@@ -2,5 +2,5 @@
 
 namespace in
 {
-
+	map<wstring, Resource*> Resources::mResources = {};
 }

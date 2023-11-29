@@ -31,14 +31,17 @@
     <Filter Include="Component\Transform">
       <UniqueIdentifier>{3491b0be-d918-448c-8b89-1508ec814342}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SetVector">
-      <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource">
       <UniqueIdentifier>{167994ef-bc3a-406d-bb04-2e969566e13c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{2e5eb349-493e-47c5-9a86-e37da1e5bd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SetVector">
+      <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Texture">
+      <UniqueIdentifier>{c568ed9c-bc77-4c13-a1f6-6ffcfeef137a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp">
       <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Texture.cpp">
+      <Filter>Component\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Object.h">
       <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Texture.h">
+      <Filter>Component\Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

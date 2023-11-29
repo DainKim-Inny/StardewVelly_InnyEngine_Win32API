@@ -77,7 +77,7 @@ namespace in
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height)
 	{
 		mHwnd = hwnd;
-		mHdc = GetDC(hwnd);
+		mHdc = GetDC(mHwnd);
 
 		RECT rect = { 0, 0, width, height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);

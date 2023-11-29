@@ -19,7 +19,7 @@ namespace in
 	{
 		GameObject::LateUpdate();
 
-		//if (Input::GetKey(eKeyCode::A))
+		//if (Input::GetKey(eKeyCode::RIGHT))
 		//{
 		//	Transform* tr = GetComponent<Transform>();
 		//	SetVector pos = tr->GetPosition();

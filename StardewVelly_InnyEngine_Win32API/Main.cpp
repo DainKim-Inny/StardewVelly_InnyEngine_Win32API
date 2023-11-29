@@ -4,6 +4,7 @@
 #include "StardewVelly_InnyEngine_Win32API.h"
 #include "..\\StardewVelly_InnyEngine_SOURCE\\Application.h"
 #include "..\\StardewVelly_InnyEngine_WINDOW\\LoadScenes.h"
+#include "..\\StardewVelly_InnyEngine_WINDOW\\LoadResources.h"
 
 in::Application application;
 
@@ -133,6 +134,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+
+   in::LoasdResources();
    // Load Scenes
    in::LoadScenes();
 
