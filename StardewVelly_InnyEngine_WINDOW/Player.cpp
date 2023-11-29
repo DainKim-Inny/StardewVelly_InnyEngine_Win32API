@@ -18,14 +18,6 @@ namespace in
 	void Player::LateUpdate()
 	{
 		GameObject::LateUpdate();
-
-		//if (Input::GetKey(eKeyCode::RIGHT))
-		//{
-		//	Transform* tr = GetComponent<Transform>();
-		//	SetVector pos = tr->GetPosition();
-		//	pos.x += 100.0f * Time::DeltaTime();
-		//	tr->SetPos(pos);
-		//}
 	}
 	
 	void Player::Render(HDC hdc)

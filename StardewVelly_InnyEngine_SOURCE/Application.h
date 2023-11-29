@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonHeader.h"
 #include "GameObject.h"
+#include "Scene.h"
 
 namespace in
 {

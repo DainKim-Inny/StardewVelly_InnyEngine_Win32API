@@ -6,6 +6,11 @@ namespace in
 	{
 		None,
 		BackGround,
+		BackGroundObject_Bottom,
+		BackGroundObject_Middle,
+		BackGroundObject_Top,
+		Logo,
+		Button,
 		Player,
 		Max = 16
 	};

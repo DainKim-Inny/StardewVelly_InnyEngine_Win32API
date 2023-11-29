@@ -31,7 +31,7 @@ namespace in
 	{
 		for (int i = 0; i < mKeys.size(); i++)
 		{
-			if (GetAsyncKeyState(ASCII[i] & 0x8000))  // 키가 눌렸을 때
+			if ((GetAsyncKeyState(ASCII[i]) & 0x8000))  // 키가 눌렸을 때
 			{
 				if (mKeys[i].bPressed == true)
 					mKeys[i].state = eKeyState::PRESSED;

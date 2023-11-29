@@ -40,7 +40,7 @@
     <Filter Include="SetVector">
       <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\Texture">
+    <Filter Include="Resource\Texture">
       <UniqueIdentifier>{c568ed9c-bc77-4c13-a1f6-6ffcfeef137a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -88,7 +88,7 @@
       <Filter>Layer</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Texture.cpp">
-      <Filter>Component\Texture</Filter>
+      <Filter>Resource\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +144,7 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Texture.h">
-      <Filter>Component\Texture</Filter>
+      <Filter>Resource\Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

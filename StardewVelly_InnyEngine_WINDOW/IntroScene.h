@@ -3,11 +3,11 @@
 
 namespace in
 {
-	class TitleScene : public Scene
+	class IntroScene : public Scene
 	{
 	public:
-		TitleScene();
-		~TitleScene();
+		IntroScene();
+		~IntroScene();
 
 		void Initialize() override;
 		void Update() override;
@@ -15,10 +15,7 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		class Player* bg;
-		class Player* logo;
-		class Player* NewButton;
-		class Player* LoadButton;
-		class Player* ExitButton;
+		class Player* Title_Charactor;
+		class Player* Title_Creator;
 	};
 }

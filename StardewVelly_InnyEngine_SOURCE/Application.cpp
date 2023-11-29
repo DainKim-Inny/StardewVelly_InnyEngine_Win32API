@@ -35,8 +35,6 @@ namespace in
 		Update();
 		LateUpdate();
 		Render();
-
-		SceneManger::Update();
 	}
 
 	void Application::Update()
@@ -44,21 +42,12 @@ namespace in
 		Input::Update();
 		Time::Update();
 
+		SceneManger::Update();
 	}
 
 	void Application::LateUpdate()
 	{
 		SceneManger::LateUpdate();
-	}
-
-	void Application::Render()
-	{
-		clearRenderTarger();
-
-		Time::Render(mBackHdc);
-		SceneManger::Render(mBackHdc);
-
-		copyRenderTarget(mBackHdc, mHdc);
 	}
 
 	void Application::clearRenderTarger()
@@ -72,7 +61,6 @@ namespace in
 		// BackBuffer에 있는 것을 원본 Buffer에 복사
 		BitBlt(dest, 0, 0, mWidth, mHeight, source, 0, 0, SRCCOPY);
 	}
-
 
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height)
 	{
@@ -105,5 +93,15 @@ namespace in
 	{
 		Input::Initialize();
 		Time::Initailize();
+	}
+
+	void Application::Render()
+	{
+		clearRenderTarger();
+
+		Time::Render(mBackHdc);
+		SceneManger::Render(mBackHdc);
+
+		copyRenderTarget(mBackHdc, mHdc);
 	}
 }
