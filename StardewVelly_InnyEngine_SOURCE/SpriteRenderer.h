@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Component.h"
 #include "Texture.h"
+#include "Renderer.h"
 
 using namespace std;
 

@@ -12,7 +12,7 @@ namespace in
 		{
 			Bmp,
 			Png,
-			Nonem
+			None
 		};
 
 		Texture();

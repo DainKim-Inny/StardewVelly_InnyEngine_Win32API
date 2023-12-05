@@ -7,14 +7,18 @@ namespace in
 	void LoasdResources()
 	{
 		// IntroScene
-		Resources::Load<Texture>(L"TitleCharactor", L"..\\Resource\\Texture\\IntroScene\\TitleCharactor.png");
-		Resources::Load<Texture>(L"TitleCreator", L"..\\Resource\\Texture\\IntroScene\\TitleCreator.png");
+		Resources::Load<Texture>(L"Intro_Charactor", L"..\\Resource\\1.IntroScene\\1.Texture\\Intro_Charactor.png");
+		Resources::Load<Texture>(L"Intro_Creator", L"..\\Resource\\1.IntroScene\\1.Texture\\Intro_Creator.png");
 
 		// TitleScene
-		Resources::Load<Texture>(L"BackGround", L"..\\Resource\\Texture\\TitleScene\\StardewPanorama.png");
-		Resources::Load<Texture>(L"Logo", L"..\\Resource\\Texture\\TitleScene\\Logo.png");
-		Resources::Load<Texture>(L"NewButton", L"..\\Resource\\Texture\\TitleScene\\New.png");
-		Resources::Load<Texture>(L"LoadButton", L"..\\Resource\\Texture\\TitleScene\\Load.png");
-		Resources::Load<Texture>(L"ExitButton", L"..\\Resource\\Texture\\TitleScene\\Exit.png");
+		Resources::Load<Texture>(L"Intro_BG", L"..\\Resource\\2.TitleScene\\1.Texture\\StardewPanorama.png");
+		Resources::Load<Texture>(L"Intro_Logo", L"..\\Resource\\2.TitleScene\\1.Texture\\Title_LogoButton.png");
+		Resources::Load<Texture>(L"Intro_NewButton", L"..\\Resource\\2.TitleScene\\1.Texture\\Title_NewButton.png");
+		Resources::Load<Texture>(L"Intro_LoadButton", L"..\\Resource\\2.TitleScene\\1.Texture\\Title_LoadButton.png");
+		Resources::Load<Texture>(L"Intro_ExitButton", L"..\\Resource\\2.TitleScene\\1.Texture\\Title_ExitButton.png");
+
+		// FarmScene
+		Resources::Load<Texture>(L"Farm_BG", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Map.png");
+		Resources::Load<Texture>(L"Farm_Player", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Player.bmp");
 	}
 }

@@ -2,11 +2,12 @@
 #include "GameObject.h"
 #include "Transform.h"
 #include "Texture.h"
+#include "Renderer.h"
 
 namespace in
 {
 	SpriteRenderer::SpriteRenderer()
-		: Component()
+		: Component(eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(SetVector::One)
 	{
@@ -35,6 +36,11 @@ namespace in
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		SetVector pos = tr->GetPosition();
+
+		if (renderer::mainCamera)
+		{
+			pos = renderer::mainCamera->CalculatePosition(pos);
+		}
 
 		if (mTexture->GetTextrueType() 
 			== Texture::eTextureType::Bmp)

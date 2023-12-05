@@ -11,8 +11,8 @@
 namespace in
 {
 	IntroScene::IntroScene()
-		: Title_Charactor(nullptr)
-		, Title_Creator(nullptr)
+		: mTitle_Charactor(nullptr)
+		, mTitle_Creator(nullptr)
 	{
 	}
 
@@ -22,20 +22,23 @@ namespace in
 	
 	void IntroScene::Initialize()
 	{
-		{
-			Title_Charactor = Object::Instantiate<Player>(eLayerType::BackGround, SetVector(500.0f, 250.0f));
 
-			SpriteRenderer* sr1 = Title_Charactor->AddComponent<SpriteRenderer>();
-			Texture* Title_Charactor = Resources::Find<Texture>(L"TitleCharactor");
+		// Logo 추가
+		{
+			mTitle_Charactor = Object::Instantiate<Player>(eLayerType::BackGround, SetVector(500.0f, 250.0f));
+
+			SpriteRenderer* sr1 = mTitle_Charactor->AddComponent<SpriteRenderer>();
+			Texture* Title_Charactor = Resources::Find<Texture>(L"Intro_Charactor");
 			sr1->SetTexture(Title_Charactor);
 			sr1->SetSize(SetVector(2.0f, 2.0f));
 		}
 
+		// Creator 추가
 		{
-			Title_Creator = Object::Instantiate<Player>(eLayerType::BackGround, SetVector(680.0f, 260.0f));
+			mTitle_Creator = Object::Instantiate<Player>(eLayerType::BackGround, SetVector(680.0f, 260.0f));
 
-			SpriteRenderer* sr2 = Title_Creator->AddComponent<SpriteRenderer>();
-			Texture* Title_Creator = Resources::Find<Texture>(L"TitleCreator");
+			SpriteRenderer* sr2 = mTitle_Creator->AddComponent<SpriteRenderer>();
+			Texture* Title_Creator = Resources::Find<Texture>(L"Intro_Creator");
 			sr2->SetTexture(Title_Creator);
 			sr2->SetSize(SetVector(2.0f, 2.0f));
 		}

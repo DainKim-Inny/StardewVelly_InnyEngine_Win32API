@@ -24,5 +24,20 @@ namespace in
 
 		static SetVector One;
 		static SetVector Zero;
+
+		SetVector operator+(SetVector other)
+		{
+			return SetVector(x + other.x, y + other.y);
+		}
+
+		SetVector operator-(SetVector other)
+		{
+			return SetVector(x - other.x, y - other.y);
+		}
+
+		SetVector operator/(float value)
+		{
+			return SetVector(x / value, y / value);
+		}
 	};
 }

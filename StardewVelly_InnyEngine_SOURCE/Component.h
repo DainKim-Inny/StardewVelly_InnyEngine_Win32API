@@ -7,7 +7,7 @@ namespace in
 	class Component : public Entity
 	{
 	public:
-		Component();
+		Component(eComponentType type);
 		~Component();
 
 		virtual void Initialize();
@@ -17,8 +17,10 @@ namespace in
 
 		void SetOwner(GameObject* owner) { mOwner = owner; }
 		GameObject* GetOwner() { return mOwner; }
+		eComponentType GetType() { return mType; }
 
 	private:
 		GameObject* mOwner;
+		eComponentType mType;
 	};
 }

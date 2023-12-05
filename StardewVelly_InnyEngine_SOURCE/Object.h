@@ -6,30 +6,34 @@
 #include "Transform.h"
 #include "Layer.h"
 
-namespace in::Object
+namespace in
 {
-	template<typename T>
-	static T* Instantiate(eLayerType type)
+	class Object
 	{
-		T* gameObject = new T();
-		Scene* activeScene = SceneManger::GetActiveScene();
-		Layer* layer = activeScene->GetLayer(type);
-		layer->AddGameObject(gameObject);
+	public:
+		template<typename T>
+		static T* Instantiate(eLayerType type)
+		{
+			T* gameObject = new T();
+			Scene* activeScene = SceneManger::GetActiveScene();
+			Layer* layer = activeScene->GetLayer(type);
+			layer->AddGameObject(gameObject);
 
-		return gameObject;
-	}
+			return gameObject;
+		}
 
-	template<typename T>
-	static T* Instantiate(eLayerType type, SetVector position)
-	{
-		T* gameObject = new T();
-		Scene* activeScene = SceneManger::GetActiveScene();
-		Layer* layer = activeScene->GetLayer(type);
-		layer->AddGameObject(gameObject);
+		template<typename T>
+		static T* Instantiate(eLayerType type, SetVector position)
+		{
+			T* gameObject = new T();
+			Scene* activeScene = SceneManger::GetActiveScene();
+			Layer* layer = activeScene->GetLayer(type);
+			layer->AddGameObject(gameObject);
 
-		Transform* tr = gameObject->GetComponent<Transform>();
-		tr->SetPos(position);
+			Transform* tr = gameObject->GetComponent<Transform>();
+			tr->SetPos(position);
 
-		return gameObject;
-	}
+			return gameObject;
+		}
+	};
 }

@@ -12,7 +12,9 @@
 namespace in
 {
 	TitleScene::TitleScene()
-		: bg(nullptr), logo(nullptr)
+		: mbg(nullptr), mlogo(nullptr)
+		, mNewButton(nullptr), mLoadButton(nullptr)
+		, mExitButton(nullptr)
 	{
 	}
 
@@ -22,47 +24,52 @@ namespace in
 	
 	void TitleScene::Initialize()
 	{
+		// 배경 추가
 		{
-			bg = Object::Instantiate<Player>(eLayerType::BackGround);
+			mbg = Object::Instantiate<Player>(eLayerType::BackGround);
 
-			SpriteRenderer* sr1 = bg->AddComponent<SpriteRenderer>();
-			Texture* bg = Resources::Find<Texture>(L"BackGround");
+			SpriteRenderer* sr1 = mbg->AddComponent<SpriteRenderer>();
+			Texture* bg = Resources::Find<Texture>(L"Intro_BG");
 			sr1->SetTexture(bg);
 			sr1->SetSize(SetVector(2.2f, 1.7f));
 		}
 
+		// StardewValley 로고 추가
 		{
-			logo = Object::Instantiate<Player>(eLayerType::Logo, SetVector(370.0f, 90.0f));
+			mlogo = Object::Instantiate<Player>(eLayerType::Logo, SetVector(370.0f, 90.0f));
 
-			SpriteRenderer* sr2 = logo->AddComponent<SpriteRenderer>();
-			Texture* logo = Resources::Find<Texture>(L"Logo");
+			SpriteRenderer* sr2 = mlogo->AddComponent<SpriteRenderer>();
+			Texture* logo = Resources::Find<Texture>(L"Intro_Logo");
 			sr2->SetTexture(logo);
 			sr2->SetSize(SetVector(1.7f, 1.7f));
 		}
 
+		// NewButton 추가
 		{
-			NewButton = Object::Instantiate<Player>(eLayerType::Button, SetVector(370.0f, 450.0f));
+			mNewButton = Object::Instantiate<Player>(eLayerType::Button, SetVector(370.0f, 450.0f));
 
-			SpriteRenderer* sr3 = NewButton->AddComponent<SpriteRenderer>();
-			Texture* NewButton = Resources::Find<Texture>(L"NewButton");
+			SpriteRenderer* sr3 = mNewButton->AddComponent<SpriteRenderer>();
+			Texture* NewButton = Resources::Find<Texture>(L"Intro_NewButton");
 			sr3->SetTexture(NewButton);
 			sr3->SetSize(SetVector(2.5f, 2.5f));
 		}
 
+		// LoadButton 추가
 		{
-			LoadButton = Object::Instantiate<Player>(eLayerType::Button, SetVector(620.0f, 450.0f));
+			mLoadButton = Object::Instantiate<Player>(eLayerType::Button, SetVector(620.0f, 450.0f));
 
-			SpriteRenderer* sr4 = LoadButton->AddComponent<SpriteRenderer>();
-			Texture* LoadButton = Resources::Find<Texture>(L"LoadButton");
+			SpriteRenderer* sr4 = mLoadButton->AddComponent<SpriteRenderer>();
+			Texture* LoadButton = Resources::Find<Texture>(L"Intro_LoadButton");
 			sr4->SetTexture(LoadButton);
 			sr4->SetSize(SetVector(2.5f, 2.5f));
 		}
 
+		// ExitButton 추가
 		{
-			ExitButton = Object::Instantiate<Player>(eLayerType::Button, SetVector(860.0f, 450.0f));
+			mExitButton = Object::Instantiate<Player>(eLayerType::Button, SetVector(860.0f, 450.0f));
 
-			SpriteRenderer* sr5 = ExitButton->AddComponent<SpriteRenderer>();
-			Texture* ExitButton = Resources::Find<Texture>(L"ExitButton");
+			SpriteRenderer* sr5 = mExitButton->AddComponent<SpriteRenderer>();
+			Texture* ExitButton = Resources::Find<Texture>(L"Intro_ExitButton");
 			sr5->SetTexture(ExitButton);
 			sr5->SetSize(SetVector(2.5f, 2.5f));
 		}

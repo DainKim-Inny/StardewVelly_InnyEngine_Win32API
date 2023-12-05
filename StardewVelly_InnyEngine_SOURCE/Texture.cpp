@@ -9,6 +9,12 @@ namespace in
 {
 	Texture::Texture()
 		: Resource(eResourceType::Texture)
+		, mBitmap(nullptr)
+		, mHdc(nullptr)
+		, mHeight(0)
+		, mWidth(0)
+		, mImage(nullptr)
+		, mType(eTextureType::None)
 	{
 	}
 

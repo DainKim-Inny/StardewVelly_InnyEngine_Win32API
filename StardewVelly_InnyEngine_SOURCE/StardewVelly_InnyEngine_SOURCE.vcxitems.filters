@@ -10,15 +10,6 @@
     <Filter Include="GameObject">
       <UniqueIdentifier>{1ff729a6-e668-4aee-be6b-fa93f3674ea4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{9d61bf1c-4427-494b-ad67-48d2bab3c435}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Time">
-      <UniqueIdentifier>{67c26468-bf9e-472c-a72e-e8317e8eb13a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{1e19e358-1b09-49ef-afbd-44e5839fa073}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Common\Entity">
       <UniqueIdentifier>{ab5cdba6-3415-4ad3-880d-85eea63b5e78}</UniqueIdentifier>
     </Filter>
@@ -31,17 +22,35 @@
     <Filter Include="Component\Transform">
       <UniqueIdentifier>{3491b0be-d918-448c-8b89-1508ec814342}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource">
-      <UniqueIdentifier>{167994ef-bc3a-406d-bb04-2e969566e13c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{2e5eb349-493e-47c5-9a86-e37da1e5bd13}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SetVector">
-      <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{60750249-2124-467e-bb7b-baa4e96dad66}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource\Texture">
+    <Filter Include="Layer\Resource">
+      <UniqueIdentifier>{167994ef-bc3a-406d-bb04-2e969566e13c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer\Resource\Texture">
       <UniqueIdentifier>{c568ed9c-bc77-4c13-a1f6-6ffcfeef137a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer\Scene">
+      <UniqueIdentifier>{1e19e358-1b09-49ef-afbd-44e5839fa073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer\Renderer">
+      <UniqueIdentifier>{3cc1f2d1-bf4a-4de5-8c76-897ece0daa8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{65739b6d-f41a-45e0-9ecc-f4eaf9f031ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Time">
+      <UniqueIdentifier>{67c26468-bf9e-472c-a72e-e8317e8eb13a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Input">
+      <UniqueIdentifier>{9d61bf1c-4427-494b-ad67-48d2bab3c435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\SetVector">
+      <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,19 +61,19 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp">
-      <Filter>Input</Filter>
+      <Filter>Common\Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp">
-      <Filter>Time</Filter>
+      <Filter>Common\Time</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp">
       <Filter>Common\Entity</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Layer\Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SceneManger.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Layer\Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Component.cpp">
       <Filter>Component</Filter>
@@ -76,19 +85,28 @@
       <Filter>Component\SpriteRenderer</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource.cpp">
-      <Filter>Resource</Filter>
+      <Filter>Layer\Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Resources.cpp">
-      <Filter>Resource</Filter>
+      <Filter>Layer\Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SetVector.cpp">
-      <Filter>SetVector</Filter>
+      <Filter>Common\SetVector</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Texture.cpp">
-      <Filter>Resource\Texture</Filter>
+      <Filter>Layer\Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Camera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp">
+      <Filter>Layer\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Script.cpp">
+      <Filter>Component\Script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -102,19 +120,19 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h">
-      <Filter>Input</Filter>
+      <Filter>Common\Input</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Time.h">
-      <Filter>Time</Filter>
+      <Filter>Common\Time</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h">
       <Filter>Common\Entity</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManger.h">
-      <Filter>Scene</Filter>
+      <Filter>Layer\Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h">
-      <Filter>Scene</Filter>
+      <Filter>Layer\Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Component.h">
       <Filter>Component</Filter>
@@ -126,13 +144,13 @@
       <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Resources.h">
-      <Filter>Resource</Filter>
+      <Filter>Layer\Resource</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource.h">
-      <Filter>Resource</Filter>
+      <Filter>Layer\Resource</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SetVector.h">
-      <Filter>SetVector</Filter>
+      <Filter>Common\SetVector</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Enums.h">
       <Filter>Common</Filter>
@@ -144,7 +162,16 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Texture.h">
-      <Filter>Resource\Texture</Filter>
+      <Filter>Layer\Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Camera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h">
+      <Filter>Layer\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Script.h">
+      <Filter>Component\Script</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

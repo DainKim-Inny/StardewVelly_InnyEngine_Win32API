@@ -2,7 +2,9 @@
 
 namespace in
 {
-	Component::Component()
+	Component::Component(eComponentType type)
+		: mOwner(nullptr)
+		, mType(type)
 	{
 	}
 

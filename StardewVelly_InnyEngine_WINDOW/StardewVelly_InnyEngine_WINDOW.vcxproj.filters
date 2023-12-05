@@ -26,6 +26,15 @@
     <Filter Include="Scene\EndingScene">
       <UniqueIdentifier>{87990c5a-66be-47eb-9f2a-727fc200cb41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{8f7ab35f-8af1-4155-aad2-e37641d39ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\PlayerScript">
+      <UniqueIdentifier>{f6c7b71a-b361-41da-8962-73d3d10ba6c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\PlayScene\FarmScene">
+      <UniqueIdentifier>{141402de-7592-4ac7-95cc-c317020144bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScene.h">
@@ -39,6 +48,12 @@
     <ClInclude Include="IntroScene.h">
       <Filter>Scene\IntroScene</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerScript.h">
+      <Filter>Script\PlayerScript</Filter>
+    </ClInclude>
+    <ClInclude Include="FarmScene.h">
+      <Filter>Scene\PlayScene\FarmScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TitleScene.cpp">
@@ -49,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="IntroScene.cpp">
       <Filter>Scene\IntroScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerScript.cpp">
+      <Filter>Script\PlayerScript</Filter>
+    </ClCompile>
+    <ClCompile Include="FarmScene.cpp">
+      <Filter>Scene\PlayScene\FarmScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

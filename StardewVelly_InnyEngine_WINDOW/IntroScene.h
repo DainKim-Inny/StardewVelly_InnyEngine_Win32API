@@ -15,7 +15,7 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		class Player* Title_Charactor;
-		class Player* Title_Creator;
+		class Player* mTitle_Charactor;
+		class Player* mTitle_Creator;
 	};
 }

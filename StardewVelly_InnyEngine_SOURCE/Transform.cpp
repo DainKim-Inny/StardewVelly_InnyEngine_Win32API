@@ -3,7 +3,8 @@
 namespace in
 {
 	Transform::Transform()
-		: mPosition{}
+		: Component(eComponentType::Transform)
+		, mPosition{}
 	{
 	}
 
