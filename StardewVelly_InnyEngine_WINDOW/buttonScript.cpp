@@ -23,14 +23,14 @@ namespace in
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		SetVector pos = tr->GetPosition();
-		pos.y -= mSpeed * Time::DeltaTime();
+		pos.y -= mSpeed*Time::DeltaTime();
 
 		if (pos.y > 450.0f)
 			mSpeed = 100.0f;
 		else
 			mSpeed = 0.0f;
 
-		if (Input::GetKey(eKeyCode::SPACE))
+		if ((Input::GetKey(eKeyCode::SPACE)) || (Input::GetKey(eKeyCode::ENTER)))
 			pos.y = 450.0f;
 
 		tr->SetPos(pos);

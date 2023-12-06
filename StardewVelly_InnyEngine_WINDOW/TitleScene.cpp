@@ -37,7 +37,7 @@ namespace in
 			SpriteRenderer* sr1 = mbg->AddComponent<SpriteRenderer>();
 			Texture* bg = Resources::Find<Texture>(L"Intro_BG");
 			sr1->SetTexture(bg);
-			sr1->SetSize(SetVector(2.2f, 1.7f));
+			sr1->SetSize(SetVector(2.3f, 1.8f));
 		}
 
 		// StardewValley 로고 추가
@@ -59,7 +59,7 @@ namespace in
 			Texture* newButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* newButtom_animator = mNewButton->AddComponent<Animator>();
 			newButtom_animator->CreateAnimation(L"Intro_Newbutton", newButtomTexture
-				, SetVector(0.0f, 0.0f), SetVector(73.5f, 57.67f), SetVector::Zero, 2, 0.1f);
+				, SetVector(0.0f, 0.0f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
 
 			newButtom_animator->PlayeAnimation(L"Intro_Newbutton");
 
@@ -78,7 +78,7 @@ namespace in
 			Texture* loadButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* loadButtom_animator = mLoadButton->AddComponent<Animator>();
 			loadButtom_animator->CreateAnimation(L"Intro_Loadbutton", loadButtomTexture
-				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 2, 0.1f);
+				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
 
 			loadButtom_animator->PlayeAnimation(L"Intro_Loadbutton");
 		}
@@ -92,7 +92,7 @@ namespace in
 			Texture* exitButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* exitButtom_animator = mExitButton->AddComponent<Animator>();
 			exitButtom_animator->CreateAnimation(L"Intro_Exitbutton", exitButtomTexture
-				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 2, 0.1f);
+				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
 
 			exitButtom_animator->PlayeAnimation(L"Intro_Exitbutton");
 		}
@@ -106,7 +106,7 @@ namespace in
 			Texture* bird1Texture = Resources::Find<Texture>(L"Intro_Bird");
 			Animator* bird1_animator = mBird1->AddComponent<Animator>();
 			bird1_animator->CreateAnimation(L"Intro_Bird1", bird1Texture
-				, SetVector(0.0f, 0.0f), SetVector(26.0f, 18.0f), SetVector::Zero, 4, 0.1f);
+				, SetVector(0.0f, 0.0f), SetVector(26.0f, 18.0f), SetVector::Zero, 4, 0.2f);
 
 			bird1_animator->PlayeAnimation(L"Intro_Bird1", true);
 		}
@@ -120,7 +120,7 @@ namespace in
 			Texture* bird2Texture = Resources::Find<Texture>(L"Intro_Bird");
 			Animator* bird2_animator = mBird2->AddComponent<Animator>();
 			bird2_animator->CreateAnimation(L"Intro_Bird2", bird2Texture
-				, SetVector(26.0f, 0.0f), SetVector(26.0f,18.0f), SetVector::Zero, 3, 0.1f);
+				, SetVector(26.0f, 0.0f), SetVector(26.0f,18.0f), SetVector::Zero, 3, 0.2f);
 
 			bird2_animator->PlayeAnimation(L"Intro_Bird2", true);
 		}
@@ -156,7 +156,7 @@ namespace in
 			Texture* questionTexture = Resources::Find<Texture>(L"Intro_Question");
 			Animator* question_animator = mQuestion->AddComponent<Animator>();
 			question_animator->CreateAnimation(L"Intro_Question", questionTexture
-				, SetVector(0.0f, 0.0f), SetVector(22.5f, 25.0f), SetVector::Zero, 2, 0.1f);
+				, SetVector(0.0f, 0.0f), SetVector(22.5f, 25.0f), SetVector::Zero, 1, 0.1f);
 
 			question_animator->PlayeAnimation(L"Intro_Question");
 		}
