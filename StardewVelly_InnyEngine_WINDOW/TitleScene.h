@@ -20,5 +20,10 @@ namespace in
 		class GameObject* mNewButton;
 		class GameObject* mLoadButton;
 		class GameObject* mExitButton;
+		class GameObject* mBird1;
+		class GameObject* mBird2;
+		class GameObject* mTopLeaf;
+		class GameObject* mBottomLeaf;
+		class GameObject* mQuestion;
 	};
 }

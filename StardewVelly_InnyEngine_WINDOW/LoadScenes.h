@@ -12,6 +12,6 @@ namespace in
 		SceneManger::CreateScene<TitleScene>(L"TitleScene");
 		SceneManger::CreateScene<FarmScene>(L"FarmScene");
 
-		SceneManger::LoadScene(L"IntroScene");
+		SceneManger::LoadScene(L"TitleScene");
 	}
 }
