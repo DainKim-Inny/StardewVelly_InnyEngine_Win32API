@@ -53,29 +53,69 @@ namespace in
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform* tr = gameObj->GetComponent<Transform>();
 		SetVector pos = tr->GetPosition();
+		SetVector scale = tr->GetScale();
+		
+		// 회전 추가 시, 변수 추가
+		// float rot = tr->GetRotation();
 
 		if (renderer::mainCamera)
 			pos = renderer::mainCamera->CalculatePosition(pos);
 
-		BLENDFUNCTION func = {};
-		func.BlendOp = AC_SRC_OVER;
-		func.BlendFlags = 0;
-		func.AlphaFormat = AC_SRC_ALPHA;
-		func.SourceConstantAlpha = 255;
-
 		Sprite sprite = mAnimationSheet[mIndex];
-		HDC imgHdc = mTexture->GetHdc();
+		Texture::eTextureType type = mTexture->GetTextrueType();
 
-		AlphaBlend(hdc
-			, pos.x, pos.y
-			, sprite.size.x
-			, sprite.size.y
-			, imgHdc
-			, sprite.leftTop.x
-			, sprite.leftTop.y
-			, sprite.size.x
-			, sprite.size.y
-			, func);
+		if (type == Texture::eTextureType::Bmp)
+		{
+			BLENDFUNCTION func = {};
+			func.BlendOp = AC_SRC_OVER;
+			func.BlendFlags = 0;
+			func.AlphaFormat = AC_SRC_ALPHA;
+			func.SourceConstantAlpha = 255;
+
+			HDC imgHdc = mTexture->GetHdc();
+
+			AlphaBlend(hdc
+				, pos.x - (sprite.size.x / 2.0f)
+				, pos.y - (sprite.size.y / 2.0f)
+				, sprite.size.x * scale.x
+				, sprite.size.y * scale.y
+				, imgHdc
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, func);
+		}
+		else if (type == Texture::eTextureType::Png)
+		{
+			// 투명화 시킬 픽셀의 색 범위
+			Gdiplus::ImageAttributes imgAtt = {};
+
+			// 투명화 시킬 픽셀 색의 범위 지정
+			imgAtt.SetColorKey(Gdiplus::Color(255, 255, 255), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphics(hdc);
+
+			// 회전 시 추가, 함수
+			//graphics.TranslateTransform(pos.x, pos.y);
+			//graphics.RotateTransform(rot);
+			//graphics.TranslateTransform(-pos.x, -pos.y);
+
+			graphics.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect
+				(
+					pos.x - (sprite.size.x / 2.0f)
+					, pos.y - (sprite.size.y / 2.0f)
+					, sprite.size.x * scale.x
+					, sprite.size.y * scale.y
+				)
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, Gdiplus::UnitPixel
+				, nullptr);
+		}
 	}
 	
 	void Animation::CreateAnimation(const wstring& name, Texture* spriteSheet

@@ -42,17 +42,17 @@ namespace in
 
 		// StardewValley 로고 추가
 		{
-			mlogo = Object::Instantiate<GameObject>(eLayerType::Logo_Bottom, SetVector(370.0f, 80.0f));
+			mlogo = Object::Instantiate<GameObject>(eLayerType::Logo_Bottom, SetVector(370.0f, 60.0f));
 
 			SpriteRenderer* sr2 = mlogo->AddComponent<SpriteRenderer>();
 			Texture* logo = Resources::Find<Texture>(L"Intro_Logo");
 			sr2->SetTexture(logo);
-			sr2->SetSize(SetVector(1.7f, 1.7f));
+			sr2->SetSize(SetVector(1.8f, 1.8f));
 		}
 
 		// NewButton 추가
 		{
-			mNewButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(370.0f, 900.0f));
+			mNewButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(420.0f, 900.0f));
 
 			mNewButton->AddComponent<buttonScript>();
 
@@ -63,6 +63,8 @@ namespace in
 
 			newButtom_animator->PlayeAnimation(L"Intro_Newbutton");
 
+			mNewButton->GetComponent<Transform>()->SetScale(SetVector(2.2f, 2.2f));
+
 			//SpriteRenderer* sr3 = mNewButton->AddComponent<SpriteRenderer>();
 			//Texture* NewButton = Resources::Find<Texture>(L"Intro_NewButton");
 			//sr3->SetTexture(NewButton);
@@ -71,7 +73,7 @@ namespace in
 
 		// LoadButton 추가
 		{
-			mLoadButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(620.0f, 900.0f));
+			mLoadButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(690.0f, 900.0f));
 
 			mLoadButton->AddComponent<buttonScript>();
 
@@ -81,11 +83,13 @@ namespace in
 				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
 
 			loadButtom_animator->PlayeAnimation(L"Intro_Loadbutton");
+
+			mLoadButton->GetComponent<Transform>()->SetScale(SetVector(2.2f, 2.2f));
 		}
 
 		// ExitButton 추가
 		{
-			mExitButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(860.0f, 900.0f));
+			mExitButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(950.0f, 900.0f));
 
 			mExitButton->AddComponent<buttonScript>();
 
@@ -95,6 +99,8 @@ namespace in
 				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
 
 			exitButtom_animator->PlayeAnimation(L"Intro_Exitbutton");
+
+			mExitButton->GetComponent<Transform>()->SetScale(SetVector(2.2f, 2.2f));
 		}
 
 		// Bird1 추가
@@ -109,6 +115,8 @@ namespace in
 				, SetVector(0.0f, 0.0f), SetVector(26.0f, 18.0f), SetVector::Zero, 4, 0.2f);
 
 			bird1_animator->PlayeAnimation(L"Intro_Bird1", true);
+
+			mBird1->GetComponent<Transform>()->SetScale(SetVector(2.0f, 2.0f));
 		}
 
 		// Bird2 추가
@@ -123,11 +131,13 @@ namespace in
 				, SetVector(26.0f, 0.0f), SetVector(26.0f,18.0f), SetVector::Zero, 3, 0.2f);
 
 			bird2_animator->PlayeAnimation(L"Intro_Bird2", true);
+
+			mBird2->GetComponent<Transform>()->SetScale(SetVector(2.0f, 2.0f));
 		}
 
 		// TopLeaf 추가
 		{
-			mTopLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(410.0f, 115.0f));
+			mTopLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(411.0f, 94.0f));
 
 			Texture* topleafTexture = Resources::Find<Texture>(L"Intro_TopLeaf");
 			Animator* topleaf_animator = mTopLeaf->AddComponent<Animator>();
@@ -135,11 +145,13 @@ namespace in
 				, SetVector(0.0f, 0.0f), SetVector(22.0f, 18.0f), SetVector::Zero, 3, 0.3f);
 
 			topleaf_animator->PlayeAnimation(L"Intro_TopLeaf", true);
+
+			mTopLeaf->GetComponent<Transform>()->SetScale(SetVector(1.6f, 1.6f));
 		}
 
 		// BottomLeaf 추가
 		{
-			mBottomLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(940.0f, 300.0f));
+			mBottomLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(971.0f, 260.0f));
 
 			Texture* bottomleafTexture = Resources::Find<Texture>(L"Intro_ButtomLeaf");
 			Animator* bottomleaf_animator = mBottomLeaf->AddComponent<Animator>();
@@ -147,11 +159,13 @@ namespace in
 				, SetVector(0.0f, 0.0f), SetVector(27.0f, 21.0f), SetVector::Zero, 3, 0.3f);
 
 			bottomleaf_animator->PlayeAnimation(L"Intro_ButtomLeaf", true);
+
+			mBottomLeaf->GetComponent<Transform>()->SetScale(SetVector(2.0f, 2.0f));
 		}
 
 		// Question Logo 추가
 		{
-			mQuestion = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(1000.0f, 600.0f));
+			mQuestion = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(1300.0f, 600.0f));
 
 			Texture* questionTexture = Resources::Find<Texture>(L"Intro_Question");
 			Animator* question_animator = mQuestion->AddComponent<Animator>();
@@ -159,6 +173,8 @@ namespace in
 				, SetVector(0.0f, 0.0f), SetVector(22.5f, 25.0f), SetVector::Zero, 1, 0.1f);
 
 			question_animator->PlayeAnimation(L"Intro_Question");
+
+			mQuestion->GetComponent<Transform>()->SetScale(SetVector(2.0f, 2.0f));
 		}
 
 

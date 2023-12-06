@@ -5,6 +5,7 @@ namespace in
 	Transform::Transform()
 		: Component(eComponentType::Transform)
 		, mPosition{}
+		, mScale(SetVector::One)
 	{
 	}
 

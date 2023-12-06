@@ -28,7 +28,7 @@ namespace in
 
 		// Logo 추가
 		{
-			mTitle_Charactor = Object::Instantiate<GameObject>(eLayerType::BackGround, SetVector(500.0f, 250.0f));
+			mTitle_Charactor = Object::Instantiate<GameObject>(eLayerType::BackGround, SetVector(530.0f, 250.0f));
 
 			Texture* charactorTexture = Resources::Find<Texture>(L"Intro_Charactor");
 			Animator* charactor_animator = mTitle_Charactor->AddComponent<Animator>();
@@ -36,6 +36,8 @@ namespace in
 				, SetVector(0.0f, 0.0f), SetVector(85.5f, 65.0f), SetVector::Zero, 2, 0.15f);
 
 			charactor_animator->PlayeAnimation(L"mTitle_Charactor", true);
+
+			mTitle_Charactor->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
 
 			//SpriteRenderer* sr1 = mTitle_Charactor->AddComponent<SpriteRenderer>();
 			//Texture* Title_Charactor = Resources::Find<Texture>(L"Intro_Charactor");
@@ -45,7 +47,7 @@ namespace in
 
 		// Creator 추가
 		{
-			mTitle_Creator = Object::Instantiate<GameObject>(eLayerType::BackGround, SetVector(680.0f, 260.0f));
+			mTitle_Creator = Object::Instantiate<GameObject>(eLayerType::BackGround, SetVector(780.0f, 260.0f));
 
 			Texture* creatorTexture = Resources::Find<Texture>(L"Intro_Creator");
 			Animator* creator_animator = mTitle_Creator->AddComponent<Animator>();
@@ -53,6 +55,8 @@ namespace in
 				, SetVector(0.0f, 0.0f), SetVector(108.0f, 57.0f), SetVector::Zero, 2, 0.15f);
 
 			creator_animator->PlayeAnimation(L"Intro_Creator", true);
+
+			mTitle_Creator->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
 
 			//SpriteRenderer* sr2 = mTitle_Creator->AddComponent<SpriteRenderer>();
 			//Texture* Title_Creator = Resources::Find<Texture>(L"Intro_Creator");
