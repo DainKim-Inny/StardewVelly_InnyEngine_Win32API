@@ -9,6 +9,8 @@
 #include "Resources.h"
 #include "IntroScene.h"
 #include "Animator.h"
+#include "buttonScript.h"
+#include "BirdScript.h"
 
 namespace in
 {
@@ -40,7 +42,7 @@ namespace in
 
 		// StardewValley 로고 추가
 		{
-			mlogo = Object::Instantiate<GameObject>(eLayerType::Logo_Bottom, SetVector(370.0f, 90.0f));
+			mlogo = Object::Instantiate<GameObject>(eLayerType::Logo_Bottom, SetVector(370.0f, 80.0f));
 
 			SpriteRenderer* sr2 = mlogo->AddComponent<SpriteRenderer>();
 			Texture* logo = Resources::Find<Texture>(L"Intro_Logo");
@@ -50,7 +52,9 @@ namespace in
 
 		// NewButton 추가
 		{
-			mNewButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(370.0f, 450.0f));
+			mNewButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(370.0f, 900.0f));
+
+			mNewButton->AddComponent<buttonScript>();
 
 			Texture* newButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* newButtom_animator = mNewButton->AddComponent<Animator>();
@@ -67,7 +71,9 @@ namespace in
 
 		// LoadButton 추가
 		{
-			mLoadButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(620.0f, 450.0f));
+			mLoadButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(620.0f, 900.0f));
+
+			mLoadButton->AddComponent<buttonScript>();
 
 			Texture* loadButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* loadButtom_animator = mLoadButton->AddComponent<Animator>();
@@ -79,7 +85,9 @@ namespace in
 
 		// ExitButton 추가
 		{
-			mExitButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(860.0f, 450.0f));
+			mExitButton = Object::Instantiate<GameObject>(eLayerType::Button, SetVector(860.0f, 900.0f));
+
+			mExitButton->AddComponent<buttonScript>();
 
 			Texture* exitButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* exitButtom_animator = mExitButton->AddComponent<Animator>();
@@ -93,6 +101,8 @@ namespace in
 		{
 			mBird1 = Object::Instantiate<GameObject>(eLayerType::BackGroundObject_Middle, SetVector(1150.0f, 350.0f));
 
+			mBird1->AddComponent<BirdScript>();
+
 			Texture* bird1Texture = Resources::Find<Texture>(L"Intro_Bird");
 			Animator* bird1_animator = mBird1->AddComponent<Animator>();
 			bird1_animator->CreateAnimation(L"Intro_Bird1", bird1Texture
@@ -104,6 +114,8 @@ namespace in
 		// Bird2 추가
 		{
 			mBird2 = Object::Instantiate<GameObject>(eLayerType::BackGroundObject_Middle, SetVector(1250.0f, 450.0f));
+
+			mBird2->AddComponent<BirdScript>();
 
 			Texture* bird2Texture = Resources::Find<Texture>(L"Intro_Bird");
 			Animator* bird2_animator = mBird2->AddComponent<Animator>();
