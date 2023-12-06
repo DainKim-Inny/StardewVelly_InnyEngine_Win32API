@@ -8,10 +8,10 @@ namespace in
 {
 	void LoadScenes()
 	{
-		SceneManger::CreateScene<TitleScene>(L"TitleScene");
 		SceneManger::CreateScene<IntroScene>(L"IntroScene");
+		SceneManger::CreateScene<TitleScene>(L"TitleScene");
 		SceneManger::CreateScene<FarmScene>(L"FarmScene");
 
-		SceneManger::LoadScene(L"FarmScene");
+		SceneManger::LoadScene(L"IntroScene");
 	}
 }

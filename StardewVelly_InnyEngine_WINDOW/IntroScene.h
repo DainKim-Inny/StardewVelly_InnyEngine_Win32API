@@ -15,7 +15,8 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		class Player* mTitle_Charactor;
-		class Player* mTitle_Creator;
+		class GameObject* mTitle_Charactor;
+		class GameObject* mTitle_Creator;
+		float mTime;
 	};
 }

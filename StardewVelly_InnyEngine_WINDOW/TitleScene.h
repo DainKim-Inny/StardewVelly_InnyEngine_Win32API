@@ -15,10 +15,10 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		class Player* mbg;
-		class Player* mlogo;
-		class Player* mNewButton;
-		class Player* mLoadButton;
-		class Player* mExitButton;
+		class GameObject* mbg;
+		class GameObject* mlogo;
+		class GameObject* mNewButton;
+		class GameObject* mLoadButton;
+		class GameObject* mExitButton;
 	};
 }

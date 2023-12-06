@@ -52,6 +52,12 @@
     <Filter Include="Common\SetVector">
       <UniqueIdentifier>{66e726b2-aec1-4776-aaf6-e06b4f2d5d19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Layer\Resource\Animation">
+      <UniqueIdentifier>{bbdcb4f4-33a0-411a-9abe-58ea760f38c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{94971847-0152-47c9-98c1-3bd630e15fdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp">
@@ -107,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Script.cpp">
       <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation.cpp">
+      <Filter>Layer\Resource\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animator.cpp">
+      <Filter>Component\Animator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Script.h">
       <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation.h">
+      <Filter>Layer\Resource\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animator.h">
+      <Filter>Component\Animator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
