@@ -2,6 +2,7 @@
 #include "Time.h"
 #include "GameObject.h"
 #include "Transform.h"
+#include "Input.h"
 
 namespace in
 {
@@ -28,6 +29,9 @@ namespace in
 			mSpeed = 100.0f;
 		else
 			mSpeed = 0.0f;
+
+		if (Input::GetKey(eKeyCode::SPACE))
+			pos.y = 450.0f;
 
 		tr->SetPos(pos);
 	}
