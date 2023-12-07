@@ -114,7 +114,7 @@ namespace in
 				, sprite.size.x
 				, sprite.size.y
 				, Gdiplus::UnitPixel
-				, nullptr);
+				, nullptr);	
 		}
 	}
 	

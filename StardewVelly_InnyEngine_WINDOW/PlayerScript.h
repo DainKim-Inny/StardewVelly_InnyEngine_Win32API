@@ -15,8 +15,11 @@ namespace in
 			UsingHoes,  // 호미질
 			UsingScythe,  // 낫질
 			UsingPickaxes,  // 곡괭이질
-			PickUp,  // 채집
-			Eatting  // 아이템 먹기
+			PickUpWalk,  // 채집
+			Eatting_Ready,  // 아이템 먹기 준비
+			Eatting_Go,  // 아이템 먹기
+			Fishing,  // 낚시
+			Hunting  // 사냥
 		};
 
 		PlayerScript();
@@ -35,8 +38,11 @@ namespace in
 		void usingHose();
 		void usingScythe();
 		void usingPickaxes();
-		void pickUp();
-		void eatting();
+		void pickUpWalk();
+		void eattingReady();
+		void eattingGo();
+		void fishing();
+		void hunting();
 
 	private:
 		eState mState;

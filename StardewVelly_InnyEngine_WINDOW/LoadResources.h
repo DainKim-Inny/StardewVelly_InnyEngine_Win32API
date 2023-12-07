@@ -25,8 +25,9 @@ namespace in
 
 		// FarmScene Load
 		{
-			Resources::Load<Texture>(L"Farm_BG", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Map.png");
+			Resources::Load<Texture>(L"Farm_BG", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Map.bmp");
 			Resources::Load<Texture>(L"Farm_Player", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Player.bmp");
+			Resources::Load<Texture>(L"Farm_PlayerFront", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_PlayerFront.bmp");
 		}
 	}
 }

@@ -49,11 +49,14 @@ namespace in
 		case in::PlayerScript::eState::GiveWater:
 			giveWater();
 			break;
-		case in::PlayerScript::eState::PickUp:
-			pickUp();
+		case in::PlayerScript::eState::PickUpWalk:
+			pickUpWalk();
 			break;
-		case in::PlayerScript::eState::Eatting:
-			eatting();
+		case in::PlayerScript::eState::Eatting_Ready:
+			eattingReady();
+			break;
+		case in::PlayerScript::eState::Eatting_Go:
+			eattingGo();
 			break;
 		default:
 			break;
@@ -112,14 +115,14 @@ namespace in
 		if (Input::GetKey(eKeyCode::S))
 			pos.y += 100.0f * Time::DeltaTime();
 
-		tr->SetPos(pos);
-
 		if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A) ||
 			Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
 		{
 			mState = PlayerScript::eState::Idle;
-			mAnimator->PlayeAnimation(L"Idle", false);
+			mAnimator->PlayeAnimation(L"Idle", true);
 		}
+
+		tr->SetPos(pos);
 	}
 	
 	void PlayerScript::giveWater()
@@ -142,11 +145,23 @@ namespace in
 	{
 	}
 	
-	void PlayerScript::pickUp()
+	void PlayerScript::pickUpWalk()
 	{
 	}
 	
-	void PlayerScript::eatting()
+	void PlayerScript::eattingReady()
+	{
+	}
+
+	void PlayerScript::eattingGo()
+	{
+	}
+
+	void PlayerScript::fishing()
+	{
+	}
+
+	void PlayerScript::hunting()
 	{
 	}
 }
