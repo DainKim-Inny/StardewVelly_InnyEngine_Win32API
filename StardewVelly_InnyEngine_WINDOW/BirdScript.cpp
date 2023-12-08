@@ -21,7 +21,7 @@ namespace in
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		SetVector pos = tr->GetPosition();
-		pos.x -= 0.3f;
+		pos.x -= 0.2f;
 
 		if (pos.x < -10.0f)
 			pos.x = 1420.0;

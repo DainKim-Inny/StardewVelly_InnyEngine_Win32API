@@ -6,13 +6,13 @@ namespace in
 {
 	void LoadResources()
 	{
-		// IntroScene Load
+		// IntroScene Resources Load
 		{
 			Resources::Load<Texture>(L"Intro_Charactor", L"..\\Resource\\1.IntroScene\\1.Texture\\Intro_Charactor.bmp");
 			Resources::Load<Texture>(L"Intro_Creator", L"..\\Resource\\1.IntroScene\\1.Texture\\Intro_Creator.bmp");
 		}
 
-		// TitleScene Load
+		// TitleScene Resources Load
 		{
 			Resources::Load<Texture>(L"Intro_BG", L"..\\Resource\\2.TitleScene\\1.Texture\\stardewPanorama.bmp");
 			Resources::Load<Texture>(L"Intro_Logo", L"..\\Resource\\2.TitleScene\\1.Texture\\Title_LogoButton.bmp");
@@ -23,11 +23,20 @@ namespace in
 			Resources::Load<Texture>(L"Intro_Question", L"..\\Resource\\2.TitleScene\\1.Texture\\Title_Question.bmp");
 		}
 
-		// FarmScene Load
+		// FarmScene Resources Load
 		{
 			Resources::Load<Texture>(L"Farm_BG", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Map.bmp");
 			Resources::Load<Texture>(L"Farm_Player", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Player.bmp");
 			Resources::Load<Texture>(L"Farm_PlayerFront", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_PlayerFront.bmp");
+			Resources::Load<Texture>(L"Farm_Clock", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Clock.bmp");
+			Resources::Load<Texture>(L"Farm_QuickSlot", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_QuickSlot.bmp");
+			Resources::Load<Texture>(L"Farm_EnergyBar", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_EnergyBar.bmp");
+		}
+
+		// MineScene Resources Load
+		{
+			Resources::Load<Texture>(L"Mine_BG", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_BG.bmp");
+			Resources::Load<Texture>(L"Mine_Slime", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_Slime.bmp");
 		}
 	}
 }

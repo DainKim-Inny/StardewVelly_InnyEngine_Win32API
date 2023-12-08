@@ -3,11 +3,11 @@
 
 namespace in
 {
-	class FarmScene : public Scene
+	class MineScene : public Scene
 	{
 	public:
-		FarmScene();
-		~FarmScene();
+		MineScene();
+		~MineScene();
 
 		void Initialize() override;
 		void Update() override;
@@ -15,10 +15,8 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		class GameObject* mFarm_Bg;
-		class GameObject* mFarm_Clock;
-		class GameObject* mFarm_QuickSlot;
-		class GameObject* mFarm_EnergyBar;
-		class Player* mFarm_Player;
+		class GameObject* mMine_Bg;
+		class Monster* mMine_Slime;
+
 	};
 }

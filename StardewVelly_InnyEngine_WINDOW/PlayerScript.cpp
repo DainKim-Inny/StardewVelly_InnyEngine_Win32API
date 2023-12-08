@@ -115,11 +115,28 @@ namespace in
 		if (Input::GetKey(eKeyCode::S))
 			pos.y += 100.0f * Time::DeltaTime();
 
-		if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A) ||
-			Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
+		if (Input::GetKeyUp(eKeyCode::D))
 		{
 			mState = PlayerScript::eState::Idle;
-			mAnimator->PlayeAnimation(L"Idle", true);
+			mAnimator->PlayeAnimation(L"RightWalkStop", true);
+		}
+
+		if (Input::GetKeyUp(eKeyCode::A))
+		{
+			mState = PlayerScript::eState::Idle;
+			mAnimator->PlayeAnimation(L"LeftWalkStop", true);
+		}
+
+		if (Input::GetKeyUp(eKeyCode::W))
+		{
+			mState = PlayerScript::eState::Idle;
+			mAnimator->PlayeAnimation(L"UpWalkStop", true);
+		}
+
+		if (Input::GetKeyUp(eKeyCode::S))
+		{
+			mState = PlayerScript::eState::Idle;
+			mAnimator->PlayeAnimation(L"DownWalkStop", true);
 		}
 
 		tr->SetPos(pos);
@@ -127,41 +144,51 @@ namespace in
 	
 	void PlayerScript::giveWater()
 	{
+		mState = PlayerScript::eState::GiveWater;
 	}
 	
 	void PlayerScript::usingAxes()
 	{
+		mState = PlayerScript::eState::UsingAxes;
 	}
 
 	void PlayerScript::usingHose()
 	{
+		mState = PlayerScript::eState::UsingHoes;
 	}
 	
 	void PlayerScript::usingScythe()
 	{
+		mState = PlayerScript::eState::UsingScythe;
 	}
 	
 	void PlayerScript::usingPickaxes()
 	{
+		mState = PlayerScript::eState::UsingPickaxes;
 	}
 	
 	void PlayerScript::pickUpWalk()
 	{
+		mState = PlayerScript::eState::PickUpWalk;
 	}
 	
 	void PlayerScript::eattingReady()
 	{
+		mState = PlayerScript::eState::Eatting_Ready;
 	}
 
 	void PlayerScript::eattingGo()
 	{
+		mState = PlayerScript::eState::Eatting_Go;
 	}
 
 	void PlayerScript::fishing()
 	{
+		mState = PlayerScript::eState::Fishing;
 	}
 
 	void PlayerScript::hunting()
 	{
+		mState = PlayerScript::eState::Hunting;
 	}
 }

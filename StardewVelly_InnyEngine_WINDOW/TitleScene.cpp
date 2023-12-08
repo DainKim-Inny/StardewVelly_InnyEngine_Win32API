@@ -37,12 +37,12 @@ namespace in
 			SpriteRenderer* sr1 = mbg->AddComponent<SpriteRenderer>();
 			Texture* bg = Resources::Find<Texture>(L"Intro_BG");
 			sr1->SetTexture(bg);
-			sr1->SetSize(SetVector(2.3f, 1.8f));
+			sr1->SetSize(SetVector(2.3f, 2.0f));
 		}
 
 		// StardewValley 로고 추가
 		{
-			mlogo = Object::Instantiate<GameObject>(eLayerType::Logo_Bottom, SetVector(370.0f, 60.0f));
+			mlogo = Object::Instantiate<GameObject>(eLayerType::Logo_Bottom, SetVector(370.0f, 100.0f));
 
 			SpriteRenderer* sr2 = mlogo->AddComponent<SpriteRenderer>();
 			Texture* logo = Resources::Find<Texture>(L"Intro_Logo");
@@ -137,7 +137,7 @@ namespace in
 
 		// TopLeaf 추가
 		{
-			mTopLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(411.0f, 94.0f));
+			mTopLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(411.0f, 134.0f));
 
 			Texture* topleafTexture = Resources::Find<Texture>(L"Intro_TopLeaf");
 			Animator* topleaf_animator = mTopLeaf->AddComponent<Animator>();
@@ -151,7 +151,7 @@ namespace in
 
 		// BottomLeaf 추가
 		{
-			mBottomLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(971.0f, 260.0f));
+			mBottomLeaf = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(971.0f, 296.0f));
 
 			Texture* bottomleafTexture = Resources::Find<Texture>(L"Intro_ButtomLeaf");
 			Animator* bottomleaf_animator = mBottomLeaf->AddComponent<Animator>();
@@ -165,7 +165,7 @@ namespace in
 
 		// Question Logo 추가
 		{
-			mQuestion = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(1300.0f, 600.0f));
+			mQuestion = Object::Instantiate<GameObject>(eLayerType::Logo_Top, SetVector(1300.0f, 650.0f));
 
 			Texture* questionTexture = Resources::Find<Texture>(L"Intro_Question");
 			Animator* question_animator = mQuestion->AddComponent<Animator>();

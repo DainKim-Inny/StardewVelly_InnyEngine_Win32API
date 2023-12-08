@@ -25,13 +25,13 @@ namespace in
 		SetVector pos = tr->GetPosition();
 		pos.y -= mSpeed*Time::DeltaTime();
 
-		if (pos.y > 480.0f)
+		if (pos.y > 520.0f)
 			mSpeed = 100.0f;
 		else
 			mSpeed = 0.0f;
 
 		if ((Input::GetKey(eKeyCode::SPACE)) || (Input::GetKey(eKeyCode::ENTER)))
-			pos.y = 480.0f;
+			pos.y = 520.0f;
 
 		tr->SetPos(pos);
 	}

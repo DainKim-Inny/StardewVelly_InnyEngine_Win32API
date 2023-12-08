@@ -17,6 +17,9 @@ namespace in
 	FarmScene::FarmScene()
 		: mFarm_Bg(nullptr)
 		, mFarm_Player(nullptr)
+		, mFarm_Clock(nullptr)
+		, mFarm_QuickSlot(nullptr)
+		, mFarm_EnergyBar(nullptr)
 	{
 	}
 
@@ -36,11 +39,39 @@ namespace in
 		// BackGround 추가
 		{
 			mFarm_Bg = Object::Instantiate<GameObject>(eLayerType::BackGround);
-			SpriteRenderer* sr = mFarm_Bg->AddComponent<SpriteRenderer>();
+			SpriteRenderer* bgSr = mFarm_Bg->AddComponent<SpriteRenderer>();
 
 			Texture* bgTexture = Resources::Find<Texture>(L"Farm_BG");
-			sr->SetTexture(bgTexture);
-			sr->SetSize(SetVector(2.7f, 2.7f));
+			bgSr->SetTexture(bgTexture);
+			bgSr->SetSize(SetVector(2.7f, 2.7f));
+		}
+
+		// Clock 추가
+		{
+			mFarm_Clock = Object::Instantiate<GameObject>(eLayerType::UI, SetVector(1170.0f, 80.0f));
+			SpriteRenderer* clockSr = mFarm_Clock->AddComponent<SpriteRenderer>();
+
+			Texture* clockTexture = Resources::Find<Texture>(L"Farm_Clock");
+			clockSr->SetTexture(clockTexture);
+		}
+
+		// QuickSlot 추가
+		{
+			mFarm_QuickSlot = Object::Instantiate<GameObject>(eLayerType::UI, SetVector(415.0f, 680.0f));
+			SpriteRenderer* slotSr = mFarm_QuickSlot->AddComponent<SpriteRenderer>();
+
+			Texture* slotTexture = Resources::Find<Texture>(L"Farm_QuickSlot");
+			slotSr->SetTexture(slotTexture);
+		}
+
+		// EnergyBar 추가
+		{
+			mFarm_EnergyBar = Object::Instantiate<GameObject>(eLayerType::UI, SetVector(1330.0f, 579.0f));
+			SpriteRenderer* energybarSr = mFarm_EnergyBar->AddComponent<SpriteRenderer>();
+
+			Texture* energybarTexture = Resources::Find<Texture>(L"Farm_EnergyBar");
+			energybarSr->SetTexture(energybarTexture);
+			energybarSr->SetSize(SetVector(0.9f, 0.9f));
 		}
 
 		// Player 추가
@@ -63,15 +94,23 @@ namespace in
 			{
 				player_animator->CreateAnimation(L"RightWalk", playerTexture
 					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
+				player_animator->CreateAnimation(L"RightWalkStop", playerTexture
+					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.1f);
 
 				player_animator->CreateAnimation(L"LeftWalk", playerTexture
 					, SetVector(1500.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
+				player_animator->CreateAnimation(L"LeftWalkStop", playerTexture
+					, SetVector(1500.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.1f);
 
 				player_animator->CreateAnimation(L"UpWalk", playerTexture
 					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 8, 0.1f);
+				player_animator->CreateAnimation(L"UpWalkStop", playerTexture
+					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.1f);
 
 				player_animator->CreateAnimation(L"DownWalk", playerTexture_Front
 					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 6, 0.1f);
+				player_animator->CreateAnimation(L"DownWalkStop", playerTexture_Front
+					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 1, 0.1f);
 			}
 
 			// UsingAxes
@@ -174,7 +213,7 @@ namespace in
 					, SetVector(500.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 8, 0.1f);
 			}
 
-			// Fishing
+			// Fishing -> 이미지 편집 필요
 			{
 				player_animator->CreateAnimation(L"LeftFishing", playerTexture
 					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
@@ -204,7 +243,7 @@ namespace in
 					, SetVector(0.0f, 3000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
 			}
 
-			player_animator->PlayeAnimation(L"DownHunting", true);
+			player_animator->PlayeAnimation(L"DownWalkStop", true);
 
 			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.7f, 0.7f));
 		}

@@ -8,9 +8,6 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{0cdbb2e9-45b5-4bae-bfea-16e0996b09f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player">
-      <UniqueIdentifier>{14c9ffa1-8dde-45d3-b4ab-86d0284acc51}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Script">
       <UniqueIdentifier>{8f7ab35f-8af1-4155-aad2-e37641d39ed2}</UniqueIdentifier>
     </Filter>
@@ -35,11 +32,32 @@
     <Filter Include="Script\2. TitleSceneScript">
       <UniqueIdentifier>{534ce74d-877e-4db8-8a92-26f04cb53625}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Script\1. CommonScript\PlayerScript">
-      <UniqueIdentifier>{f6c7b71a-b361-41da-8962-73d3d10ba6c3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scene\3. PlayScene\1. FarmScene">
       <UniqueIdentifier>{141402de-7592-4ac7-95cc-c317020144bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{14c9ffa1-8dde-45d3-b4ab-86d0284acc51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Player">
+      <UniqueIdentifier>{39a3a030-86a5-4217-9927-ae4c1d55bc5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Monster">
+      <UniqueIdentifier>{47da3dcf-7942-4d1e-b7b3-2155be3b796a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\2. MineScene">
+      <UniqueIdentifier>{7070d48c-cb92-4fbb-9ffb-244b75c90691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\1. CommonScript\1. PlayerScript">
+      <UniqueIdentifier>{f6c7b71a-b361-41da-8962-73d3d10ba6c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\2. TitleSceneScript\1. BirdScript">
+      <UniqueIdentifier>{51de49e5-6ca5-41af-ba2a-6e26dd24c720}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\2. TitleSceneScript\2. ButtonScript">
+      <UniqueIdentifier>{8966b90c-37da-4ec1-9378-206039d00909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\1. CommonScript\2. MonsterScript">
+      <UniqueIdentifier>{a569a449-5725-4675-a465-151b0c82b83a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,47 +65,65 @@
       <Filter>Scene\2. TitleScene</Filter>
     </ClInclude>
     <ClInclude Include="LoadScenes.h" />
-    <ClInclude Include="Player.h">
-      <Filter>Player</Filter>
-    </ClInclude>
     <ClInclude Include="LoadResources.h" />
     <ClInclude Include="IntroScene.h">
       <Filter>Scene\1. IntroScene</Filter>
     </ClInclude>
     <ClInclude Include="PlayerScript.h">
-      <Filter>Script\1. CommonScript\PlayerScript</Filter>
+      <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClInclude>
     <ClInclude Include="FarmScene.h">
       <Filter>Scene\3. PlayScene\1. FarmScene</Filter>
     </ClInclude>
-    <ClInclude Include="buttonScript.h">
-      <Filter>Script\2. TitleSceneScript</Filter>
+    <ClInclude Include="Player.h">
+      <Filter>GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>GameObject\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MineScene.h">
+      <Filter>Scene\3. PlayScene\2. MineScene</Filter>
     </ClInclude>
     <ClInclude Include="BirdScript.h">
-      <Filter>Script\2. TitleSceneScript</Filter>
+      <Filter>Script\2. TitleSceneScript\1. BirdScript</Filter>
+    </ClInclude>
+    <ClInclude Include="buttonScript.h">
+      <Filter>Script\2. TitleSceneScript\2. ButtonScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterScript.h">
+      <Filter>Script\1. CommonScript\2. MonsterScript</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene\2. TitleScene</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
     <ClCompile Include="IntroScene.cpp">
       <Filter>Scene\1. IntroScene</Filter>
     </ClCompile>
     <ClCompile Include="PlayerScript.cpp">
-      <Filter>Script\1. CommonScript\PlayerScript</Filter>
+      <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClCompile>
     <ClCompile Include="FarmScene.cpp">
       <Filter>Scene\3. PlayScene\1. FarmScene</Filter>
     </ClCompile>
-    <ClCompile Include="buttonScript.cpp">
-      <Filter>Script\2. TitleSceneScript</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>GameObject\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MineScene.cpp">
+      <Filter>Scene\3. PlayScene\2. MineScene</Filter>
     </ClCompile>
     <ClCompile Include="BirdScript.cpp">
-      <Filter>Script\2. TitleSceneScript</Filter>
+      <Filter>Script\2. TitleSceneScript\1. BirdScript</Filter>
+    </ClCompile>
+    <ClCompile Include="buttonScript.cpp">
+      <Filter>Script\2. TitleSceneScript\2. ButtonScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterScript.cpp">
+      <Filter>Script\1. CommonScript\2. MonsterScript</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

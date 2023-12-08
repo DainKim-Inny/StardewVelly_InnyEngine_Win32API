@@ -23,6 +23,7 @@ namespace in
 		Logo_Top,
 		Button,
 		Player,
+		UI,
 		Max = 16
 	};
 

@@ -3,6 +3,7 @@
 #include "TitleScene.h"
 #include "IntroScene.h"
 #include "FarmScene.h"
+#include "MineScene.h"
 
 namespace in
 {
@@ -11,6 +12,7 @@ namespace in
 		SceneManger::CreateScene<IntroScene>(L"IntroScene");
 		SceneManger::CreateScene<TitleScene>(L"TitleScene");
 		SceneManger::CreateScene<FarmScene>(L"FarmScene");
+		SceneManger::CreateScene<MineScene>(L"MineScene");
 
 		SceneManger::LoadScene(L"FarmScene");
 	}
