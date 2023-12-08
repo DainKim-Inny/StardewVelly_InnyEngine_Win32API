@@ -27,7 +27,7 @@ namespace in
 		if (mAnimator == nullptr)
 			mAnimator = GetOwner()->GetComponent<Animator>();
 
-		relex();
+		move();
 	}
 	
 	void MonsterScript::LateUpdate()
@@ -37,53 +37,36 @@ namespace in
 	void MonsterScript::Render(HDC hdc)
 	{
 	}
-
-	void MonsterScript::relex()
-	{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
-		SetVector pos = tr->GetPosition();
-
-		mTime += Time::DeltaTime();
-
-		if (mTime > 3.0f)
-		{
-			int direction = (rand() % 4);
-			mDirection = (eDirection)direction;
-			PlayMoveAnimationByDirection(mDirection);
-
-			mTime = 0.0f;
-		}
-	}
 	
 	void MonsterScript::move()
 	{
-	}
-	
-	void MonsterScript::PlayMoveAnimationByDirection(eDirection dir)
-	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		SetVector pos = tr->GetPosition();
+		
+		mTime += Time::DeltaTime();
 
-		if (mTime < 10.0f)
+		if (mTime > 1.0f)
 		{
+			int direction = (rand() % 4);
+			mDirection = (eDirection)direction;
+			
 			switch (mDirection)
 			{
-			case in::MonsterScript::eDirection::Left:
-				pos.x -= 1000.0f * Time::DeltaTime();
+			case MonsterScript::eDirection::Left:
+				pos.x += 100.0f * Time::DeltaTime();
 				break;
-			case in::MonsterScript::eDirection::Right:
-				pos.x += 1000.0f * Time::DeltaTime();
+			case MonsterScript::eDirection::Right:
+				pos.x += 100.0f * Time::DeltaTime();
 				break;
-			case in::MonsterScript::eDirection::Up:
-				pos.y -= 1000.0f * Time::DeltaTime();
+			case MonsterScript::eDirection::Up:
+				pos.y -= 100.0f * Time::DeltaTime();
 				break;
-			case in::MonsterScript::eDirection::Down:
-				pos.y += 1000.0f * Time::DeltaTime();
-				break;
-			default:
+			case MonsterScript::eDirection::Down:
+				pos.y += 100.0f * Time::DeltaTime();
 				break;
 			}
-			tr->SetPos(pos);
 		}
+
+		tr->SetPos(pos);
 	}
 }

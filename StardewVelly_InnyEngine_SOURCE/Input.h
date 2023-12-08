@@ -19,8 +19,9 @@ namespace in
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		RIGHT, LEFT, UP, DOWN, SPACE, ENTER,
-		ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ZERO, MINUS, PLUS,
-		LButton, RButton,
+		MouseLB, MouseRB,
+		ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO,
+		PLUS, MIUS,
 		End
 	};
 
@@ -37,20 +38,20 @@ namespace in
 		static void Initialize();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::DOWN; }
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::UP; }
-		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::PRESSED; }
+		// 키보드 state에 따른 함수
+		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::DOWN; };
+		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::UP; };
+		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::PRESSED; };
+
+		// 마우스 Position 
+		static SetVector GetMousePosition() { return mMousePosition; }
 
 	private:
-		static void CreateKeys();
-		static void UpdateKeys();
-		static void UpdateKey(Input::Key& key);
-		static bool IsKeyDown(eKeyCode code);
-		static void UpdateKeyDown(Input::Key& key);
-		static void UpdateKeyUp(Input::Key& key);
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
-		static vector<Key> mKeys;
+		static vector<Key> mKeys; // 어느 클래스 안에서도 접근이 가능해야하므로 정적 변수로 선언
 		static SetVector mMousePosition;
 	};
 }

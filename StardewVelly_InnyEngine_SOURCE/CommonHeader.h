@@ -5,8 +5,9 @@
 
 #include <vector>
 #include <algorithm>
-#include "string"
-#include "map"
+#include <string>
+#include <map>
+#include <functional>
 
 #include "SetVector.h"
 

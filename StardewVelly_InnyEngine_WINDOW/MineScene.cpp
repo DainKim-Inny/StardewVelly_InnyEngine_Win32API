@@ -40,7 +40,7 @@ namespace in
         // Slime Ãß°¡
         {
             mMine_Slime = Object::Instantiate<Monster>(eLayerType::Player, SetVector(800.0f, 500.0f));
-            //mMine_Slime->AddComponent<MonsterScript>();
+            mMine_Slime->AddComponent<MonsterScript>();
 
             Texture* slimeTexture = Resources::Find<Texture>(L"Mine_Slime");
 

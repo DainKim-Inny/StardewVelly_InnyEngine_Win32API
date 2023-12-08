@@ -10,16 +10,16 @@ namespace in
 		{
 			Idle,
 			Walk,
-			GiveWater,  // 물주기
-			UsingAxes,  // 도끼질
-			UsingHoes,  // 호미질
-			UsingScythe,  // 낫질
-			UsingPickaxes,  // 곡괭이질
-			PickUpWalk,  // 채집
-			Eatting_Ready,  // 아이템 먹기 준비
-			Eatting_Go,  // 아이템 먹기
-			Fishing,  // 낚시
-			Hunting  // 사냥
+			GiveWater,  // 물주기(ONE)
+			UsingAxes,  // 도끼질(TWO)
+			UsingHoes,  // 호미질(THREE)
+			UsingScythe,  // 낫질(FOUR)
+			UsingPickaxes,  // 곡괭이질(FIVE)
+			PickUpWalk,  // 채집(SIX)
+			Fishing,  // 낚시(SEVEN)
+			Hunting,  // 사냥(EIGHT)
+			Eatting_Ready,  // 아이템 먹기 준비(NINE)
+			Eatting_Go,  // 아이템 먹기(ZERO)
 		};
 
 		PlayerScript();
@@ -47,6 +47,5 @@ namespace in
 	private:
 		eState mState;
 		class Animator* mAnimator;
-
 	};
 }

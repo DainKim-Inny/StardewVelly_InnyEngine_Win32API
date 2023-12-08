@@ -16,22 +16,12 @@ namespace in
 		'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
 		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 		VK_RIGHT, VK_LEFT, VK_UP, VK_DOWN, VK_SPACE, VK_RETURN,
-		'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 
-		VK_OEM_MINUS, VK_OEM_PLUS,
-		VK_LBUTTON, VK_RBUTTON
+		VK_LBUTTON, VK_RBUTTON,
+		'1', '2', '3', '4', '5', '6', '7','8', '9', '0',
+		VK_OEM_PLUS, VK_OEM_MINUS
 	};
 
-	void Input::Initialize()
-	{
-		CreateKeys();
-	}
-
-	void Input::Update()
-	{
-		UpdateKeys();
-	}
-
-	void Input::CreateKeys()
+	void in::Input::Initialize()
 	{
 		for (int i = 0; i < (UINT)eKeyCode::End; i++)
 		{
@@ -44,45 +34,70 @@ namespace in
 		}
 	}
 
-	void Input::UpdateKeys()
+	void in::Input::Update()
 	{
-		for_each(mKeys.begin(), mKeys.end(),
-			[](Key& key)->void
+		if (GetFocus())
 		{
-			UpdateKey(key);
-		});
-	}
+			for (int i = 0; i < mKeys.size(); i++)
+			{
+				// 키가 눌렸는지 아닌지
+				if (GetAsyncKeyState(ASCII[i]) & 0x8000)  // 키가 눌렸을 때
+				{
+					if (mKeys[i].bPressed == true)
+					{
+						mKeys[i].state = eKeyState::PRESSED;
+					}
+					else
+					{
+						mKeys[i].state = eKeyState::DOWN;
+					}
 
-	void Input::UpdateKey(Input::Key& key)
-	{
-		if (IsKeyDown(key.keyCode))
-			UpdateKeyDown(key);
+					mKeys[i].bPressed = true;
+				}
+				else  // 키가 안 눌렸다
+				{
+					if (mKeys[i].bPressed == true)
+					{
+						mKeys[i].state = eKeyState::UP;
+					}
+					else
+					{
+						mKeys[i].state = eKeyState::NONE;  // 키가 안 눌렸는데 아직 안 눌렸음 
+					}
+
+					mKeys[i].bPressed = false;
+				}
+			}
+
+			getMousePositionByWindow();
+		}
 		else
-			UpdateKeyUp(key);
+		{
+			clearKeys();
+		}
 	}
 
-	bool Input::IsKeyDown(eKeyCode code)
+	void Input::getMousePositionByWindow()
 	{
-		return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(application.GetHwnd(), &mousePos);
+
+		mMousePosition.x = mousePos.x;
+		mMousePosition.y = mousePos.y;
 	}
 
-	void Input::UpdateKeyDown(Input::Key& key)
+	void Input::clearKeys()
 	{
-		if (key.bPressed == true)
-			key.state = eKeyState::PRESSED;
-		else
-			key.state = eKeyState::DOWN;
+		for (Key& key : mKeys)
+		{
+			if (key.state == eKeyState::DOWN || key.state == eKeyState::PRESSED)
+				key.state = eKeyState::UP;
+			else if (key.state == eKeyState::UP)
+				key.state == eKeyState::NONE;
 
-		key.bPressed = true;
+			key.bPressed = false;
+		}
 	}
 
-	void Input::UpdateKeyUp(Input::Key& key)
-	{
-		if (key.bPressed == true)
-			key.state = eKeyState::UP;
-		else
-			key.state = eKeyState::NONE;
-
-		key.bPressed = false;
-	}
 }

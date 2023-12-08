@@ -73,28 +73,105 @@ namespace in
 
 	void PlayerScript::idle()
 	{
-		if (Input::GetKey(eKeyCode::D))
+
+		// Walk
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayeAnimation(L"RightWalk");
+			if (Input::GetKey(eKeyCode::D))
+			{
+				mState = PlayerScript::eState::Walk;
+				mAnimator->PlayeAnimation(L"RightWalk");
+			}
+			if (Input::GetKey(eKeyCode::A))
+			{
+				mState = PlayerScript::eState::Walk;
+				mAnimator->PlayeAnimation(L"LeftWalk");
+			}
+			if (Input::GetKey(eKeyCode::W))
+			{
+				mState = PlayerScript::eState::Walk;
+				mAnimator->PlayeAnimation(L"UpWalk");
+			}
+			if (Input::GetKey(eKeyCode::S))
+			{
+				mState = PlayerScript::eState::Walk;
+				mAnimator->PlayeAnimation(L"DownWalk");
+			}
 		}
 
-		if (Input::GetKey(eKeyCode::A))
+		// GiveWater
+		if (Input::GetKey(eKeyCode::ONE))
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayeAnimation(L"LeftWalk");
+			mState = PlayerScript::eState::GiveWater;
+			mAnimator->PlayeAnimation(L"DownGiveWater", false);
 		}
-		
-		if (Input::GetKey(eKeyCode::W))
+
+		// UsingAxes
+		if (Input::GetKey(eKeyCode::TWO))
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayeAnimation(L"UpWalk");
+			mState = PlayerScript::eState::UsingAxes;
+			mAnimator->PlayeAnimation(L"DownUsingAxes", false);
 		}
-		
-		if (Input::GetKey(eKeyCode::S))
+
+		// UsingHoes
+		if (Input::GetKey(eKeyCode::THREE))
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayeAnimation(L"DownWalk");
+			mState = PlayerScript::eState::UsingHoes;
+			mAnimator->PlayeAnimation(L"DownUsingHoes", false);
+		}
+
+		// UsingScythe
+		if (Input::GetKey(eKeyCode::FOUR))
+		{
+			mState = PlayerScript::eState::UsingScythe;
+			mAnimator->PlayeAnimation(L"DownUsingScythe", false);
+		}
+
+		// UsingPickaxes
+		if (Input::GetKey(eKeyCode::FIVE))
+		{
+			mState = PlayerScript::eState::UsingPickaxes;
+			mAnimator->PlayeAnimation(L"DownUsingPickaxes", false);
+		}
+
+		// PickUpWalk
+		if (Input::GetKey(eKeyCode::SIX))
+		{
+			mState = PlayerScript::eState::PickUpWalk;
+			mAnimator->PlayeAnimation(L"DownPickUpWalk", false);
+		}
+
+		// Fishing
+		if (Input::GetKey(eKeyCode::SEVEN))
+		{
+			mState = PlayerScript::eState::Fishing;
+			mAnimator->PlayeAnimation(L"Fishing", false);
+
+			SetVector mousePos = Input::GetMousePosition();
+		}
+
+		// Hunting
+		if (Input::GetKey(eKeyCode::EIGHT))
+		{
+			mState = PlayerScript::eState::Hunting;
+			mAnimator->PlayeAnimation(L"DownHunting", false);
+		}
+
+		// Eatting_Ready
+		if (Input::GetKey(eKeyCode::NINE))
+		{
+			mState = PlayerScript::eState::Eatting_Ready;
+			mAnimator->PlayeAnimation(L"Eatting_Ready", false);
+
+			SetVector mousePos = Input::GetMousePosition();
+		}
+
+		// Eatting_Go
+		if (Input::GetKey(eKeyCode::ZERO))
+		{
+			mState = PlayerScript::eState::Eatting_Go;
+			mAnimator->PlayeAnimation(L"Eatting_Go", false);
+
+			SetVector mousePos = Input::GetMousePosition();
 		}
 	}
 	
@@ -114,6 +191,8 @@ namespace in
 
 		if (Input::GetKey(eKeyCode::S))
 			pos.y += 100.0f * Time::DeltaTime();
+
+		tr->SetPos(pos);
 
 		if (Input::GetKeyUp(eKeyCode::D))
 		{
@@ -138,57 +217,95 @@ namespace in
 			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayeAnimation(L"DownWalkStop", true);
 		}
-
-		tr->SetPos(pos);
 	}
 	
 	void PlayerScript::giveWater()
 	{
-		mState = PlayerScript::eState::GiveWater;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 	
 	void PlayerScript::usingAxes()
 	{
-		mState = PlayerScript::eState::UsingAxes;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 
 	void PlayerScript::usingHose()
 	{
-		mState = PlayerScript::eState::UsingHoes;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 	
 	void PlayerScript::usingScythe()
 	{
-		mState = PlayerScript::eState::UsingScythe;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 	
 	void PlayerScript::usingPickaxes()
 	{
-		mState = PlayerScript::eState::UsingPickaxes;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 	
 	void PlayerScript::pickUpWalk()
 	{
-		mState = PlayerScript::eState::PickUpWalk;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 	
 	void PlayerScript::eattingReady()
 	{
-		mState = PlayerScript::eState::Eatting_Ready;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 
 	void PlayerScript::eattingGo()
 	{
-		mState = PlayerScript::eState::Eatting_Go;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 
 	void PlayerScript::fishing()
 	{
-		mState = PlayerScript::eState::Fishing;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 
 	void PlayerScript::hunting()
 	{
-		mState = PlayerScript::eState::Hunting;
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayeAnimation(L"Idle", false);
+		}
 	}
 }

@@ -9,6 +9,18 @@ namespace in
 	class Animator : public Component
 	{
 	public:
+		struct Event
+		{
+			function<void()> mEvent;
+		};
+
+		struct Events
+		{
+			Event mStartEvent;
+			Event mCompleteEvent;
+			Event mEndEvent;
+		};
+
 		Animator();
 		~Animator();
 
@@ -28,9 +40,13 @@ namespace in
 		Animation* FindAnimation(const wstring& name);
 		void PlayeAnimation(const wstring& name, bool loop = true);
 
+		bool IsComplete() { return mActiveAnimation->IsComplete(); }
+
 	private:
 		map<wstring, Animation*> mAnimations;
 		Animation* mActiveAnimation;
 		bool mbLoop;
+
+		map<wstring, Event*> mEvents;
 	};
 }

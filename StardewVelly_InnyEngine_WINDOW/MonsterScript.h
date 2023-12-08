@@ -25,7 +25,6 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		void relex();
 		void move();
 
 		void PlayMoveAnimationByDirection(eDirection dir);
