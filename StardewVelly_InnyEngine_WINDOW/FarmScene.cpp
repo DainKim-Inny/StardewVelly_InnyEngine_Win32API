@@ -11,6 +11,7 @@
 #include "Camera.h"
 #include "Renderer.h"
 #include "Animator.h"
+#include "MineScene.h"
 
 namespace in
 {
@@ -259,6 +260,11 @@ namespace in
 	void FarmScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManger::LoadScene(L"MineScene");
+		}
 	}
 	
 	void FarmScene::Render(HDC hdc)

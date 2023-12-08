@@ -1,10 +1,14 @@
 #include "Input.h"
+#include "Application.h"
+
+extern in::Application application;
 
 using namespace std;
 
 namespace in
 {
 	vector<Input::Key> Input::mKeys = {};
+	SetVector Input::mMousePosition = SetVector::One;
 
 	int ASCII[(UINT)eKeyCode::End] =
 	{
@@ -13,10 +17,21 @@ namespace in
 		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 		VK_RIGHT, VK_LEFT, VK_UP, VK_DOWN, VK_SPACE, VK_RETURN,
 		'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 
-		VK_OEM_MINUS, VK_OEM_PLUS
+		VK_OEM_MINUS, VK_OEM_PLUS,
+		VK_LBUTTON, VK_RBUTTON
 	};
 
 	void Input::Initialize()
+	{
+		CreateKeys();
+	}
+
+	void Input::Update()
+	{
+		UpdateKeys();
+	}
+
+	void Input::CreateKeys()
 	{
 		for (int i = 0; i < (UINT)eKeyCode::End; i++)
 		{
@@ -29,28 +44,45 @@ namespace in
 		}
 	}
 
-	void Input::Update()
+	void Input::UpdateKeys()
 	{
-		for (int i = 0; i < mKeys.size(); i++)
+		for_each(mKeys.begin(), mKeys.end(),
+			[](Key& key)->void
 		{
-			if ((GetAsyncKeyState(ASCII[i]) & 0x8000))  // 키가 눌렸을 때
-			{
-				if (mKeys[i].bPressed == true)
-					mKeys[i].state = eKeyState::PRESSED;
-				else
-					mKeys[i].state = eKeyState::DOWN;
+			UpdateKey(key);
+		});
+	}
 
-				mKeys[i].bPressed = true;
-			}
-			else  // 키가 안 눌렸을 때
-			{
-				if (mKeys[i].bPressed == true)
-					mKeys[i].state = eKeyState::UP;
-				else
-					mKeys[i].state = eKeyState::NONE;
+	void Input::UpdateKey(Input::Key& key)
+	{
+		if (IsKeyDown(key.keyCode))
+			UpdateKeyDown(key);
+		else
+			UpdateKeyUp(key);
+	}
 
-				mKeys[i].bPressed = false;
-			}
-		}
+	bool Input::IsKeyDown(eKeyCode code)
+	{
+		return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
+	}
+
+	void Input::UpdateKeyDown(Input::Key& key)
+	{
+		if (key.bPressed == true)
+			key.state = eKeyState::PRESSED;
+		else
+			key.state = eKeyState::DOWN;
+
+		key.bPressed = true;
+	}
+
+	void Input::UpdateKeyUp(Input::Key& key)
+	{
+		if (key.bPressed == true)
+			key.state = eKeyState::UP;
+		else
+			key.state = eKeyState::NONE;
+
+		key.bPressed = false;
 	}
 }

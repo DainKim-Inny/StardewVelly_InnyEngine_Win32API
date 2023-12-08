@@ -21,6 +21,7 @@ namespace in
 		HDC GetHdc() { return mHdc; }
 		UINT GetWidth() { return mWidth; }
 		UINT GetHeight() { return mHeight; }
+		HWND GetHwnd() { return mHwnd; }
 
 	private:
 		void clearRenderTarger();

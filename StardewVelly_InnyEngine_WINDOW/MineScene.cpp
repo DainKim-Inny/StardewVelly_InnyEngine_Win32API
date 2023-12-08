@@ -29,7 +29,7 @@ namespace in
     {
        // BackGround Ãß°¡
         {
-            mMine_Bg = Object::Instantiate<GameObject>(eLayerType::BackGround);
+            mMine_Bg = Object::Instantiate<GameObject>(eLayerType::BackGround, SetVector(-10.0f, 0.0f));
             SpriteRenderer* bgSr = mMine_Bg->AddComponent<SpriteRenderer>();
 
             Texture* bgTexture = Resources::Find<Texture>(L"Mine_BG");

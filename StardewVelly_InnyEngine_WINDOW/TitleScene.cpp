@@ -7,7 +7,7 @@
 #include "Object.h"
 #include "Texture.h"
 #include "Resources.h"
-#include "IntroScene.h"
+#include "FarmScene.h"
 #include "Animator.h"
 #include "buttonScript.h"
 #include "BirdScript.h"
@@ -64,11 +64,6 @@ namespace in
 			newButtom_animator->PlayeAnimation(L"Intro_Newbutton");
 
 			mNewButton->GetComponent<Transform>()->SetScale(SetVector(2.2f, 2.2f));
-
-			//SpriteRenderer* sr3 = mNewButton->AddComponent<SpriteRenderer>();
-			//Texture* NewButton = Resources::Find<Texture>(L"Intro_NewButton");
-			//sr3->SetTexture(NewButton);
-			//sr3->SetSize(SetVector(2.5f, 2.5f));
 		}
 
 		// LoadButton Ãß°¡
@@ -192,7 +187,7 @@ namespace in
 
 		if (Input::GetKeyDown(eKeyCode::N))
 		{
-			SceneManger::LoadScene(L"IntroScene");
+			SceneManger::LoadScene(L"FarmScene");
 		}
 	}
 	
