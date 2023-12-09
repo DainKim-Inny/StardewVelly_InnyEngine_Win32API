@@ -27,11 +27,10 @@ namespace in
 	private:
 		void move();
 
-		void PlayMoveAnimationByDirection(eDirection dir);
-
 	private:
 		class Animator* mAnimator;
 		eDirection mDirection;
-		float mTime;
+		float mTime1;
+		float mTime2;
 	};
 }

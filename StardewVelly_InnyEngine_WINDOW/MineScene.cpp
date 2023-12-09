@@ -46,7 +46,7 @@ namespace in
 
             Animator* slime_animator = mMine_Slime->AddComponent<Animator>();
             slime_animator->CreateAnimation(L"SlimeMove", slimeTexture
-                , SetVector(0.0f, 0.0f), SetVector(64.0f, 64.0f), SetVector::Zero, 7, 0.1f);
+                , SetVector(0.0f, 0.0f), SetVector(64.0f, 64.0f), SetVector::Zero, 7, 0.25f);
 
             slime_animator->PlayeAnimation(L"SlimeMove", true);
 

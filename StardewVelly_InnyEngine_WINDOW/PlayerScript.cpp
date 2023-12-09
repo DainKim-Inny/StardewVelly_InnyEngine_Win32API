@@ -34,22 +34,28 @@ namespace in
 		case in::PlayerScript::eState::Walk:
 			walk();
 			break;
+		case in::PlayerScript::eState::GiveWater:
+			giveWater();
+			break;
 		case in::PlayerScript::eState::UsingAxes:
 			usingAxes();
 			break;
 		case in::PlayerScript::eState::UsingHoes:
 			usingHose();
 			break;
-		case in::PlayerScript::eState::UsingPickaxes:
-			usingPickaxes();
-			break;
 		case in::PlayerScript::eState::UsingScythe:
 			usingScythe();
 			break;
-		case in::PlayerScript::eState::GiveWater:
-			giveWater();
+		case in::PlayerScript::eState::UsingPickaxes:
+			usingPickaxes();
 			break;
 		case in::PlayerScript::eState::PickUpWalk:
+			pickUpWalk();
+			break;
+		case in::PlayerScript::eState::Fishing:
+			pickUpWalk();
+			break;
+		case in::PlayerScript::eState::Hunting:
 			pickUpWalk();
 			break;
 		case in::PlayerScript::eState::Eatting_Ready:
@@ -73,7 +79,6 @@ namespace in
 
 	void PlayerScript::idle()
 	{
-
 		// Walk
 		{
 			if (Input::GetKey(eKeyCode::D))
@@ -145,8 +150,6 @@ namespace in
 		{
 			mState = PlayerScript::eState::Fishing;
 			mAnimator->PlayeAnimation(L"Fishing", false);
-
-			SetVector mousePos = Input::GetMousePosition();
 		}
 
 		// Hunting
@@ -161,8 +164,6 @@ namespace in
 		{
 			mState = PlayerScript::eState::Eatting_Ready;
 			mAnimator->PlayeAnimation(L"Eatting_Ready", false);
-
-			SetVector mousePos = Input::GetMousePosition();
 		}
 
 		// Eatting_Go
@@ -170,9 +171,12 @@ namespace in
 		{
 			mState = PlayerScript::eState::Eatting_Go;
 			mAnimator->PlayeAnimation(L"Eatting_Go", false);
-
-			SetVector mousePos = Input::GetMousePosition();
 		}
+
+		// 에러 확인 -> 출력창 이용
+		char buff[100];
+		::sprintf_s(buff, " eState : %d \n", mState);
+		::OutputDebugStringA(buff);
 	}
 	
 	void PlayerScript::walk()
@@ -302,6 +306,7 @@ namespace in
 
 	void PlayerScript::hunting()
 	{
+
 		if (mAnimator->IsComplete())
 		{
 			mState = eState::Idle;
