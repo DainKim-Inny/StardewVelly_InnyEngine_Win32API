@@ -82,6 +82,7 @@ namespace in
 
 			Texture* playerTexture = Resources::Find<Texture>(L"Farm_Player");
 			Texture* playerTexture_Front = Resources::Find<Texture>(L"Farm_PlayerFront");
+			Texture* playerTexture2 = Resources::Find<Texture>(L"Farm_Player2");
 			
 			Animator* player_animator = mFarm_Player->AddComponent<Animator>();
 
@@ -94,24 +95,24 @@ namespace in
 			// Walk
 			{
 				player_animator->CreateAnimation(L"RightWalk", playerTexture
-					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
+					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.08f);
 				player_animator->CreateAnimation(L"RightWalkStop", playerTexture
-					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.1f);
+					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.08f);
 
 				player_animator->CreateAnimation(L"LeftWalk", playerTexture
-					, SetVector(1500.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
+					, SetVector(1500.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.08f);
 				player_animator->CreateAnimation(L"LeftWalkStop", playerTexture
-					, SetVector(1500.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.1f);
+					, SetVector(1500.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.08f);
 
 				player_animator->CreateAnimation(L"UpWalk", playerTexture
-					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 8, 0.1f);
+					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 8, 0.08f);
 				player_animator->CreateAnimation(L"UpWalkStop", playerTexture
-					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.1f);
+					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.08f);
 
 				player_animator->CreateAnimation(L"DownWalk", playerTexture_Front
-					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 6, 0.1f);
+					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 6, 0.08f);
 				player_animator->CreateAnimation(L"DownWalkStop", playerTexture_Front
-					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 1, 0.1f);
+					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 1, 0.08f);
 			}
 
 			// UsingAxes
@@ -119,8 +120,7 @@ namespace in
 				player_animator->CreateAnimation(L"LeftUsingAxes", playerTexture
 					, SetVector(500.0f, 750.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
 
-				// 이미지 편집 필요
-				player_animator->CreateAnimation(L"RightUsingAxes", playerTexture
+				player_animator->CreateAnimation(L"RightUsingAxes", playerTexture2
 					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
 
 				player_animator->CreateAnimation(L"UpUsingAxes", playerTexture
@@ -162,8 +162,8 @@ namespace in
 
 			// UsingPickaxes
 			{
-				player_animator->CreateAnimation(L"LeftUsingPickaxes", playerTexture
-					, SetVector(1250.0f, 3750.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
+				player_animator->CreateAnimation(L"LeftUsingPickaxes", playerTexture2
+					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
 
 				player_animator->CreateAnimation(L"RightUsingPickaxes", playerTexture
 					, SetVector(0.0f, 3750.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
@@ -244,7 +244,7 @@ namespace in
 					, SetVector(0.0f, 3000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
 			}
 
-			player_animator->PlayeAnimation(L"DownWalkStop", true);
+			player_animator->PlayeAnimation(L"Idle", true);
 
 			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.7f, 0.7f));
 		}

@@ -27,6 +27,7 @@ namespace in
 		{
 			Resources::Load<Texture>(L"Farm_BG", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Map.bmp");
 			Resources::Load<Texture>(L"Farm_Player", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Player.bmp");
+			Resources::Load<Texture>(L"Farm_Player2", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Player2.bmp");
 			Resources::Load<Texture>(L"Farm_PlayerFront", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_PlayerFront.bmp");
 			Resources::Load<Texture>(L"Farm_Clock", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Clock.bmp");
 			Resources::Load<Texture>(L"Farm_QuickSlot", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_QuickSlot.bmp");

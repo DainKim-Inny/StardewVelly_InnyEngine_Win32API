@@ -22,6 +22,14 @@ namespace in
 			Eatting_Go,  // æ∆¿Ã≈€ ∏‘±‚(ZERO)
 		};
 
+		enum class eDirection
+		{
+			Right,
+			Left,
+			Up,
+			Down
+		};
+
 		PlayerScript();
 		~PlayerScript();
 
@@ -44,8 +52,17 @@ namespace in
 		void fishing();
 		void hunting();
 
+		void nextAction();
+
+		void rightAction();
+		void leftAction();
+		void downAction();
+		void upAction();
+		void endingAction();
+
 	private:
 		eState mState;
+		eDirection mDirection;
 		class Animator* mAnimator;
 	};
 }
