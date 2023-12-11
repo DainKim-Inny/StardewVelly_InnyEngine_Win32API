@@ -1,10 +1,18 @@
 #include "Mine_Lobby_Scene.h"
-#include "Object.h"
-#include "Layer.h"
+#include "FarmScene.h"
+#include "Player.h"
+#include "Transform.h"
 #include "SpriteRenderer.h"
+#include "Input.h"
+#include "SceneManger.h"
+#include "Object.h"
 #include "Texture.h"
 #include "Resources.h"
-#include "Input.h"
+#include "PlayerScript.h"
+#include "Camera.h"
+#include "Renderer.h"
+#include "Animator.h"
+#include "Mine_B1_Scene.h"
 
 namespace in
 {
@@ -28,6 +36,10 @@ namespace in
             bgSr->SetTexture(bgTexture);
             bgSr->SetSize(SetVector(1.45f, 1.5f));
         }
+
+        // Player º“»Ø
+        {
+        }
     }
     
     void Mine_Lobby_Scene::Update()
@@ -39,7 +51,11 @@ namespace in
     {
         Scene::LateUpdate();
 
-        if (Input::GetKeyDown(eKeyCode::N))
+        SetVector mousePos = Input::GetMousePosition();
+
+        if (Input::GetKeyDown(eKeyCode::MouseRB)
+            && 600.0f <= mousePos.x && mousePos.x <= 660.0f
+            && 100.0f <= mousePos.y && mousePos.y <= 200.0f)
         {
             SceneManger::LoadScene(L"Mine_B1_Scene");
         }

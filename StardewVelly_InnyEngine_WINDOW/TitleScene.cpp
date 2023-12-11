@@ -91,7 +91,7 @@ namespace in
 			Texture* exitButtomTexture = Resources::Find<Texture>(L"Intro_Button");
 			Animator* exitButtom_animator = mExitButton->AddComponent<Animator>();
 			exitButtom_animator->CreateAnimation(L"Intro_Exitbutton", exitButtomTexture
-				, SetVector(0.0f, 57.67f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
+				, SetVector(0.0f, 115.34f), SetVector(73.5f, 57.67f), SetVector::Zero, 1, 0.1f);
 
 			exitButtom_animator->PlayeAnimation(L"Intro_Exitbutton");
 
@@ -185,7 +185,7 @@ namespace in
 	{
 		Scene::LateUpdate();
 
-		if (Input::GetKeyDown(eKeyCode::N))
+		if (Input::GetKeyDown(eKeyCode::MouseRB))
 		{
 			SceneManger::LoadScene(L"FarmScene");
 		}

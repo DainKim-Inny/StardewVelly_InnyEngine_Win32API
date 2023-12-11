@@ -261,7 +261,11 @@ namespace in
 	{
 		Scene::LateUpdate();
 
-		if (Input::GetKeyDown(eKeyCode::N))
+		SetVector mousePos = Input::GetMousePosition();
+
+		if (Input::GetKeyDown(eKeyCode::MouseRB) 
+			&& 1200.0f<= mousePos.x && mousePos.x<=1260.0f
+			&& 550.0f<= mousePos.y && mousePos.y<=630.0f )
 		{
 			SceneManger::LoadScene(L"Mine_Lobby_Scene");
 		}
