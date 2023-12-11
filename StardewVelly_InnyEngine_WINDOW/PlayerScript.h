@@ -38,6 +38,8 @@ namespace in
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void breakStone();
+
 	private:
 		void idle();
 		void walk();

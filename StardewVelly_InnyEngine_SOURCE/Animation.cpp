@@ -122,7 +122,7 @@ namespace in
 		, SetVector leftTop, SetVector size, SetVector offset, UINT spriteLength, float duration)
 	{
 		mTexture = spriteSheet;
-		for (int i = 0; i < spriteLength; i++)
+		for (unsigned int i = 0; i < spriteLength; i++)
 		{
 			Sprite sprite = {};
 			sprite.leftTop.x = leftTop.x + (size.x * i);

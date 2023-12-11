@@ -37,10 +37,16 @@ namespace in
 		{
 			mActiveAnimation->Update();
 
-			if(mActiveAnimation->IsComplete() == true
-				&& mbLoop == true)
+			Events* events
+				= FindEvents(mActiveAnimation->GetName());
+
+			if(mActiveAnimation->IsComplete() == true)
 			{
-				mActiveAnimation->Reset();
+				if(events)  // ActiveAnimation에 이어지는 Event 있는 경우
+					events->completeEvent();
+
+				if(mbLoop == true)
+					mActiveAnimation->Reset();
 			}
 		}
 	}
@@ -65,8 +71,12 @@ namespace in
 			return;
 
 		animation = new Animation();
+		animation->SetName(name);
 		animation->CreateAnimation(name, spriteSheet, leftTop, size, offset, spriteLength, duration);
 		animation->SetAnimation(this);
+
+		Events* events = new Events();
+		mEvents.insert(make_pair(name, events));
 
 		mAnimations.insert(make_pair(name, animation));
 	}
@@ -88,8 +98,50 @@ namespace in
 		if (animation == nullptr)
 			return;
 
+		if (mActiveAnimation)
+		{
+			Events* currentEvents
+				= FindEvents(mActiveAnimation->GetName());
+
+			if (currentEvents)
+				currentEvents->endEvent();
+		}
+
+		Events* nextEvents
+			= FindEvents(animation->GetName());
+
+		if (nextEvents)
+			nextEvents->startEvent();
+
 		mActiveAnimation = animation;
 		mActiveAnimation->Reset();
 		mbLoop = loop;
+	}
+
+	Animator::Events* Animator::FindEvents(const wstring& name)
+	{
+		auto iter = mEvents.find(name);
+		if (iter == mEvents.end())
+			return nullptr;
+
+		return iter->second;
+	}
+
+	function<void()>& Animator::GetStartEvent(const wstring& name)
+	{
+		Events* events = FindEvents(name);
+		return events->startEvent.mEvent;
+	}
+
+	function<void()>& Animator::GetCompleteEvent(const wstring& name)
+	{
+		Events* events = FindEvents(name);
+		return events->completeEvent.mEvent;
+	}
+
+	function<void()>& Animator::GetEndEvent(const wstring& name)
+	{
+		Events* events = FindEvents(name);
+		return events->endEvent.mEvent;
 	}
 }

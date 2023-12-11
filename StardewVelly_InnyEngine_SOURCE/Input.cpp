@@ -94,7 +94,7 @@ namespace in
 			if (key.state == eKeyState::DOWN || key.state == eKeyState::PRESSED)
 				key.state = eKeyState::UP;
 			else if (key.state == eKeyState::UP)
-				key.state == eKeyState::NONE;
+				key.state = eKeyState::NONE;
 
 			key.bPressed = false;
 		}

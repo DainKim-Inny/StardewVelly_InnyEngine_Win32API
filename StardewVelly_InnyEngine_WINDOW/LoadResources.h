@@ -32,6 +32,8 @@ namespace in
 			Resources::Load<Texture>(L"Farm_Clock", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Clock.bmp");
 			Resources::Load<Texture>(L"Farm_QuickSlot", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_QuickSlot.bmp");
 			Resources::Load<Texture>(L"Farm_EnergyBar", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_EnergyBar.bmp");
+			Resources::Load<Texture>(L"Farm_Stone1", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Stone1.bmp");
+			Resources::Load<Texture>(L"Farm_Stone2", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Stone2.bmp");
 		}
 
 		// MineScene Resources Load

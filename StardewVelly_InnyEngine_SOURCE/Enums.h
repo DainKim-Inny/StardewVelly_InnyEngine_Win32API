@@ -21,7 +21,8 @@ namespace in
 		BackGroundObject_Top,
 		Logo_Bottom,
 		Logo_Top,
-		Button,
+		Button, 
+		Object,
 		Player,
 		UI,
 		Max = 16

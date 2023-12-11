@@ -4,6 +4,8 @@
 #include "Time.h"
 #include "GameObject.h"
 #include "Animator.h"
+#include "Object.h"
+#include "Resources.h"
 
 //#define _DAIN_DEBUG_TEST
 
@@ -253,6 +255,22 @@ namespace in
 			mState = eState::Idle;
 			endingAction();
 		}
+	}
+
+	void PlayerScript::breakStone()
+	{
+		GameObject* mFarm_Stone1 = Object::Instantiate<GameObject>(eLayerType::Object, SetVector(500.0f, 500.0f));
+
+		Texture* stoneTexture1 = Resources::Find<Texture>(L"Farm_Stone1");
+
+		Animator* stone_animator1 = mFarm_Stone1->AddComponent<Animator>();
+
+		stone_animator1->CreateAnimation(L"BreakStone1", stoneTexture1
+			, SetVector(0.0f, 0.0f), SetVector(16.0f, 17.0f), SetVector::Zero, 2, 0.1f);
+
+		stone_animator1->PlayeAnimation(L"BreakStone1", false);
+
+		mFarm_Stone1->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
 	}
 
 	void PlayerScript::nextAction()

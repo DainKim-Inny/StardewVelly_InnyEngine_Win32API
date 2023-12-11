@@ -4,6 +4,8 @@
 #include "Animation.h"
 #include "Texture.h"
 
+using namespace std;
+
 namespace in
 {
 	class Animator : public Component
@@ -11,14 +13,25 @@ namespace in
 	public:
 		struct Event
 		{
+			void operator=(function<void()> func)
+			{
+				mEvent = move(func);
+			}
+
+			void operator()()
+			{
+				if (mEvent)
+					mEvent();
+			}
+
 			function<void()> mEvent;
 		};
 
 		struct Events
 		{
-			Event mStartEvent;
-			Event mCompleteEvent;
-			Event mEndEvent;
+			Event startEvent;
+			Event completeEvent;
+			Event endEvent;
 		};
 
 		Animator();
@@ -40,6 +53,11 @@ namespace in
 		Animation* FindAnimation(const wstring& name);
 		void PlayeAnimation(const wstring& name, bool loop = true);
 
+		Events* FindEvents(const wstring& name);
+		function<void()>& GetStartEvent(const wstring& name);
+		function<void()>& GetCompleteEvent(const wstring& name);
+		function<void()>& GetEndEvent(const wstring& name);
+
 		bool IsComplete() { return mActiveAnimation->IsComplete(); }
 
 	private:
@@ -47,6 +65,6 @@ namespace in
 		Animation* mActiveAnimation;
 		bool mbLoop;
 
-		map<wstring, Event*> mEvents;
+		map<wstring, Events*> mEvents;
 	};
 }

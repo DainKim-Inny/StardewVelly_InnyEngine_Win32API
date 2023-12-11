@@ -13,6 +13,8 @@
 #include "Animator.h"
 #include "Mine_B1_Scene.h"
 
+using namespace std;
+
 namespace in
 {
 	FarmScene::FarmScene()
@@ -21,6 +23,8 @@ namespace in
 		, mFarm_Clock(nullptr)
 		, mFarm_QuickSlot(nullptr)
 		, mFarm_EnergyBar(nullptr)
+		, mFarm_Stone1(nullptr)
+		, mFarm_Stone2(nullptr)
 	{
 	}
 
@@ -76,7 +80,7 @@ namespace in
 		// Player 추가
 		{
 			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(500.0f, 500.0f));
-			mFarm_Player->AddComponent<PlayerScript>();
+			PlayerScript* plScript = mFarm_Player->AddComponent<PlayerScript>();
 
 			//cameraComp->SetTarget(mFarm_Player);
 
@@ -246,7 +250,42 @@ namespace in
 
 			player_animator->PlayeAnimation(L"Idle", true);
 
+			// 도끼 사용 후, Events Object 추가
+			player_animator->GetCompleteEvent(L"LeftUsingAxes") = bind(&PlayerScript::breakStone, plScript);
+
 			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.7f, 0.7f));
+		}
+
+		// Stone1 추가
+		//{
+		//	mFarm_Stone1 = Object::Instantiate<GameObject>(eLayerType::Object, SetVector(500.0f, 500.0f));
+
+		//	Texture* stoneTexture1 = Resources::Find<Texture>(L"Farm_Stone1");
+
+		//	Animator* stone_animator1 = mFarm_Stone1->AddComponent<Animator>();
+
+		//	stone_animator1->CreateAnimation(L"BreakStone1", stoneTexture1
+		//		, SetVector(0.0f, 0.0f), SetVector(16.0f, 17.0f), SetVector::Zero, 1, 0.1f);
+
+		//	stone_animator1->PlayeAnimation(L"BreakStone1", false);
+
+		//	mFarm_Stone1->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
+		//}
+
+		// Stone2 추가
+		{
+			mFarm_Stone2 = Object::Instantiate<GameObject>(eLayerType::Object, SetVector(150.0f, 600.0f));
+
+			Texture* stoneTexture2 = Resources::Find<Texture>(L"Farm_Stone2");
+
+			Animator* stone_animator2 = mFarm_Stone2->AddComponent<Animator>();
+
+			stone_animator2->CreateAnimation(L"BreakStone2", stoneTexture2
+				, SetVector(0.0f, 0.0f), SetVector(16.0f, 17.0f), SetVector::Zero, 1, 0.1f);
+
+			stone_animator2->PlayeAnimation(L"BreakStone2", false);
+
+			mFarm_Stone2->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
 		}
 
 		Scene::Initialize();
