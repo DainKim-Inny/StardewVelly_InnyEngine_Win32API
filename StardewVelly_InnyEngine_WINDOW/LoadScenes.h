@@ -1,5 +1,5 @@
 #pragma once
-#include "..\\StardewVelly_InnyEngine_SOURCE\\SceneManger.h"
+#include "..\\StardewVelly_InnyEngine_SOURCE\\SceneManager.h"
 #include "TitleScene.h"
 #include "IntroScene.h"
 #include "FarmScene.h"
@@ -10,12 +10,12 @@ namespace in
 {
 	void LoadScenes()
 	{
-		SceneManger::CreateScene<IntroScene>(L"IntroScene");
-		SceneManger::CreateScene<TitleScene>(L"TitleScene");
-		SceneManger::CreateScene<FarmScene>(L"FarmScene");
-		SceneManger::CreateScene<Mine_Lobby_Scene>(L"Mine_Lobby_Scene");
-		SceneManger::CreateScene<Mine_B1_Scene>(L"Mine_B1_Scene");
+		SceneManager::CreateScene<IntroScene>(L"IntroScene");
+		SceneManager::CreateScene<TitleScene>(L"TitleScene");
+		SceneManager::CreateScene<FarmScene>(L"FarmScene");
+		SceneManager::CreateScene<Mine_Lobby_Scene>(L"Mine_Lobby_Scene");
+		SceneManager::CreateScene<Mine_B1_Scene>(L"Mine_B1_Scene");
 
-		SceneManger::LoadScene(L"TitleScene");
+		SceneManager::LoadScene(L"FarmScene");
 	}
 }

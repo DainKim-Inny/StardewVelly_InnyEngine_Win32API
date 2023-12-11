@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "GameObject.h"
 #include "Scene.h"
-#include "SceneManger.h"
+#include "SceneManager.h"
 #include "Transform.h"
 #include "Layer.h"
 
@@ -15,7 +15,7 @@ namespace in
 		static T* Instantiate(eLayerType type)
 		{
 			T* gameObject = new T();
-			Scene* activeScene = SceneManger::GetActiveScene();
+			Scene* activeScene = SceneManager::GetActiveScene();
 			Layer* layer = activeScene->GetLayer(type);
 			layer->AddGameObject(gameObject);
 
@@ -26,7 +26,7 @@ namespace in
 		static T* Instantiate(eLayerType type, SetVector position)
 		{
 			T* gameObject = new T();
-			Scene* activeScene = SceneManger::GetActiveScene();
+			Scene* activeScene = SceneManager::GetActiveScene();
 			Layer* layer = activeScene->GetLayer(type);
 			layer->AddGameObject(gameObject);
 

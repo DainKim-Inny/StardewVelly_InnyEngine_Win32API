@@ -5,7 +5,7 @@ using namespace std;
 
 namespace in
 {
-	class SceneManger
+	class SceneManager
 	{
 	public:
 		template<typename T>
@@ -29,6 +29,7 @@ namespace in
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+		static void Release();
 
 	private:
 		static map<wstring, Scene*> mScene;

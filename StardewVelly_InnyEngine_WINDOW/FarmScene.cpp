@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "Input.h"
-#include "SceneManger.h"
+#include "SceneManager.h"
 #include "Object.h"
 #include "Texture.h"
 #include "Resources.h"
@@ -31,11 +31,9 @@ namespace in
 	void FarmScene::Initialize()
 	{
 		// main Camera
-		{
-			GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, SetVector(700.0f, 450.0f));
-			Camera* cameraComp = camera->AddComponent<Camera>();
-			renderer::mainCamera = cameraComp;
-		}
+		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, SetVector(700.0f, 450.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
 
 		// BackGround Ãß°¡
 		{
@@ -79,6 +77,8 @@ namespace in
 		{
 			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(500.0f, 500.0f));
 			mFarm_Player->AddComponent<PlayerScript>();
+
+			//cameraComp->SetTarget(mFarm_Player);
 
 			Texture* playerTexture = Resources::Find<Texture>(L"Farm_Player");
 			Texture* playerTexture_Front = Resources::Find<Texture>(L"Farm_PlayerFront");
@@ -267,7 +267,7 @@ namespace in
 			&& 1200.0f<= mousePos.x && mousePos.x<=1260.0f
 			&& 550.0f<= mousePos.y && mousePos.y<=630.0f )
 		{
-			SceneManger::LoadScene(L"Mine_Lobby_Scene");
+			SceneManager::LoadScene(L"Mine_Lobby_Scene");
 		}
 	}
 	

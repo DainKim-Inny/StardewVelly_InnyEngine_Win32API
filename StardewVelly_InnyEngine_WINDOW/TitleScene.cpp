@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "Input.h"
-#include "SceneManger.h"
+#include "SceneManager.h"
 #include "Object.h"
 #include "Texture.h"
 #include "Resources.h"
@@ -187,7 +187,7 @@ namespace in
 
 		if (Input::GetKeyDown(eKeyCode::MouseRB))
 		{
-			SceneManger::LoadScene(L"FarmScene");
+			SceneManager::LoadScene(L"FarmScene");
 		}
 	}
 	

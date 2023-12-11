@@ -4,7 +4,7 @@
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "Input.h"
-#include "SceneManger.h"
+#include "SceneManager.h"
 #include "Object.h"
 #include "Texture.h"
 #include "Resources.h"
@@ -57,7 +57,7 @@ namespace in
             && 600.0f <= mousePos.x && mousePos.x <= 660.0f
             && 100.0f <= mousePos.y && mousePos.y <= 200.0f)
         {
-            SceneManger::LoadScene(L"Mine_B1_Scene");
+            SceneManager::LoadScene(L"Mine_B1_Scene");
         }
     }
     

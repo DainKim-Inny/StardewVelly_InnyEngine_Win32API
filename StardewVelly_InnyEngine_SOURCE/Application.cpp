@@ -1,7 +1,8 @@
 #include "Application.h"
 #include "Input.h"
 #include "Time.h"
-#include "SceneManger.h"
+#include "SceneManager.h"
+#include "Resources.h"
 
 namespace in
 {
@@ -27,7 +28,7 @@ namespace in
 		createBuffer(width, height);
 		InitializeEtc();
 
-		SceneManger::Initailize();
+		SceneManager::Initailize();
 	}
 
 	void Application::Run()
@@ -42,12 +43,12 @@ namespace in
 		Input::Update();
 		Time::Update();
 
-		SceneManger::Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
-		SceneManger::LateUpdate();
+		SceneManager::LateUpdate();
 	}
 
 	void Application::clearRenderTarger()
@@ -100,8 +101,14 @@ namespace in
 		clearRenderTarger();
 
 		Time::Render(mBackHdc);
-		SceneManger::Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 }

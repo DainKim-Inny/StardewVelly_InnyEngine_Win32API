@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "SpriteRenderer.h"
 #include "Input.h"
-#include "SceneManger.h"
+#include "SceneManager.h"
 #include "Object.h"
 #include "Texture.h"
 #include "Resources.h"

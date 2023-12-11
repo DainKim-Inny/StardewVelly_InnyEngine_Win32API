@@ -78,7 +78,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp">
       <Filter>Layer\2. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManger.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
       <Filter>Layer\2. Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Component.cpp">
@@ -140,7 +140,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h">
       <Filter>Common\1. Entity</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManger.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
       <Filter>Layer\2. Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h">
