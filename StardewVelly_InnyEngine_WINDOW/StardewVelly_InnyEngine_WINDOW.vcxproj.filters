@@ -59,6 +59,36 @@
     <Filter Include="Script\1. CommonScript\2. MonsterScript">
       <UniqueIdentifier>{a569a449-5725-4675-a465-151b0c82b83a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\3. PlayScene\1. FarmScene\2. House">
+      <UniqueIdentifier>{7c2088ad-4432-440d-bb9f-02118f326fe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\1. FarmScene\1. Main">
+      <UniqueIdentifier>{33882175-3d7c-4dbe-b654-9ea774ae7d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\2. MineScene\2. B1 Floor">
+      <UniqueIdentifier>{7ae47e89-dbb1-48ca-aacf-2b570592d6a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\4. BeachScene">
+      <UniqueIdentifier>{ff637ad2-9ce8-469f-98b6-f054c635c643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\3. PelicanTownScene">
+      <UniqueIdentifier>{af0f99ca-3045-4c60-ad43-b33a642596fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\4. BeachScene\1. Main">
+      <UniqueIdentifier>{2c6fcac5-d4d0-478f-a333-9c3be2f34f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\4. BeachScene\2. FishShop">
+      <UniqueIdentifier>{1db2437d-a883-4199-b242-e1a7ce107518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\3. PelicanTownScene\1. Main">
+      <UniqueIdentifier>{42e33ce8-ae56-4982-a645-327b6ad1f57b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\3. PelicanTownScene\2. GeneralStore">
+      <UniqueIdentifier>{6a33f732-00d7-47fe-b38d-9edc008c7159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\3. PlayScene\2. MineScene\1. Main">
+      <UniqueIdentifier>{41241879-416d-4200-a3cb-9f97f6fc4c4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScene.h">
@@ -72,17 +102,11 @@
     <ClInclude Include="PlayerScript.h">
       <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClInclude>
-    <ClInclude Include="FarmScene.h">
-      <Filter>Scene\3. PlayScene\1. FarmScene</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>GameObject\Player</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>GameObject\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="MineScene.h">
-      <Filter>Scene\3. PlayScene\2. MineScene</Filter>
     </ClInclude>
     <ClInclude Include="BirdScript.h">
       <Filter>Script\2. TitleSceneScript\1. BirdScript</Filter>
@@ -92,6 +116,15 @@
     </ClInclude>
     <ClInclude Include="MonsterScript.h">
       <Filter>Script\1. CommonScript\2. MonsterScript</Filter>
+    </ClInclude>
+    <ClInclude Include="FarmScene.h">
+      <Filter>Scene\3. PlayScene\1. FarmScene\1. Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Mine_B1_Scene.h">
+      <Filter>Scene\3. PlayScene\2. MineScene\2. B1 Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="Mine_Lobby_Scene.h">
+      <Filter>Scene\3. PlayScene\2. MineScene\1. Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,17 +137,11 @@
     <ClCompile Include="PlayerScript.cpp">
       <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClCompile>
-    <ClCompile Include="FarmScene.cpp">
-      <Filter>Scene\3. PlayScene\1. FarmScene</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>GameObject\Player</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="MineScene.cpp">
-      <Filter>Scene\3. PlayScene\2. MineScene</Filter>
     </ClCompile>
     <ClCompile Include="BirdScript.cpp">
       <Filter>Script\2. TitleSceneScript\1. BirdScript</Filter>
@@ -124,6 +151,15 @@
     </ClCompile>
     <ClCompile Include="MonsterScript.cpp">
       <Filter>Script\1. CommonScript\2. MonsterScript</Filter>
+    </ClCompile>
+    <ClCompile Include="FarmScene.cpp">
+      <Filter>Scene\3. PlayScene\1. FarmScene\1. Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Mine_B1_Scene.cpp">
+      <Filter>Scene\3. PlayScene\2. MineScene\2. B1 Floor</Filter>
+    </ClCompile>
+    <ClCompile Include="Mine_Lobby_Scene.cpp">
+      <Filter>Scene\3. PlayScene\2. MineScene\1. Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

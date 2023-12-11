@@ -142,7 +142,8 @@
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="LoadResources.h" />
     <ClInclude Include="LoadScenes.h" />
-    <ClInclude Include="MineScene.h" />
+    <ClInclude Include="Mine_B1_Scene.h" />
+    <ClInclude Include="Mine_Lobby_Scene.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterScript.h" />
     <ClInclude Include="Player.h" />
@@ -154,7 +155,8 @@
     <ClCompile Include="buttonScript.cpp" />
     <ClCompile Include="FarmScene.cpp" />
     <ClCompile Include="IntroScene.cpp" />
-    <ClCompile Include="MineScene.cpp" />
+    <ClCompile Include="Mine_B1_Scene.cpp" />
+    <ClCompile Include="Mine_Lobby_Scene.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MonsterScript.cpp" />
     <ClCompile Include="Player.cpp" />

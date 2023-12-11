@@ -11,7 +11,7 @@
 #include "Camera.h"
 #include "Renderer.h"
 #include "Animator.h"
-#include "MineScene.h"
+#include "Mine_B1_Scene.h"
 
 namespace in
 {
@@ -39,7 +39,7 @@ namespace in
 
 		// BackGround Ãß°¡
 		{
-			mFarm_Bg = Object::Instantiate<GameObject>(eLayerType::BackGround);
+			mFarm_Bg = Object::Instantiate<GameObject>(eLayerType::BackGround, SetVector(-10.0f, 0.0f));
 			SpriteRenderer* bgSr = mFarm_Bg->AddComponent<SpriteRenderer>();
 
 			Texture* bgTexture = Resources::Find<Texture>(L"Farm_BG");
@@ -121,7 +121,7 @@ namespace in
 					, SetVector(500.0f, 750.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
 
 				player_animator->CreateAnimation(L"RightUsingAxes", playerTexture2
-					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 6, 0.1f);
+					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
 
 				player_animator->CreateAnimation(L"UpUsingAxes", playerTexture
 					, SetVector(1750.0f, 750.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 4, 0.1f);
@@ -208,7 +208,7 @@ namespace in
 			// Eatting (Ready, Go)
 			{
 				player_animator->CreateAnimation(L"Eatting_Ready", playerTexture
-					, SetVector(0.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 2, 0.8f);
+					, SetVector(0.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 2, 0.2f);
 
 				player_animator->CreateAnimation(L"Eatting_Go", playerTexture
 					, SetVector(500.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 8, 0.1f);
@@ -263,7 +263,7 @@ namespace in
 
 		if (Input::GetKeyDown(eKeyCode::N))
 		{
-			SceneManger::LoadScene(L"MineScene");
+			SceneManger::LoadScene(L"Mine_Lobby_Scene");
 		}
 	}
 	

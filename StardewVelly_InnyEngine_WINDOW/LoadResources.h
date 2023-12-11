@@ -36,8 +36,9 @@ namespace in
 
 		// MineScene Resources Load
 		{
-			Resources::Load<Texture>(L"Mine_BG", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_BG.bmp");
-			Resources::Load<Texture>(L"Mine_Slime", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_Slime.bmp");
+			Resources::Load<Texture>(L"Mine_B1_BG", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_BG.bmp");
+			Resources::Load<Texture>(L"Mine_B1_Slime", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_Slime.bmp");
+			Resources::Load<Texture>(L"Mine_Lobby_BG", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_Looby.bmp");
 		}
 	}
 }

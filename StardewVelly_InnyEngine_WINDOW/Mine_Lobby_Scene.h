@@ -3,20 +3,18 @@
 
 namespace in
 {
-	class MineScene : public Scene
+	class Mine_Lobby_Scene : public Scene
 	{
 	public:
-		MineScene();
-		~MineScene();
-
+		Mine_Lobby_Scene();
+		~Mine_Lobby_Scene();
+		
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
 	private:
-		class GameObject* mMine_Bg;
-		class Monster* mMine_Slime;
-
+		class GameObject* mMine_Lobby;
 	};
 }
