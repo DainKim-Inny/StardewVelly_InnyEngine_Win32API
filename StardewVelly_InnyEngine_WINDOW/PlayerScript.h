@@ -38,7 +38,11 @@ namespace in
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		// Effect Ãß°¡
 		void breakStone();
+		void diggingGround();
+		void wetGround();
+		void treeCollapse();
 
 	private:
 		void idle();

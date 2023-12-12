@@ -32,8 +32,11 @@ namespace in
 			Resources::Load<Texture>(L"Farm_Clock", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Clock.bmp");
 			Resources::Load<Texture>(L"Farm_QuickSlot", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_QuickSlot.bmp");
 			Resources::Load<Texture>(L"Farm_EnergyBar", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_EnergyBar.bmp");
-			Resources::Load<Texture>(L"Farm_Stone1", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Stone1.bmp");
-			Resources::Load<Texture>(L"Farm_Stone2", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Stone2.bmp");
+			Resources::Load<Texture>(L"Farm_Stone", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_Stone.bmp");
+			Resources::Load<Texture>(L"Farm_TreeCollapse_Left", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_TreeCollapse_Left.bmp");
+			Resources::Load<Texture>(L"Farm_TreeCollapse_Right", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_TreeCollapse_Right.bmp");
+			Resources::Load<Texture>(L"Farm_DiggingGround", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_WetGroung.bmp");
+			Resources::Load<Texture>(L"Farm_WetGround", L"..\\Resource\\4.PlayScene\\1.FarmScene\\1.Texture\\Farm_WetGroung.bmp");
 		}
 
 		// MineScene Resources Load

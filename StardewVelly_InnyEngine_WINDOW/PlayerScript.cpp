@@ -84,36 +84,35 @@ namespace in
 
 	void PlayerScript::idle()
 	{
-		// Walk
+		if (Input::GetKey(eKeyCode::D))
 		{
-			if (Input::GetKey(eKeyCode::D))
-			{
-				mState = PlayerScript::eState::Walk;
-				mDirection = PlayerScript::eDirection::Right;
+			mState = PlayerScript::eState::Walk;
+			mDirection = PlayerScript::eDirection::Right;
 
-				mAnimator->PlayeAnimation(L"RightWalk");
-			}
-			if (Input::GetKey(eKeyCode::A))
-			{
-				mState = PlayerScript::eState::Walk;
-				mDirection = PlayerScript::eDirection::Left;
+			mAnimator->PlayeAnimation(L"RightWalk");
 
-				mAnimator->PlayeAnimation(L"LeftWalk");
-			}
-			if (Input::GetKey(eKeyCode::W))
-			{
-				mState = PlayerScript::eState::Walk;
-				mDirection = PlayerScript::eDirection::Up;
+			nextAction();
+		}
+		if (Input::GetKey(eKeyCode::A))
+		{
+			mState = PlayerScript::eState::Walk;
+			mDirection = PlayerScript::eDirection::Left;
 
-				mAnimator->PlayeAnimation(L"UpWalk");
-			}
-			if (Input::GetKey(eKeyCode::S))
-			{
-				mState = PlayerScript::eState::Walk;
-				mDirection = PlayerScript::eDirection::Down;
+			mAnimator->PlayeAnimation(L"LeftWalk");
+		}
+		if (Input::GetKey(eKeyCode::W))
+		{
+			mState = PlayerScript::eState::Walk;
+			mDirection = PlayerScript::eDirection::Up;
 
-				mAnimator->PlayeAnimation(L"DownWalk");
-			}
+			mAnimator->PlayeAnimation(L"UpWalk");
+		}
+		if (Input::GetKey(eKeyCode::S))
+		{
+			mState = PlayerScript::eState::Walk;
+			mDirection = PlayerScript::eDirection::Down;
+
+			mAnimator->PlayeAnimation(L"DownWalk");
 		}
 
 		nextAction();
@@ -257,34 +256,164 @@ namespace in
 		}
 	}
 
+	// Effect Ãß°¡
 	void PlayerScript::breakStone()
 	{
-		GameObject* mFarm_Stone1 = Object::Instantiate<GameObject>(eLayerType::Object, SetVector(500.0f, 500.0f));
+		GameObject* mFarm_Stone = Object::Instantiate<GameObject>(eLayerType::Object);
+		Texture* stoneTexture = Resources::Find<Texture>(L"Farm_Stone");
 
-		Texture* stoneTexture1 = Resources::Find<Texture>(L"Farm_Stone1");
+		Animator* stone_animator = mFarm_Stone->AddComponent<Animator>();
 
-		Animator* stone_animator1 = mFarm_Stone1->AddComponent<Animator>();
+		stone_animator->CreateAnimation(L"BreakStone", stoneTexture
+			, SetVector(0.0f, 0.0f), SetVector(15.0f, 15.0f), SetVector::Zero, 2, 0.1f);
 
-		stone_animator1->CreateAnimation(L"BreakStone1", stoneTexture1
-			, SetVector(0.0f, 0.0f), SetVector(16.0f, 17.0f), SetVector::Zero, 2, 0.1f);
+		stone_animator->PlayeAnimation(L"BreakStone", false);
 
-		stone_animator1->PlayeAnimation(L"BreakStone1", false);
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		SetVector pos = tr->GetPosition();
 
-		mFarm_Stone1->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
+		mFarm_Stone->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
+
+		if (mDirection == eDirection::Left)
+		{
+			mFarm_Stone->GetComponent<Transform>()->SetPos(SetVector(pos.x - 100.0f, pos.y - 30.0f));
+		}
+		else if (mDirection == eDirection::Right)
+		{
+			mFarm_Stone->GetComponent<Transform>()->SetPos(SetVector(pos.x, pos.y - 30.0f));
+		}
+		else if (mDirection == eDirection::Up)
+		{
+			mFarm_Stone->GetComponent<Transform>()->SetPos(SetVector(pos.x-50.0f, pos.y-60.0f));
+		}
+		else if (mDirection == eDirection::Down)
+		{
+			mFarm_Stone->GetComponent<Transform>()->SetPos(SetVector(pos.x-50.0f, pos.y+10.0f));
+		}
+	}
+
+	void PlayerScript::diggingGround()
+	{
+		GameObject* mFarm_digging = Object::Instantiate<GameObject>(eLayerType::Object);
+		Texture* diggingTexture = Resources::Find<Texture>(L"Farm_DiggingGround");
+
+		Animator* digging_animator = mFarm_digging->AddComponent<Animator>();
+
+		digging_animator->CreateAnimation(L"DiggingGorund", diggingTexture
+			, SetVector(0.0f, 0.0f), SetVector(16.0f, 16.0f), SetVector::Zero, 1, 0.1f);
+
+		digging_animator->PlayeAnimation(L"DiggingGorund", false);
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		SetVector pos = tr->GetPosition();
+
+		mFarm_digging->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
+
+		if (mDirection == eDirection::Left)
+		{
+			mFarm_digging->GetComponent<Transform>()->SetPos(SetVector(pos.x - 80.0f, pos.y - 30.0f));
+		}
+		else if (mDirection == eDirection::Right)
+		{
+			mFarm_digging->GetComponent<Transform>()->SetPos(SetVector(pos.x - 10.0f, pos.y - 30.0f));
+		}
+		else if (mDirection == eDirection::Up)
+		{
+			mFarm_digging->GetComponent<Transform>()->SetPos(SetVector(pos.x - 50.0f, pos.y - 60.0f));
+		}
+		else if (mDirection == eDirection::Down)
+		{
+			mFarm_digging->GetComponent<Transform>()->SetPos(SetVector(pos.x - 50.0f, pos.y + 10.0f));
+		}
+	}
+
+	void PlayerScript::wetGround()
+	{
+		GameObject* mFarm_wet = Object::Instantiate<GameObject>(eLayerType::Object);
+		Texture* wetTexture = Resources::Find<Texture>(L"Farm_WetGround");
+
+		Animator* wet_animator = mFarm_wet->AddComponent<Animator>();
+
+		wet_animator->CreateAnimation(L"WetGround", wetTexture
+			, SetVector(0.0f, 0.0f), SetVector(16.0f, 16.0f), SetVector::Zero, 2, 0.1f);
+
+		wet_animator->PlayeAnimation(L"WetGround", false);
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		SetVector pos = tr->GetPosition();
+
+		mFarm_wet->GetComponent<Transform>()->SetScale(SetVector(2.5f, 2.5f));
+
+		if (mDirection == eDirection::Left)
+		{
+			mFarm_wet->GetComponent<Transform>()->SetPos(SetVector(pos.x - 80.0f, pos.y - 30.0f));
+		}
+		else if (mDirection == eDirection::Right)
+		{
+			mFarm_wet->GetComponent<Transform>()->SetPos(SetVector(pos.x - 10.0f, pos.y - 30.0f));
+		}
+		else if (mDirection == eDirection::Up)
+		{
+			mFarm_wet->GetComponent<Transform>()->SetPos(SetVector(pos.x - 50.0f, pos.y - 60.0f));
+		}
+		else if (mDirection == eDirection::Down)
+		{
+			mFarm_wet->GetComponent<Transform>()->SetPos(SetVector(pos.x - 50.0f, pos.y + 10.0f));
+		}
+	}
+
+	void PlayerScript::treeCollapse()
+	{
+		GameObject* mFarm_collaps = Object::Instantiate<GameObject>(eLayerType::Object);
+		Texture* collapseLeftTexture = Resources::Find<Texture>(L"Farm_TreeCollapse_Left");
+		Texture* collapseRightTexture = Resources::Find<Texture>(L"Farm_TreeCollapse_Right");
+
+		Animator* collapse_animator = mFarm_collaps->AddComponent<Animator>();
+
+		collapse_animator->CreateAnimation(L"TreeCollapseLeft", collapseLeftTexture
+			, SetVector(0.0f, 0.0f), SetVector(164.0f, 110.0f), SetVector::Zero, 10, 0.1f);
+		collapse_animator->CreateAnimation(L"TreeCollapseRight", collapseRightTexture
+			, SetVector(0.0f, 0.0f), SetVector(164.0f, 112.0f), SetVector::Zero, 10, 0.1f);
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		SetVector pos = tr->GetPosition();
+
+		mFarm_collaps->GetComponent<Transform>()->SetScale(SetVector(2.0f, 2.0f));
+
+		if (mDirection == eDirection::Left)
+		{
+			collapse_animator->PlayeAnimation(L"TreeCollapseLeft", false);
+			mFarm_collaps->GetComponent<Transform>()->SetPos(SetVector(pos.x-160.0f, pos.y-120.0f));
+		}
+		else if (mDirection == eDirection::Right)
+		{
+			collapse_animator->PlayeAnimation(L"TreeCollapseRight", false);
+			mFarm_collaps->GetComponent<Transform>()->SetPos(SetVector(pos.x-80.0f, pos.y-120.0f));
+		}
+		else if (mDirection == eDirection::Down)
+		{
+			collapse_animator->PlayeAnimation(L"TreeCollapseLeft", false);
+			mFarm_collaps->GetComponent<Transform>()->SetPos(SetVector(pos.x - 116.0f, pos.y-80.0f));
+		}
+		else if (mDirection == eDirection::Up)
+		{
+			collapse_animator->PlayeAnimation(L"TreeCollapseRight", false);
+			mFarm_collaps->GetComponent<Transform>()->SetPos(SetVector(pos.x - 116.0f, pos.y - 160.0f));
+		}
 	}
 
 	void PlayerScript::nextAction()
 	{
-		if (mDirection == PlayerScript::eDirection::Right)
+		if (mDirection == eDirection::Right)
 			rightAction();
 
-		if (mDirection == PlayerScript::eDirection::Left)
+		if (mDirection == eDirection::Left)
 			leftAction();
 
-		if (mDirection == PlayerScript::eDirection::Up)
+		if (mDirection == eDirection::Up)
 			upAction();
 
-		if (mDirection == PlayerScript::eDirection::Down)
+		if (mDirection == eDirection::Down)
 			downAction();
 	}
 
@@ -295,6 +424,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"RightGiveWater", false);
+			mAnimator->GetCompleteEvent(L"RightGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -302,6 +432,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"RightUsingAxes", false);
+			mAnimator->GetCompleteEvent(L"RightUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -309,6 +440,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"RightUsingHoes", false);
+			mAnimator->GetCompleteEvent(L"RightUsingHoes") = bind(&PlayerScript::diggingGround, this);
 		}
 
 		// UsingScythe
@@ -323,6 +455,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"RightUsingPickaxes", false);
+			mAnimator->GetCompleteEvent(L"RightUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 		}
 
 		// PickUpWalk
@@ -368,6 +501,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"LeftGiveWater", false);
+			mAnimator->GetCompleteEvent(L"LeftGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -375,6 +509,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"LeftUsingAxes", false);
+			mAnimator->GetCompleteEvent(L"LeftUsingAxes") = bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -382,6 +517,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"LeftUsingHoes", false);
+			mAnimator->GetCompleteEvent(L"LeftUsingHoes") = bind(&PlayerScript::diggingGround, this);
 		}
 
 		// UsingScythe
@@ -396,6 +532,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"LeftUsingPickaxes", false);
+			mAnimator->GetCompleteEvent(L"LeftUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 		}
 
 		// PickUpWalk
@@ -441,6 +578,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"DownGiveWater", false);
+			mAnimator->GetCompleteEvent(L"DownGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -448,6 +586,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"DownUsingAxes", false);
+			mAnimator->GetCompleteEvent(L"DownUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -455,6 +594,8 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"DownUsingHoes", false);
+			mAnimator->GetCompleteEvent(L"DownUsingHoes") = bind(&PlayerScript::diggingGround, this);
+
 		}
 
 		// UsingScythe
@@ -469,6 +610,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"DownUsingPickaxes", false);
+			mAnimator->GetCompleteEvent(L"DownUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 		}
 
 		// PickUpWalk
@@ -514,6 +656,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"UpGiveWater", false);
+			mAnimator->GetCompleteEvent(L"UpGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -521,6 +664,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"UpUsingAxes", false);
+			mAnimator->GetCompleteEvent(L"UpUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -528,6 +672,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"UpUsingHoes", false);
+			mAnimator->GetCompleteEvent(L"UpUsingHoes") = bind(&PlayerScript::diggingGround, this);
 		}
 
 		// UsingScythe
@@ -542,6 +687,8 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"UpUsingPickaxes", false);
+			mAnimator->GetCompleteEvent(L"UpUsingPickaxes") = bind(&PlayerScript::breakStone, this);
+
 		}
 
 		// PickUpWalk

@@ -54,7 +54,7 @@ namespace in
 	void Application::clearRenderTarger()
 	{
 		// clear
-		Rectangle(mBackHdc, -10, -10, 1410, 710);
+		Rectangle(mBackHdc, -10, -10, 1500, 800);
 	}
 
 	void Application::copyRenderTarget(HDC source, HDC dest)
