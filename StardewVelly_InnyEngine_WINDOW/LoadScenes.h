@@ -16,6 +16,6 @@ namespace in
 		SceneManager::CreateScene<Mine_Lobby_Scene>(L"Mine_Lobby_Scene");
 		SceneManager::CreateScene<Mine_B1_Scene>(L"Mine_B1_Scene");
 
-		SceneManager::LoadScene(L"FarmScene");
+		SceneManager::LoadScene(L"IntroScene");
 	}
 }

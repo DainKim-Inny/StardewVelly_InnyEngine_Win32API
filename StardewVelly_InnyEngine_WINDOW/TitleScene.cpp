@@ -185,6 +185,8 @@ namespace in
 	{
 		Scene::LateUpdate();
 
+		SetVector mousePos = Input::GetMousePosition();
+
 		if (Input::GetKeyDown(eKeyCode::MouseRB))
 		{
 			SceneManager::LoadScene(L"FarmScene");

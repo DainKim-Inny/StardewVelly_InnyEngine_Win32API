@@ -51,7 +51,7 @@ namespace in
 		SceneManager::LateUpdate();
 	}
 
-	void Application::clearRenderTarger()
+	void Application::clearRenderTarget()
 	{
 		// clear
 		Rectangle(mBackHdc, -10, -10, 1500, 800);
@@ -98,7 +98,7 @@ namespace in
 
 	void Application::Render()
 	{
-		clearRenderTarger();
+		clearRenderTarget();
 
 		Time::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);

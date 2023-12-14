@@ -78,7 +78,7 @@ namespace in
 
 		mTime += Time::DeltaTime();
 
-		if (mTime > 3.0f)
+		if (mTime > 2.0f)
 		{
 			SceneManager::LoadScene(L"TitleScene");
 		}

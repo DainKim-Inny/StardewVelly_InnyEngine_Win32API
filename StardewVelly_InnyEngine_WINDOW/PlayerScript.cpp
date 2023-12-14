@@ -402,6 +402,8 @@ namespace in
 		}
 	}
 
+
+
 	void PlayerScript::nextAction()
 	{
 		if (mDirection == eDirection::Right)
@@ -424,7 +426,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"RightGiveWater", false);
-			mAnimator->GetCompleteEvent(L"RightGiveWater") = bind(&PlayerScript::wetGround, this);
+			// mAnimator->GetCompleteEvent(L"RightGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -432,7 +434,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"RightUsingAxes", false);
-			mAnimator->GetCompleteEvent(L"RightUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
+			// mAnimator->GetCompleteEvent(L"RightUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -440,7 +442,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"RightUsingHoes", false);
-			mAnimator->GetCompleteEvent(L"RightUsingHoes") = bind(&PlayerScript::diggingGround, this);
+			// mAnimator->GetCompleteEvent(L"RightUsingHoes") = bind(&PlayerScript::diggingGround, this);
 		}
 
 		// UsingScythe
@@ -455,7 +457,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"RightUsingPickaxes", false);
-			mAnimator->GetCompleteEvent(L"RightUsingPickaxes") = bind(&PlayerScript::breakStone, this);
+			// mAnimator->GetCompleteEvent(L"RightUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 		}
 
 		// PickUpWalk
@@ -501,7 +503,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"LeftGiveWater", false);
-			mAnimator->GetCompleteEvent(L"LeftGiveWater") = bind(&PlayerScript::wetGround, this);
+			// mAnimator->GetCompleteEvent(L"LeftGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -509,7 +511,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"LeftUsingAxes", false);
-			mAnimator->GetCompleteEvent(L"LeftUsingAxes") = bind(&PlayerScript::treeCollapse, this);
+			// mAnimator->GetCompleteEvent(L"LeftUsingAxes") = bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -517,7 +519,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"LeftUsingHoes", false);
-			mAnimator->GetCompleteEvent(L"LeftUsingHoes") = bind(&PlayerScript::diggingGround, this);
+			// mAnimator->GetCompleteEvent(L"LeftUsingHoes") = bind(&PlayerScript::diggingGround, this);
 		}
 
 		// UsingScythe
@@ -532,7 +534,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"LeftUsingPickaxes", false);
-			mAnimator->GetCompleteEvent(L"LeftUsingPickaxes") = bind(&PlayerScript::breakStone, this);
+			// mAnimator->GetCompleteEvent(L"LeftUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 		}
 
 		// PickUpWalk
@@ -578,7 +580,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"DownGiveWater", false);
-			mAnimator->GetCompleteEvent(L"DownGiveWater") = bind(&PlayerScript::wetGround, this);
+			// mAnimator->GetCompleteEvent(L"DownGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -586,7 +588,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"DownUsingAxes", false);
-			mAnimator->GetCompleteEvent(L"DownUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
+			// mAnimator->GetCompleteEvent(L"DownUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -594,7 +596,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"DownUsingHoes", false);
-			mAnimator->GetCompleteEvent(L"DownUsingHoes") = bind(&PlayerScript::diggingGround, this);
+			// mAnimator->GetCompleteEvent(L"DownUsingHoes") = bind(&PlayerScript::diggingGround, this);
 
 		}
 
@@ -610,7 +612,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"DownUsingPickaxes", false);
-			mAnimator->GetCompleteEvent(L"DownUsingPickaxes") = bind(&PlayerScript::breakStone, this);
+			// mAnimator->GetCompleteEvent(L"DownUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 		}
 
 		// PickUpWalk
@@ -656,7 +658,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::GiveWater;
 			mAnimator->PlayeAnimation(L"UpGiveWater", false);
-			mAnimator->GetCompleteEvent(L"UpGiveWater") = bind(&PlayerScript::wetGround, this);
+			// mAnimator->GetCompleteEvent(L"UpGiveWater") = bind(&PlayerScript::wetGround, this);
 		}
 
 		// UsingAxes
@@ -664,7 +666,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingAxes;
 			mAnimator->PlayeAnimation(L"UpUsingAxes", false);
-			mAnimator->GetCompleteEvent(L"UpUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
+			// mAnimator->GetCompleteEvent(L"UpUsingAxes") = std::bind(&PlayerScript::treeCollapse, this);
 		}
 
 		// UsingHoes
@@ -672,7 +674,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingHoes;
 			mAnimator->PlayeAnimation(L"UpUsingHoes", false);
-			mAnimator->GetCompleteEvent(L"UpUsingHoes") = bind(&PlayerScript::diggingGround, this);
+			// mAnimator->GetCompleteEvent(L"UpUsingHoes") = bind(&PlayerScript::diggingGround, this);
 		}
 
 		// UsingScythe
@@ -687,7 +689,7 @@ namespace in
 		{
 			mState = PlayerScript::eState::UsingPickaxes;
 			mAnimator->PlayeAnimation(L"UpUsingPickaxes", false);
-			mAnimator->GetCompleteEvent(L"UpUsingPickaxes") = bind(&PlayerScript::breakStone, this);
+			// mAnimator->GetCompleteEvent(L"UpUsingPickaxes") = bind(&PlayerScript::breakStone, this);
 
 		}
 
