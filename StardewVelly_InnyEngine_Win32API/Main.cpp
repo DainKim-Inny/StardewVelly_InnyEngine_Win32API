@@ -4,8 +4,12 @@
 #include "StardewVelly_InnyEngine_Win32API.h"
 
 #include "..\\StardewVelly_InnyEngine_SOURCE\\Application.h"
+#include "..\\StardewVelly_InnyEngine_SOURCE\\Resources.h"
+#include "..\\StardewVelly_InnyEngine_SOURCE\\\Texture.h"
+
 #include "..\\StardewVelly_InnyEngine_WINDOW\\LoadScenes.h"
 #include "..\\StardewVelly_InnyEngine_WINDOW\\LoadResources.h"
+#include "..\\StardewVelly_InnyEngine_WINDOW\\TileMapToolScene.h"
 
 in::Application application;
 
@@ -134,7 +138,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    // MapToolWindow 창 생성
    HWND MapToolHwnd = CreateWindowW(L"TILEMAPTOOLWINDOW", L"TileMapToolWindow", WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+       0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
    application.Initialize(hWnd, width, height);
 
@@ -146,18 +150,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
-   ShowWindow(MapToolHwnd, nCmdShow);
-   UpdateWindow(MapToolHwnd);
-
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
-
    in::LoadResources();
-   // Load Scenes
    in::LoadScenes();
 
    int a = 0;
    srand((unsigned int)(&a));
+
+   in::Texture* texture = in::Resources::Find<in::Texture>(L"TileMap_SpringFarm");
+
+   RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
+   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+   UINT toolWidth = rect.right - rect.left;
+   UINT toolHeight = rect.bottom - rect.top;
+
+   SetWindowPos(MapToolHwnd, nullptr, width, 0, toolWidth, toolHeight, 0);
+   ShowWindow(MapToolHwnd, true);
+   UpdateWindow(MapToolHwnd);
 
    return TRUE;
 }
@@ -209,46 +220,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
-
-// MapToolWindows 창 메시지 출력
-LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    switch (message)
-    {
-    case WM_COMMAND:
-    {
-        int wmId = LOWORD(wParam);
-        // 메뉴 선택을 구문 분석합니다:
-        switch (wmId)
-        {
-        case IDM_ABOUT:
-            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-            break;
-        case IDM_EXIT:
-            DestroyWindow(hWnd);
-            break;
-        default:
-            return DefWindowProc(hWnd, message, wParam, lParam);
-        }
-    }
-    break;
-    case WM_PAINT:
-    {
-        PAINTSTRUCT ps;
-        HDC hdc = BeginPaint(hWnd, &ps);
-
-        EndPaint(hWnd, &ps);
-    }
-    break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-    }
-    return 0;
-}
-
 
 // 정보 대화 상자의 메시지 처리기입니다.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)

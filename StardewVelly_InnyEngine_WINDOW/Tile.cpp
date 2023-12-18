@@ -1,4 +1,6 @@
 #include "Tile.h"
+#include "Transform.h"
+#include "TileMapRenderer.h"
 
 namespace in
 {
@@ -20,5 +22,14 @@ namespace in
 	void Tile::Render(HDC hdc)
 	{
 		GameObject::Render(hdc);
+	}
+
+	void Tile::SetPoistion(int x, int y)
+	{
+		Transform* tr = GetComponent<Transform>();
+		SetVector pos;
+		pos.x = x * TileMapRenderer::TileSize.x;
+		pos.y = y * TileMapRenderer::TileSize.y;
+		tr->SetPos(pos);
 	}
 }

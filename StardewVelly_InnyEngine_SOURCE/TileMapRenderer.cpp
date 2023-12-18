@@ -6,6 +6,8 @@
 
 namespace in
 {
+	SetVector TileMapRenderer::TileSize = SetVector::One;
+
 	TileMapRenderer::TileMapRenderer()
 		: Component(eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
@@ -13,6 +15,7 @@ namespace in
 		, mIndex(0, 0)
 		, mTileSize(16.0f, 16.0f)
 	{
+		TileSize = mTileSize * mSize;
 	}
 
 	TileMapRenderer::~TileMapRenderer()
@@ -63,7 +66,5 @@ namespace in
 				, mTileSize.y
 				, func);
 		}
-
-		int a = 0;
 	}
 }

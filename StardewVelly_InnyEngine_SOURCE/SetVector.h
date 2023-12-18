@@ -39,5 +39,10 @@ namespace in
 		{
 			return SetVector(x / value, y / value);
 		}
+
+		SetVector operator*(SetVector other)
+		{
+			return SetVector(x * other.x, y * other.y);
+		}
 	};
 }
