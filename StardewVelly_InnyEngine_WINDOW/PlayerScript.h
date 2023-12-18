@@ -10,16 +10,20 @@ namespace in
 		{
 			Idle,
 			Walk,
-			GiveWater,  // 물주기(ONE)
-			UsingAxes,  // 도끼질(TWO)
-			UsingHoes,  // 호미질(THREE)
-			UsingScythe,  // 낫질(FOUR)
-			UsingPickaxes,  // 곡괭이질(FIVE)
-			PickUpWalk,  // 채집(SIX)
-			Fishing,  // 낚시(SEVEN)
-			Hunting,  // 사냥(EIGHT)
-			Eatting_Ready,  // 아이템 먹기 준비(NINE)
-			Eatting_Go,  // 아이템 먹기(ZERO)
+			Eatting,
+			PickUp,
+			UsingEquipment,
+		};
+
+		enum class eEquipment
+		{
+			None,
+			GiveWater,
+			UsingAxes,
+			UsingHoes,
+			UsingScythe,
+			Attack,
+			//Fishing -> Animation sprite 구현 후 다시 작성 필요
 		};
 
 		enum class eDirection
@@ -38,36 +42,21 @@ namespace in
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		// Effect 추가
-		void breakStone();
-		void diggingGround();
-		void wetGround();
-		void treeCollapse();
+	private:
+		wstring GetDirection();
+		void ActionByDirection();
+		void CompleteCheckAndStopAnimation();
 
 	private:
-		void idle();
-		void walk();
-		void giveWater();
-		void usingAxes();
-		void usingHose();
-		void usingScythe();
-		void usingPickaxes();
-		void pickUpWalk();
-		void eattingReady();
-		void eattingGo();
-		void fishing();
-		void hunting();
-
-		void nextAction();
-
-		void rightAction();
-		void leftAction();
-		void downAction();
-		void upAction();
-		void endingAction();
+		void Idle();
+		void Walk();
+		void Eatting();
+		void Pickup();
+		void UsingEquipment();
 
 	private:
 		eState mState;
+		eEquipment mEquipment;
 		eDirection mDirection;
 		class Animator* mAnimator;
 	};

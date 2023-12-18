@@ -99,9 +99,6 @@
     <ClInclude Include="IntroScene.h">
       <Filter>Scene\1. IntroScene</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerScript.h">
-      <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>GameObject\Player</Filter>
     </ClInclude>
@@ -126,6 +123,9 @@
     <ClInclude Include="Mine_Lobby_Scene.h">
       <Filter>Scene\3. PlayScene\2. MineScene\1. Main</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerScript.h">
+      <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TitleScene.cpp">
@@ -133,9 +133,6 @@
     </ClCompile>
     <ClCompile Include="IntroScene.cpp">
       <Filter>Scene\1. IntroScene</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerScript.cpp">
-      <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>GameObject\Player</Filter>
@@ -160,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="Mine_Lobby_Scene.cpp">
       <Filter>Scene\3. PlayScene\2. MineScene\1. Main</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerScript.cpp">
+      <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

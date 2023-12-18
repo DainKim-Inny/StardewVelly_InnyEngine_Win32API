@@ -7,11 +7,11 @@
 #include "Object.h"
 #include "Texture.h"
 #include "Resources.h"
-#include "PlayerScript.h"
 #include "Camera.h"
 #include "Renderer.h"
 #include "Animator.h"
 #include "Mine_B1_Scene.h"
+#include "PlayerScript.h"
 
 using namespace std;
 
@@ -211,11 +211,8 @@ namespace in
 
 			// Eatting (Ready, Go)
 			{
-				player_animator->CreateAnimation(L"Eatting_Ready", playerTexture
-					, SetVector(0.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 2, 0.2f);
-
-				player_animator->CreateAnimation(L"Eatting_Go", playerTexture
-					, SetVector(500.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 8, 0.1f);
+				player_animator->CreateAnimation(L"Eatting", playerTexture
+					, SetVector(0.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 10, 0.1f);
 			}
 
 			// Fishing -> 이미지 편집 필요
