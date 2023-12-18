@@ -148,7 +148,9 @@
     <ClInclude Include="MonsterScript.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerScript.h" />
+    <ClInclude Include="Tile.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="TileMapToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BirdScript.cpp" />
@@ -161,7 +163,9 @@
     <ClCompile Include="MonsterScript.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerScript.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="TileMapToolScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

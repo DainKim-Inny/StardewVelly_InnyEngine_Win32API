@@ -22,6 +22,7 @@ namespace in
 		Logo_Bottom,
 		Logo_Top,
 		Button, 
+		Tile,
 		Object,
 		Player,
 		UI,

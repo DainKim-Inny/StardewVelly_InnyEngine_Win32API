@@ -89,6 +89,12 @@
     <Filter Include="Scene\3. PlayScene\2. MineScene\1. Main">
       <UniqueIdentifier>{41241879-416d-4200-a3cb-9f97f6fc4c4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\6. ToolScene">
+      <UniqueIdentifier>{a6a3a594-d0b1-48e9-9fe0-3ab87677dca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Tile">
+      <UniqueIdentifier>{e4be068e-86f1-4a8f-a317-d594673d7845}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScene.h">
@@ -126,6 +132,12 @@
     <ClInclude Include="PlayerScript.h">
       <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
     </ClInclude>
+    <ClInclude Include="TileMapToolScene.h">
+      <Filter>Scene\6. ToolScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>GameObject\Tile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TitleScene.cpp">
@@ -160,6 +172,12 @@
     </ClCompile>
     <ClCompile Include="PlayerScript.cpp">
       <Filter>Script\1. CommonScript\1. PlayerScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapToolScene.cpp">
+      <Filter>Scene\6. ToolScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>GameObject\Tile</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

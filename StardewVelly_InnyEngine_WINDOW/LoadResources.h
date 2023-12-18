@@ -45,5 +45,10 @@ namespace in
 			Resources::Load<Texture>(L"Mine_B1_Slime", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_Slime.bmp");
 			Resources::Load<Texture>(L"Mine_Lobby_BG", L"..\\Resource\\4.PlayScene\\2.MineScene\\1.Texture\\Mine_Looby.bmp");
 		}
+
+		// TileMapToolScene Resources Load
+		{
+			Resources::Load<Texture>(L"TileMap_SpringFarm", L"..\\Resource\\6.TileMapToolScene\\TileMap_SpringFarm.bmp");
+		}
 	}
 }

@@ -28,7 +28,4 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
 </Project>

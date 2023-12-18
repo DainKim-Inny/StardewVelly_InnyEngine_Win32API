@@ -209,7 +209,7 @@ namespace in
 					, SetVector(1750.0f, 2750.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 5, 0.1f);
 			}
 
-			// Eatting (Ready, Go)
+			// Eatting
 			{
 				player_animator->CreateAnimation(L"Eatting", playerTexture
 					, SetVector(0.0f, 4000.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 10, 0.1f);

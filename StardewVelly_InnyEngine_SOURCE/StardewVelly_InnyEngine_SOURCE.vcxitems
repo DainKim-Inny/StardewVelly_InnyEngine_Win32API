@@ -35,6 +35,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SetVector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Texture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)TileMapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Time.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Transform.h" />
   </ItemGroup>
@@ -57,6 +58,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SetVector.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Texture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TileMapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp" />
   </ItemGroup>
