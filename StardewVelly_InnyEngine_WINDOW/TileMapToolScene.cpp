@@ -50,7 +50,9 @@ namespace in
 
 			Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
 			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+
 			tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
+			tmr->SetIndex(TileMapRenderer::SelectedIndex);
 
 			tile->SetPoistion(idxX, idyY);
 		}
@@ -90,6 +92,21 @@ LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 {
 	switch (message)
 	{
+	case WM_LBUTTONDOWN:
+	{
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(hWnd, &mousePos);
+
+		in::SetVector mousePosition;
+		mousePosition.x = mousePos.x;
+		mousePosition.y = mousePos.y;
+
+		int idxX = mousePosition.x / in::TileMapRenderer::OriginTileSize.x;
+		int idxY = mousePosition.y / in::TileMapRenderer::OriginTileSize.y;
+
+		in::TileMapRenderer::SelectedIndex = in::SetVector(idxX, idxY);
+	}
 	case WM_PAINT:
 	{
 		PAINTSTRUCT ps;

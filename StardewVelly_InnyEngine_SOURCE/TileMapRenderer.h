@@ -18,9 +18,12 @@ namespace in
 
 		void SetTexture(Texture* texture) { mTexture = texture; }
 		void SetSize(SetVector size) { mSize = size; }
+		void SetIndex(SetVector index) { mIndex = index; }
 
 	public:
 		static SetVector TileSize;
+		static SetVector OriginTileSize;
+		static SetVector SelectedIndex;
 
 	private:
 		SetVector mTileSize;
