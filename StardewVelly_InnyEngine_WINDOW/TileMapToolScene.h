@@ -1,5 +1,8 @@
 #pragma once
 #include "..\\StardewVelly_InnyEngine_SOURCE\\Scene.h"
+#include "Tile.h"
+
+using namespace std;
 
 namespace in
 {
@@ -16,6 +19,12 @@ namespace in
 
 		void OnEnter() override;
 		void OnExit() override;
+
+		void Save();
+		void Load();
+
+	private:
+		vector<Tile*> mTiles;
 	};
 }
 

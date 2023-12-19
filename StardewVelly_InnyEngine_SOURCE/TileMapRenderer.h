@@ -18,6 +18,7 @@ namespace in
 
 		void SetTexture(Texture* texture) { mTexture = texture; }
 		void SetSize(SetVector size) { mSize = size; }
+		SetVector GetIndex() { return mIndex; }
 		void SetIndex(SetVector index) { mIndex = index; }
 
 	public:

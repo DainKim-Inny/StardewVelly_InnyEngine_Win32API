@@ -55,6 +55,16 @@ namespace in
 			tmr->SetIndex(TileMapRenderer::SelectedIndex);
 
 			tile->SetPoistion(idxX, idyY);
+			mTiles.push_back(tile);
+		}
+
+		if (Input::GetKeyDown(eKeyCode::S))
+		{
+			Save();
+		}
+		if (Input::GetKeyDown(eKeyCode::L))
+		{
+			Load();
 		}
 	}
 	
@@ -78,12 +88,116 @@ namespace in
 	
 	void TileMapToolScene::OnEnter()
 	{
-		Scene::Update();
+		Scene::OnEnter();
 	}
 	
 	void TileMapToolScene::OnExit()
 	{
-		Scene::Update();
+		Scene::OnExit();
+	}
+
+	void TileMapToolScene::Save()
+	{
+		// Open a file name
+		OPENFILENAME ofn = {};
+
+		wchar_t szFilePath[256] = {};
+
+		ZeroMemory(&ofn, sizeof(ofn));
+		ofn.lStructSize = sizeof(ofn);
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFilePath;
+		ofn.lpstrFile[0] = '\0';
+		ofn.nMaxFile = 256;
+		ofn.lpstrFilter = L"Tile\0*.tile\0";
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+		if (false == GetSaveFileName(&ofn))
+			return;
+
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, szFilePath, L"wb");
+
+		for (Tile* tile : mTiles)
+		{
+			TileMapRenderer* tmr = tile->GetComponent<TileMapRenderer>();
+			Transform* tr = tile->GetComponent<Transform>();
+
+			SetVector sourceIndex = tmr->GetIndex();
+			SetVector position = tr->GetPosition();
+
+			int x = sourceIndex.x;
+			fwrite(&x, sizeof(int), 1, pFile);
+
+			int y = sourceIndex.y;
+			fwrite(&y, sizeof(int), 1, pFile);
+
+			x = position.x;
+			fwrite(&x, sizeof(int), 1, pFile);
+
+			y = position.y;
+			fwrite(&y, sizeof(int), 1, pFile);
+		}
+
+		fclose(pFile);
+	}
+	
+	void TileMapToolScene::Load()
+	{
+		OPENFILENAME ofn = {};
+
+		wchar_t szFilePath[256] = {};
+
+		ZeroMemory(&ofn, sizeof(ofn));
+		ofn.lStructSize = sizeof(ofn);
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFilePath;
+		ofn.lpstrFile[0] = '\0';
+		ofn.nMaxFile = 256;
+		ofn.lpstrFilter = L"All\0*.*\0Text\0*.TXT\0";
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+		if (false == GetOpenFileName(&ofn))
+			return;
+
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, szFilePath, L"rb");
+
+		while (true)
+		{
+			int idxX = 0;
+			int idxY = 0;
+
+			int posX = 0;
+			int posY = 0;
+
+			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+				break;
+
+			Tile* tile = Object::Instantiate <Tile>(eLayerType::Tile);
+			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+			tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
+			tmr->SetIndex(SetVector(idxX, idxY));
+
+			tile->SetPoistion(posX, posY);
+			mTiles.push_back(tile);
+		}
+
+		fclose(pFile);
 	}
 }
 
