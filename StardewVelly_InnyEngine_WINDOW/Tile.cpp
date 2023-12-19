@@ -24,7 +24,7 @@ namespace in
 		GameObject::Render(hdc);
 	}
 
-	void Tile::SetPoistion(int x, int y)
+	void Tile::SetIndexPosition(int x, int y)
 	{
 		Transform* tr = GetComponent<Transform>();
 		SetVector pos;

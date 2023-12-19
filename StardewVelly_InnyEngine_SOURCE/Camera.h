@@ -6,10 +6,11 @@ namespace in
 	class Camera : public Component
 	{
 	public:
+		SetVector CalculatePosition(SetVector pos) { return pos - mDistance; }
+		SetVector CalculateTilePosition(SetVector pos) { return pos + mDistance; }
+
 		Camera();
 		~Camera();
-
-		SetVector CalculatePosition(SetVector pos) { return pos - mDistance; }
 
 		void Initialize() override;
 		void Update() override;

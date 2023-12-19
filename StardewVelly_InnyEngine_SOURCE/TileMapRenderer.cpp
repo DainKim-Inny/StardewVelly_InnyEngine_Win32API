@@ -8,7 +8,7 @@ namespace in
 {
 	SetVector TileMapRenderer::TileSize = SetVector::One;
 	SetVector TileMapRenderer::OriginTileSize = SetVector::One;
-	SetVector TileMapRenderer::SelectedIndex = SetVector(-1.0f, -1.0f);
+	SetVector TileMapRenderer::SelectedIndex = SetVector::One;
 
 	TileMapRenderer::TileMapRenderer()
 		: Component(eComponentType::SpriteRenderer)

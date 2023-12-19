@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="BirdScript.h" />
     <ClInclude Include="buttonScript.h" />
+    <ClInclude Include="CameraScript.h" />
     <ClInclude Include="FarmScene.h" />
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="LoadResources.h" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="BirdScript.cpp" />
     <ClCompile Include="buttonScript.cpp" />
+    <ClCompile Include="CameraScript.cpp" />
     <ClCompile Include="FarmScene.cpp" />
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="Mine_B1_Scene.cpp" />

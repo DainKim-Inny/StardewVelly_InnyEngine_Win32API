@@ -7,6 +7,7 @@
 #include "Tile.h"
 #include "TileMapRenderer.h"
 #include "Input.h"
+#include "CameraScript.h"
 
 namespace in
 {
@@ -20,14 +21,11 @@ namespace in
 	
 	void TileMapToolScene::Initialize()
 	{
-		//GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, SetVector(0.0f, 0.0f));
-		//Camera* cameraComp = camera->AddComponent<Camera>();
-		//renderer::mainCamera = cameraComp;
+		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, SetVector(709.0f, 490.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		camera->AddComponent<CameraScript>();
 
-		Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
-		TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
-
-		tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
+		renderer::mainCamera = cameraComp;
 
 		Scene::Initialize();
 	}
@@ -44,18 +42,22 @@ namespace in
 		if (Input::GetKeyDown(eKeyCode::MouseLB))
 		{
 			SetVector pos = Input::GetMousePosition();
+			pos = renderer::mainCamera->CalculateTilePosition(pos);
 
-			int idxX = pos.x / TileMapRenderer::TileSize.x;
-			int idyY = pos.y / TileMapRenderer::TileSize.y;
+			if (pos.x >= 0.0f && pos.y >= 0.0f)
+			{
+				int idxX = pos.x / TileMapRenderer::TileSize.x;
+				int idxY = pos.y / TileMapRenderer::TileSize.y;
 
-			Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
-			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+				Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
+				TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
 
-			tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
-			tmr->SetIndex(TileMapRenderer::SelectedIndex);
+				tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
+				tmr->SetIndex(TileMapRenderer::SelectedIndex);
 
-			tile->SetPoistion(idxX, idyY);
-			mTiles.push_back(tile);
+				tile->SetIndexPosition(idxX, idxY);
+				mTiles.push_back(tile);
+			}
 		}
 
 		if (Input::GetKeyDown(eKeyCode::S))
@@ -73,16 +75,26 @@ namespace in
 		Scene::Render(hdc);
 
 		// 격자 무늬 추가 (기존 size에서 2배 키운 크기로 격자 생성)
-		for (int i = 0; i < 50; i++)
+		for (int i = 0; i < 100; i++)
 		{
-			MoveToEx(hdc, TileMapRenderer::TileSize.x * i, 0, NULL);
-			LineTo(hdc, TileMapRenderer::TileSize.x * i, 5000);
+			SetVector pos = renderer::mainCamera->CalculatePosition
+			(
+				SetVector(TileMapRenderer::TileSize.x * i, 0.0f)
+			);
+
+			MoveToEx(hdc, pos.x, 0, NULL);
+			LineTo(hdc, pos.x, 5000);
 		}
 
-		for (int i = 0; i < 50; i++)
+		for (int i = 0; i < 100; i++)
 		{
-			MoveToEx(hdc, 0, TileMapRenderer::TileSize.y * i, NULL);
-			LineTo(hdc, 5000, TileMapRenderer::TileSize.y * i);
+			SetVector pos = renderer::mainCamera->CalculatePosition
+			(
+				SetVector(0.0f, TileMapRenderer::TileSize.y * i)
+			);
+
+			MoveToEx(hdc, 0, pos.y, NULL);
+			LineTo(hdc, 5000, pos.y);
 		}
 	}
 	
@@ -188,12 +200,12 @@ namespace in
 			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
 				break;
 
-			Tile* tile = Object::Instantiate <Tile>(eLayerType::Tile);
+			Tile* tile = Object::Instantiate <Tile>(eLayerType::Tile, SetVector(posX, posY));
 			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
 			tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
 			tmr->SetIndex(SetVector(idxX, idxY));
 
-			tile->SetPoistion(posX, posY);
+			tile->SetIndexPosition(posX, posY);
 			mTiles.push_back(tile);
 		}
 
