@@ -45,6 +45,11 @@ namespace in
 			HDC mainDC = application.GetHdc();
 			mHdc = CreateCompatibleDC(mainDC);
 
+			HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+			HBRUSH oldBrush = (HBRUSH)SelectObject(mainDC, transparentBrush);
+			Rectangle(mHdc, -1, -1, GetWidth() + 1, GetHeight() + 1);
+			SelectObject(mainDC, oldBrush);
+
 			HBITMAP oldBitmap = (HBITMAP)SelectObject(mHdc, mBitmap);
 			DeleteObject(oldBitmap);
 		}

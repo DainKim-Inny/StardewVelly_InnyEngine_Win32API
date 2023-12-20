@@ -12,6 +12,7 @@
 #include "Animator.h"
 #include "Mine_B1_Scene.h"
 #include "PlayerScript.h"
+#include "BoxCollider2D.h"
 
 using namespace std;
 
@@ -46,7 +47,7 @@ namespace in
 
 			Texture* bgTexture = Resources::Find<Texture>(L"Farm_BG");
 			bgSr->SetTexture(bgTexture);
-			bgSr->SetSize(SetVector(2.7f, 2.7f));
+			bgSr->SetSize(SetVector(2.1f, 2.1f));
 		}
 
 		// Clock Ãß°¡
@@ -82,7 +83,10 @@ namespace in
 			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(500.0f, 500.0f));
 			PlayerScript* plScript = mFarm_Player->AddComponent<PlayerScript>();
 
-			cameraComp->SetTarget(mFarm_Player);
+			BoxCollider2D* collider = mFarm_Player->AddComponent<BoxCollider2D>();
+			collider->SetOffset(SetVector(-134.0f, -155.0f));
+
+			//cameraComp->SetTarget(mFarm_Player);
 
 			Texture* playerTexture = Resources::Find<Texture>(L"Farm_Player");
 			Texture* playerTexture_Front = Resources::Find<Texture>(L"Farm_PlayerFront");
@@ -247,7 +251,7 @@ namespace in
 
 			player_animator->PlayeAnimation(L"Idle", true);
 
-			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.7f, 0.7f));
+			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.55f, 0.55f));
 		}
 
 		Scene::Initialize();

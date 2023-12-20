@@ -18,6 +18,6 @@ namespace in
 		SceneManager::CreateScene<Mine_B1_Scene>(L"Mine_B1_Scene");
 		//SceneManager::CreateScene<TileMapToolScene>(L"TileMapToolScene");
 
-		SceneManager::LoadScene(L"Mine_B1_Scene");
+		SceneManager::LoadScene(L"FarmScene");
 	}
 }
