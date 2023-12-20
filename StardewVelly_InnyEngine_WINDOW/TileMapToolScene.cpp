@@ -39,7 +39,7 @@ namespace in
 	{
 		Scene::LateUpdate();
 
-		if (Input::GetKeyDown(eKeyCode::MouseLB))
+		if (Input::GetKey(eKeyCode::MouseLB))
 		{
 			SetVector pos = Input::GetMousePosition();
 			pos = renderer::mainCamera->CalculateTilePosition(pos);

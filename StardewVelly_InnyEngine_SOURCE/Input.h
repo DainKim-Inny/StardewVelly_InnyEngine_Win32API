@@ -39,12 +39,12 @@ namespace in
 		static void Update();
 
 		// 키보드 state에 따른 함수
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::DOWN; };
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::UP; };
-		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::PRESSED; };
+		__forceinline static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::DOWN; };
+		__forceinline static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::UP; };
+		__forceinline static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::PRESSED; };
 
 		// 마우스 Position 
-		static SetVector GetMousePosition() { return mMousePosition; }
+		__forceinline static SetVector GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void getMousePositionByWindow();

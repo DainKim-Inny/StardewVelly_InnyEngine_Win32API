@@ -8,6 +8,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <math.h>
 
 #include "SetVector.h"
 
