@@ -60,6 +60,17 @@ namespace in
 			layer->Render(hdc);
 		}
 	}
+
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destroy();
+		}
+	}
 	
 	void Scene::AddGameObject(GameObject* gameObject, const eLayerType type)
 	{

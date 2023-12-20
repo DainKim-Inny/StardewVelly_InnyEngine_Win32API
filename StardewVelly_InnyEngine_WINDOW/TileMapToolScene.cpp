@@ -213,7 +213,7 @@ namespace in
 	}
 }
 
-// MapToolWindows 창 메시지 출력
+ // MapToolWindows 창 메시지 출력
 LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)

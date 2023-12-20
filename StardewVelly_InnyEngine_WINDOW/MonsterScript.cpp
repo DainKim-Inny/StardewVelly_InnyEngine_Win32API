@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "Transform.h"
 #include "Time.h"
+#include "object.h"
 
 namespace in
 {
@@ -12,6 +13,7 @@ namespace in
 		, mDirection(MonsterScript::eDirection::Left)
 		, mTime1(0.0f)
 		, mTime2(0.0f)
+		//, mDeathTime(0.0f)
 	{
 	}
 
@@ -25,6 +27,14 @@ namespace in
 	
 	void MonsterScript::Update()
 	{
+		// Destroy ¿¹½Ã
+		//mDeathTime += Time::DeltaTime();
+
+		//if (mDeathTime > 3.0f)
+		//{
+		//	Object::Destroy(GetOwner());
+		//}
+
 		if (mAnimator == nullptr)
 			mAnimator = GetOwner()->GetComponent<Animator>();
 

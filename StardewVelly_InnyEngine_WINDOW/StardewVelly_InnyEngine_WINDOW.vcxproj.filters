@@ -17,18 +17,6 @@
     <Filter Include="Scene\2. TitleScene">
       <UniqueIdentifier>{37250200-abd0-48d4-9981-be8f8e7137b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\3. PlayScene">
-      <UniqueIdentifier>{87d70d6d-8410-49d8-8494-77d5fac9ccf0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\4. SaveScene">
-      <UniqueIdentifier>{13a7bef6-4bef-4ce5-b130-34b45a0b205b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\5. EndingScene">
-      <UniqueIdentifier>{87990c5a-66be-47eb-9f2a-727fc200cb41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\1. FarmScene">
-      <UniqueIdentifier>{141402de-7592-4ac7-95cc-c317020144bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject">
       <UniqueIdentifier>{14c9ffa1-8dde-45d3-b4ab-86d0284acc51}</UniqueIdentifier>
     </Filter>
@@ -37,42 +25,6 @@
     </Filter>
     <Filter Include="GameObject\Monster">
       <UniqueIdentifier>{47da3dcf-7942-4d1e-b7b3-2155be3b796a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\2. MineScene">
-      <UniqueIdentifier>{7070d48c-cb92-4fbb-9ffb-244b75c90691}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\1. FarmScene\2. House">
-      <UniqueIdentifier>{7c2088ad-4432-440d-bb9f-02118f326fe9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\1. FarmScene\1. Main">
-      <UniqueIdentifier>{33882175-3d7c-4dbe-b654-9ea774ae7d7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\2. MineScene\2. B1 Floor">
-      <UniqueIdentifier>{7ae47e89-dbb1-48ca-aacf-2b570592d6a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\4. BeachScene">
-      <UniqueIdentifier>{ff637ad2-9ce8-469f-98b6-f054c635c643}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\3. PelicanTownScene">
-      <UniqueIdentifier>{af0f99ca-3045-4c60-ad43-b33a642596fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\4. BeachScene\1. Main">
-      <UniqueIdentifier>{2c6fcac5-d4d0-478f-a333-9c3be2f34f64}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\4. BeachScene\2. FishShop">
-      <UniqueIdentifier>{1db2437d-a883-4199-b242-e1a7ce107518}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\3. PelicanTownScene\1. Main">
-      <UniqueIdentifier>{42e33ce8-ae56-4982-a645-327b6ad1f57b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\3. PelicanTownScene\2. GeneralStore">
-      <UniqueIdentifier>{6a33f732-00d7-47fe-b38d-9edc008c7159}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\3. PlayScene\2. MineScene\1. Main">
-      <UniqueIdentifier>{41241879-416d-4200-a3cb-9f97f6fc4c4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\6. ToolScene">
-      <UniqueIdentifier>{a6a3a594-d0b1-48e9-9fe0-3ab87677dca6}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Tile">
       <UniqueIdentifier>{e4be068e-86f1-4a8f-a317-d594673d7845}</UniqueIdentifier>
@@ -94,6 +46,57 @@
     </Filter>
     <Filter Include="Script\4. CameraScript">
       <UniqueIdentifier>{8d6ca5f4-09a3-4b55-839b-ccfd66cc6284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene">
+      <UniqueIdentifier>{87d70d6d-8410-49d8-8494-77d5fac9ccf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\5. SaveScene">
+      <UniqueIdentifier>{13a7bef6-4bef-4ce5-b130-34b45a0b205b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\6. EndingScene">
+      <UniqueIdentifier>{87990c5a-66be-47eb-9f2a-727fc200cb41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\7. ToolScene">
+      <UniqueIdentifier>{a6a3a594-d0b1-48e9-9fe0-3ab87677dca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\1. HomeScene">
+      <UniqueIdentifier>{aa6b89bf-09c2-45fc-becb-84a1e6b3640c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\2. FarmScene">
+      <UniqueIdentifier>{141402de-7592-4ac7-95cc-c317020144bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\2. FarmScene\2. House">
+      <UniqueIdentifier>{7c2088ad-4432-440d-bb9f-02118f326fe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\2. FarmScene\1. Main">
+      <UniqueIdentifier>{33882175-3d7c-4dbe-b654-9ea774ae7d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\3. MineScene">
+      <UniqueIdentifier>{7070d48c-cb92-4fbb-9ffb-244b75c90691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\3. MineScene\2. B1 Floor">
+      <UniqueIdentifier>{7ae47e89-dbb1-48ca-aacf-2b570592d6a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\3. MineScene\1. Main">
+      <UniqueIdentifier>{41241879-416d-4200-a3cb-9f97f6fc4c4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\4. PelicanTownScene">
+      <UniqueIdentifier>{af0f99ca-3045-4c60-ad43-b33a642596fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\4. PelicanTownScene\1. Main">
+      <UniqueIdentifier>{42e33ce8-ae56-4982-a645-327b6ad1f57b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\4. PelicanTownScene\2. GeneralStore">
+      <UniqueIdentifier>{6a33f732-00d7-47fe-b38d-9edc008c7159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\5. BeachScene">
+      <UniqueIdentifier>{ff637ad2-9ce8-469f-98b6-f054c635c643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\5. BeachScene\1. Main">
+      <UniqueIdentifier>{2c6fcac5-d4d0-478f-a333-9c3be2f34f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\4. PlayScene\5. BeachScene\2. FishShop">
+      <UniqueIdentifier>{1db2437d-a883-4199-b242-e1a7ce107518}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -121,19 +124,19 @@
       <Filter>Script\2. MonsterScript</Filter>
     </ClInclude>
     <ClInclude Include="FarmScene.h">
-      <Filter>Scene\3. PlayScene\1. FarmScene\1. Main</Filter>
+      <Filter>Scene\4. PlayScene\2. FarmScene\1. Main</Filter>
     </ClInclude>
     <ClInclude Include="Mine_B1_Scene.h">
-      <Filter>Scene\3. PlayScene\2. MineScene\2. B1 Floor</Filter>
+      <Filter>Scene\4. PlayScene\3. MineScene\2. B1 Floor</Filter>
     </ClInclude>
     <ClInclude Include="Mine_Lobby_Scene.h">
-      <Filter>Scene\3. PlayScene\2. MineScene\1. Main</Filter>
+      <Filter>Scene\4. PlayScene\3. MineScene\1. Main</Filter>
     </ClInclude>
     <ClInclude Include="PlayerScript.h">
       <Filter>Script\1. PlayerScript</Filter>
     </ClInclude>
     <ClInclude Include="TileMapToolScene.h">
-      <Filter>Scene\6. ToolScene</Filter>
+      <Filter>Scene\7. ToolScene</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>GameObject\Tile</Filter>
@@ -165,19 +168,19 @@
       <Filter>Script\2. MonsterScript</Filter>
     </ClCompile>
     <ClCompile Include="FarmScene.cpp">
-      <Filter>Scene\3. PlayScene\1. FarmScene\1. Main</Filter>
+      <Filter>Scene\4. PlayScene\2. FarmScene\1. Main</Filter>
     </ClCompile>
     <ClCompile Include="Mine_B1_Scene.cpp">
-      <Filter>Scene\3. PlayScene\2. MineScene\2. B1 Floor</Filter>
+      <Filter>Scene\4. PlayScene\3. MineScene\2. B1 Floor</Filter>
     </ClCompile>
     <ClCompile Include="Mine_Lobby_Scene.cpp">
-      <Filter>Scene\3. PlayScene\2. MineScene\1. Main</Filter>
+      <Filter>Scene\4. PlayScene\3. MineScene\1. Main</Filter>
     </ClCompile>
     <ClCompile Include="PlayerScript.cpp">
       <Filter>Script\1. PlayerScript</Filter>
     </ClCompile>
     <ClCompile Include="TileMapToolScene.cpp">
-      <Filter>Scene\6. ToolScene</Filter>
+      <Filter>Scene\7. ToolScene</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>GameObject\Tile</Filter>

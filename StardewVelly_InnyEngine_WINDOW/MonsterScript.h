@@ -32,5 +32,6 @@ namespace in
 		eDirection mDirection;
 		float mTime1;
 		float mTime2;
+		//float mDeathTime; Destroy ¿¹½Ã
 	};
 }

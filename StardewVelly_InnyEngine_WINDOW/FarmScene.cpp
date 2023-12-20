@@ -82,7 +82,7 @@ namespace in
 			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(500.0f, 500.0f));
 			PlayerScript* plScript = mFarm_Player->AddComponent<PlayerScript>();
 
-			//cameraComp->SetTarget(mFarm_Player);
+			cameraComp->SetTarget(mFarm_Player);
 
 			Texture* playerTexture = Resources::Find<Texture>(L"Farm_Player");
 			Texture* playerTexture_Front = Resources::Find<Texture>(L"Farm_PlayerFront");
