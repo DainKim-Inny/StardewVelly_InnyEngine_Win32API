@@ -58,9 +58,6 @@
     <Filter Include="Layer\1. Resource\2. Animation">
       <UniqueIdentifier>{bbdcb4f4-33a0-411a-9abe-58ea760f38c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\7. TileMapRenderer">
-      <UniqueIdentifier>{7cccc2ff-04e1-421b-9938-0c3796d4d4a7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\6. Collider">
       <UniqueIdentifier>{5fb2852f-5f5a-4993-81c5-f46b0c4976ff}</UniqueIdentifier>
     </Filter>
@@ -69,6 +66,12 @@
     </Filter>
     <Filter Include="Component\6. Collider\2. CircleCollider2D">
       <UniqueIdentifier>{d99adb81-2c3d-4653-b3e7-1348d0184ae9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\7. CollisionManager">
+      <UniqueIdentifier>{14c1773b-80cd-4944-bf8c-77de7c877772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\8. TileMapRenderer">
+      <UniqueIdentifier>{7cccc2ff-04e1-421b-9938-0c3796d4d4a7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -133,16 +136,19 @@
       <Filter>Component\3. Animator</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)TileMapRenderer.cpp">
-      <Filter>Component\7. TileMapRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp">
-      <Filter>Component\6. Collider</Filter>
+      <Filter>Component\8. TileMapRenderer</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BoxCollider2D.cpp">
       <Filter>Component\6. Collider\1. BoxCollider2D</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)CircleCollider2D.cpp">
       <Filter>Component\6. Collider\2. CircleCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp">
+      <Filter>Component\6. Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CollisionManager.cpp">
+      <Filter>Component\7. CollisionManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,16 +222,19 @@
       <Filter>Component\3. Animator</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)TileMapRenderer.h">
-      <Filter>Component\7. TileMapRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Collider.h">
-      <Filter>Component\6. Collider</Filter>
+      <Filter>Component\8. TileMapRenderer</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BoxCollider2D.h">
       <Filter>Component\6. Collider\1. BoxCollider2D</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CircleCollider2D.h">
       <Filter>Component\6. Collider\2. CircleCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Collider.h">
+      <Filter>Component\6. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionManager.h">
+      <Filter>Component\7. CollisionManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -21,6 +21,8 @@ namespace in
 
 		void AddGameObject(GameObject* gameObject);
 
+		const vector<GameObject*> GetGameObjects() { return mGameObjects; }
+
 	private:
 		vector<GameObject*> mGameObjects;
 	};

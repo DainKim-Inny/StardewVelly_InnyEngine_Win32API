@@ -35,8 +35,8 @@ namespace in
 
 		Rectangle(hdc, pos.x + offset.x
 			, pos.y + offset.y
-			, pos.x + offset.x + 55
-			, pos.y + offset.y + 55);
+			, pos.x + offset.x + 40
+			, pos.y + offset.y + 40);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);

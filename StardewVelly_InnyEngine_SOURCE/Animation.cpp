@@ -86,7 +86,7 @@ namespace in
 				, sprite.size.y
 				, func);
 
-			Rectangle(hdc, pos.x, pos.y, pos.x + 10, pos.y + 10);
+			Rectangle(hdc, pos.x-60, pos.y-60, pos.x-50, pos.y-50);
 		}
 		else if (type == Texture::eTextureType::Png)
 		{

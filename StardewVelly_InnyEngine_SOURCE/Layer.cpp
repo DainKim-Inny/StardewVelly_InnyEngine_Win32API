@@ -37,7 +37,7 @@ namespace in
 			if (gameObj == nullptr)
 				continue;
 
-			GameObject::eState state = gameObj->GetActive();
+			GameObject::eState state = gameObj->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
 				continue;
 
@@ -52,7 +52,7 @@ namespace in
 			if (gameObj == nullptr)
 				continue;
 
-			GameObject::eState state = gameObj->GetActive();
+			GameObject::eState state = gameObj->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
 				continue;
 
@@ -67,7 +67,7 @@ namespace in
 			if (gameObj == nullptr)
 				continue;
 
-			GameObject::eState state = gameObj->GetActive();
+			GameObject::eState state = gameObj->GetState();
 			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
 				continue;
 
@@ -81,7 +81,7 @@ namespace in
 			; iter != mGameObjects.end()
 			;)
 		{
-			GameObject::eState active = (*iter)->GetActive();
+			GameObject::eState active = (*iter)->GetState();
 			if (active == GameObject::eState::Dead)
 			{
 				GameObject* deathobj = (*iter);

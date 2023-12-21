@@ -20,7 +20,6 @@ namespace in
 		class GameObject* mFarm_QuickSlot;
 		class GameObject* mFarm_EnergyBar;
 		class Player* mFarm_Player;
-		class GameObject* mFarm_Stone1;
-		class GameObject* mFarm_Stone2;
+		class GameObject* mFarm_Stone;
 	};
 }

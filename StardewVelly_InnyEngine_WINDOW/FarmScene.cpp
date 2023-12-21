@@ -13,6 +13,7 @@
 #include "Mine_B1_Scene.h"
 #include "PlayerScript.h"
 #include "BoxCollider2D.h"
+#include "CollisionManager.h"
 
 using namespace std;
 
@@ -24,8 +25,7 @@ namespace in
 		, mFarm_Clock(nullptr)
 		, mFarm_QuickSlot(nullptr)
 		, mFarm_EnergyBar(nullptr)
-		, mFarm_Stone1(nullptr)
-		, mFarm_Stone2(nullptr)
+		, mFarm_Stone(nullptr)
 	{
 	}
 
@@ -35,6 +35,9 @@ namespace in
 	
 	void FarmScene::Initialize()
 	{
+		// Layer끼리 충돌 Check 등록
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Object, true);
+
 		// main Camera
 		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, SetVector(700.0f, 450.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -47,7 +50,7 @@ namespace in
 
 			Texture* bgTexture = Resources::Find<Texture>(L"Farm_BG");
 			bgSr->SetTexture(bgTexture);
-			bgSr->SetSize(SetVector(2.1f, 2.1f));
+			bgSr->SetSize(SetVector(2.5f, 2.5f));
 		}
 
 		// Clock 추가
@@ -83,8 +86,8 @@ namespace in
 			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(500.0f, 500.0f));
 			PlayerScript* plScript = mFarm_Player->AddComponent<PlayerScript>();
 
-			BoxCollider2D* collider = mFarm_Player->AddComponent<BoxCollider2D>();
-			collider->SetOffset(SetVector(-134.0f, -155.0f));
+			BoxCollider2D* playerCollider = mFarm_Player->AddComponent<BoxCollider2D>();
+			playerCollider->SetOffset(SetVector(-120.0f, -140.0f));
 
 			//cameraComp->SetTarget(mFarm_Player);
 
@@ -118,9 +121,9 @@ namespace in
 					, SetVector(0.0f, 250.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.08f);
 
 				player_animator->CreateAnimation(L"DownWalk", playerTexture_Front
-					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 6, 0.08f);
+					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 7, 0.08f);
 				player_animator->CreateAnimation(L"DownWalkStop", playerTexture_Front
-					, SetVector(0.0f, 1.0f), SetVector(250.0f, 281.0f), SetVector::Zero, 1, 0.08f);
+					, SetVector(0.0f, 0.0f), SetVector(250.0f, 250.0f), SetVector::Zero, 1, 0.08f);
 			}
 
 			// UsingAxes
@@ -251,7 +254,20 @@ namespace in
 
 			player_animator->PlayeAnimation(L"Idle", true);
 
-			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.55f, 0.55f));
+			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.6f, 0.6f));
+		}
+
+		// Stone 추가
+		{
+			mFarm_Stone = Object::Instantiate<GameObject>(eLayerType::Object, SetVector(600.0f, 600.0f));
+			SpriteRenderer* stSr = mFarm_Stone->AddComponent<SpriteRenderer>();
+
+			BoxCollider2D* stoneCollider = mFarm_Stone->AddComponent<BoxCollider2D>();
+			stoneCollider->SetOffset(SetVector(-58.0f, -75.0f));
+
+			Texture* stTexture = Resources::Find<Texture>(L"Farm_Stone");
+			stSr->SetTexture(stTexture);
+			stSr->SetSize(SetVector(2.0f, 2.0f));
 		}
 
 		Scene::Initialize();

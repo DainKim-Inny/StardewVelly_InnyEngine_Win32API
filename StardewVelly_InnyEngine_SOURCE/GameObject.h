@@ -51,7 +51,7 @@ namespace in
 			return component;
 		}
 
-		eState GetActive() { return mState; }
+		eState GetState() { return mState; }
 
 		void SetActive(bool power)
 		{
@@ -61,8 +61,10 @@ namespace in
 			if (power == false)
 				mState = eState::Paused;
 		}
-
+		
+		bool IsActive() { return mState == eState::Active; }
 		void Death() { mState = eState::Dead; }
+		bool IsDead() { return mState == eState::Dead; }
 		
 	private:
 		void initializeTransform();
