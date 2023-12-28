@@ -47,6 +47,10 @@ namespace in
 		void ActionByDirection();
 		void CompleteCheckAndStopAnimation();
 
+		void OnCollisionEnter(Collider* other) override;
+		void OnCollisionStay(Collider* other) override;
+		void OnCollisionExit(Collider* other) override;
+
 	private:
 		void Idle();
 		void Walk();

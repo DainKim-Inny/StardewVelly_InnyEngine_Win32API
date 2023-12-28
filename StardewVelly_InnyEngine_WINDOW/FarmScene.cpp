@@ -10,10 +10,12 @@
 #include "Camera.h"
 #include "Renderer.h"
 #include "Animator.h"
+#include "Monster.h"
 #include "Mine_B1_Scene.h"
 #include "PlayerScript.h"
 #include "BoxCollider2D.h"
 #include "CollisionManager.h"
+#include "MonsterScript.h"
 
 using namespace std;
 
@@ -22,10 +24,7 @@ namespace in
 	FarmScene::FarmScene()
 		: mFarm_Bg(nullptr)
 		, mFarm_Player(nullptr)
-		, mFarm_Clock(nullptr)
-		, mFarm_QuickSlot(nullptr)
-		, mFarm_EnergyBar(nullptr)
-		, mFarm_Stone(nullptr)
+		, mFarm_Monster(nullptr)
 	{
 	}
 
@@ -36,7 +35,7 @@ namespace in
 	void FarmScene::Initialize()
 	{
 		// Layer끼리 충돌 Check 등록
-		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Object, true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Monster, true);
 
 		// main Camera
 		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, SetVector(700.0f, 450.0f));
@@ -53,48 +52,20 @@ namespace in
 			bgSr->SetSize(SetVector(2.5f, 2.5f));
 		}
 
-		// Clock 추가
-		{
-			mFarm_Clock = Object::Instantiate<GameObject>(eLayerType::UI, SetVector(1170.0f, 80.0f));
-			SpriteRenderer* clockSr = mFarm_Clock->AddComponent<SpriteRenderer>();
-
-			Texture* clockTexture = Resources::Find<Texture>(L"Farm_Clock");
-			clockSr->SetTexture(clockTexture);
-		}
-
-		// QuickSlot 추가
-		{
-			mFarm_QuickSlot = Object::Instantiate<GameObject>(eLayerType::UI, SetVector(415.0f, 680.0f));
-			SpriteRenderer* slotSr = mFarm_QuickSlot->AddComponent<SpriteRenderer>();
-
-			Texture* slotTexture = Resources::Find<Texture>(L"Farm_QuickSlot");
-			slotSr->SetTexture(slotTexture);
-		}
-
-		// EnergyBar 추가
-		{
-			mFarm_EnergyBar = Object::Instantiate<GameObject>(eLayerType::UI, SetVector(1330.0f, 579.0f));
-			SpriteRenderer* energybarSr = mFarm_EnergyBar->AddComponent<SpriteRenderer>();
-
-			Texture* energybarTexture = Resources::Find<Texture>(L"Farm_EnergyBar");
-			energybarSr->SetTexture(energybarTexture);
-			energybarSr->SetSize(SetVector(0.9f, 0.9f));
-		}
-
 		// Player 추가
 		{
-			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(500.0f, 500.0f));
+			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(400.0f, 400.0f));
 			PlayerScript* plScript = mFarm_Player->AddComponent<PlayerScript>();
 
 			BoxCollider2D* playerCollider = mFarm_Player->AddComponent<BoxCollider2D>();
-			playerCollider->SetOffset(SetVector(-120.0f, -140.0f));
+			playerCollider->SetOffset(SetVector(-70.0f, -60.0f));
 
 			//cameraComp->SetTarget(mFarm_Player);
 
 			Texture* playerTexture = Resources::Find<Texture>(L"Farm_Player");
 			Texture* playerTexture_Front = Resources::Find<Texture>(L"Farm_PlayerFront");
 			Texture* playerTexture2 = Resources::Find<Texture>(L"Farm_Player2");
-			
+
 			Animator* player_animator = mFarm_Player->AddComponent<Animator>();
 
 			// Idle
@@ -257,17 +228,23 @@ namespace in
 			mFarm_Player->GetComponent<Transform>()->SetScale(SetVector(0.6f, 0.6f));
 		}
 
-		// Stone 추가
+		// Slime 추가
 		{
-			mFarm_Stone = Object::Instantiate<GameObject>(eLayerType::Object, SetVector(600.0f, 600.0f));
-			SpriteRenderer* stSr = mFarm_Stone->AddComponent<SpriteRenderer>();
+			mFarm_Monster = Object::Instantiate<Monster>(eLayerType::Monster, SetVector(500.0f, 500.0f));
+			mFarm_Monster->AddComponent<MonsterScript>();
 
-			BoxCollider2D* stoneCollider = mFarm_Stone->AddComponent<BoxCollider2D>();
-			stoneCollider->SetOffset(SetVector(-58.0f, -75.0f));
+			BoxCollider2D* monsterCollider = mFarm_Monster->AddComponent<BoxCollider2D>();
+			monsterCollider->SetOffset(SetVector(-30.0f, -30.0f));
 
-			Texture* stTexture = Resources::Find<Texture>(L"Farm_Stone");
-			stSr->SetTexture(stTexture);
-			stSr->SetSize(SetVector(2.0f, 2.0f));
+			Texture* slimeTexture = Resources::Find<Texture>(L"Mine_B1_Slime");
+
+			Animator* slime_animator = mFarm_Monster->AddComponent<Animator>();
+			slime_animator->CreateAnimation(L"SlimeMove", slimeTexture
+				, SetVector(0.0f, 0.0f), SetVector(64.0f, 64.0f), SetVector::Zero, 7, 0.25f);
+
+			slime_animator->PlayeAnimation(L"SlimeMove", true);
+
+			mFarm_Monster->GetComponent<Transform>()->SetScale(SetVector(0.7f, 0.7f));
 		}
 
 		Scene::Initialize();

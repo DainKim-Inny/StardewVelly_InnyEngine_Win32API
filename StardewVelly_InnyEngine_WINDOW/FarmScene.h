@@ -16,10 +16,7 @@ namespace in
 
 	private:
 		class GameObject* mFarm_Bg;
-		class GameObject* mFarm_Clock;
-		class GameObject* mFarm_QuickSlot;
-		class GameObject* mFarm_EnergyBar;
 		class Player* mFarm_Player;
-		class GameObject* mFarm_Stone;
+		class Monster* mFarm_Monster;
 	};
 }

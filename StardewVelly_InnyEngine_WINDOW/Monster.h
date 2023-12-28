@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObject.h"
+#include "..\\StardewVelly_InnyEngine_SOURCE\\GameObject.h"
 
 namespace in
 {

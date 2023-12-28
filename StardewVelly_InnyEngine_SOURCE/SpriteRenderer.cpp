@@ -53,6 +53,8 @@ namespace in
 				, mTexture->GetWidth()
 				, mTexture->GetHeight()
 				, RGB(255, 0, 255));
+
+			Rectangle(hdc, pos.x+5, pos.y+5, pos.x+15, pos.y+15);
 		}
 		else if (mTexture->GetTextrueType() 
 			== Texture::eTextureType::Png)

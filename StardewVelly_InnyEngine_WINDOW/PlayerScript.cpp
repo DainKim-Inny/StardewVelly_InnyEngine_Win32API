@@ -137,6 +137,19 @@ namespace in
 		}
 	}
 
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+		other->GetOwner()->GetComponent<Transform>()->SetPos(SetVector(100.0f, 100.0f));
+	}
+
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+	}
+
 	void PlayerScript::Idle()
 	{
 		if (Input::GetKey(eKeyCode::D))

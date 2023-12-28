@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonHeader.h"
 #include "Component.h"
+#include "Collider.h"
 
 namespace in
 {
@@ -18,7 +19,7 @@ namespace in
 
 		GameObject();
 		~GameObject();
-	
+
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
@@ -43,7 +44,7 @@ namespace in
 			for (Component* comp : mComponents)
 			{
 				component = dynamic_cast<T*>(comp);
-				
+
 				if (component)
 					break;
 			}
@@ -61,7 +62,7 @@ namespace in
 			if (power == false)
 				mState = eState::Paused;
 		}
-		
+
 		bool IsActive() { return mState == eState::Active; }
 		void Death() { mState = eState::Dead; }
 		bool IsDead() { return mState == eState::Dead; }

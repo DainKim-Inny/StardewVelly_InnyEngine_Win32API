@@ -3,6 +3,7 @@
 #include "Time.h"
 #include "SceneManager.h"
 #include "Resources.h"
+#include "CollisionManager.h"
 
 namespace in
 {
@@ -28,6 +29,7 @@ namespace in
 		createBuffer(width, height);
 		InitializeEtc();
 
+		CollisionManager::Initailize();
 		SceneManager::Initailize();
 	}
 
@@ -44,13 +46,36 @@ namespace in
 	{
 		Input::Update();
 		Time::Update();
-
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
+	}
+
+	void Application::Render()
+	{
+		clearRenderTarget();
+
+		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
+
+		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::clearRenderTarget()
@@ -96,26 +121,5 @@ namespace in
 	{
 		Input::Initialize();
 		Time::Initailize();
-	}
-
-	void Application::Render()
-	{
-		clearRenderTarget();
-
-		Time::Render(mBackHdc);
-		SceneManager::Render(mBackHdc);
-
-		copyRenderTarget(mBackHdc, mHdc);
-	}
-
-	void Application::Destroy()
-	{
-		SceneManager::Destroy();
-	}
-
-	void Application::Release()
-	{
-		SceneManager::Release();
-		Resources::Release();
 	}
 }

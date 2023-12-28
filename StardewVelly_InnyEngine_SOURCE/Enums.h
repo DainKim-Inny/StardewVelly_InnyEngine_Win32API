@@ -26,6 +26,7 @@ namespace in
 		Tile,
 		Object,
 		Player,
+		Monster,
 		UI,
 		Max = 16
 	};

@@ -15,7 +15,5 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		SetVector mSize;
-
 	};
 }
