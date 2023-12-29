@@ -27,6 +27,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 // Windows 창 두개 생성을 위한 매개변수 수정
 ATOM                MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
+BOOL                InitToolScene(HINSTANCE);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK    WndTileProc(HWND, UINT, WPARAM, LPARAM);  // TileMap Window 추가 생성을 위한 정보 등록
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
@@ -134,10 +135,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   // MapToolWindow 창 생성
-   HWND MapToolHwnd = CreateWindowW(L"TILEMAPTOOLWINDOW", L"TileMapToolWindow", WS_OVERLAPPEDWINDOW,
-       0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
-
    application.Initialize(hWnd, width, height);
 
    if (!hWnd)
@@ -153,22 +150,39 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    in::LoadResources();
    in::LoadScenes();
 
+   InitToolScene(hInstance);
+
    int a = 0;
    srand((unsigned int)(&a));
 
-   in::Texture* texture = in::Resources::Find<in::Texture>(L"TileMap_SpringFarm");
-
-   RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
-   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-   UINT toolWidth = rect.right - rect.left;
-   UINT toolHeight = rect.bottom - rect.top;
-
-   SetWindowPos(MapToolHwnd, nullptr, width, 0, toolWidth, toolHeight, 0);
-   ShowWindow(MapToolHwnd, true);
-   UpdateWindow(MapToolHwnd);
-
    return TRUE;
+}
+
+BOOL InitToolScene(HINSTANCE hInstance)
+{
+    in::Scene* activeScene = in::SceneManager::GetActiveScene();
+    wstring name = activeScene->GetName();
+
+    if (name == L"TileMapToolScene")
+    {
+        // MapToolWindow 창 생성
+        HWND MapToolHwnd = CreateWindowW(L"TILEMAPTOOLWINDOW", L"TileMapToolWindow", WS_OVERLAPPEDWINDOW,
+            0, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+        in::Texture* texture = in::Resources::Find<in::Texture>(L"TileMap_SpringFarm");
+
+        RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
+        AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+        UINT toolWidth = rect.right - rect.left;
+        UINT toolHeight = rect.bottom - rect.top;
+
+        SetWindowPos(MapToolHwnd, nullptr, 672, 0, toolWidth, toolHeight, 0);
+        ShowWindow(MapToolHwnd, true);
+        UpdateWindow(MapToolHwnd);
+    }
+
+    return true;
 }
 
 //

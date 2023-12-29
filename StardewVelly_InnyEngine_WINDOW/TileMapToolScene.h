@@ -24,6 +24,10 @@ namespace in
 		void Load();
 
 	private:
+		void renderGreed(HDC hdc);
+		void createTileObject();
+
+	private:
 		vector<Tile*> mTiles;
 	};
 }

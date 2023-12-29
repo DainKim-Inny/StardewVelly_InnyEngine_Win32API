@@ -263,11 +263,9 @@ namespace in
 
 		SetVector mousePos = Input::GetMousePosition();
 
-		if (Input::GetKeyDown(eKeyCode::MouseRB) 
-			&& 1200.0f<= mousePos.x && mousePos.x<=1260.0f
-			&& 550.0f<= mousePos.y && mousePos.y<=630.0f )
+		if (Input::GetKeyDown(eKeyCode::N))
 		{
-			SceneManager::LoadScene(L"Mine_Lobby_Scene");
+			SceneManager::LoadScene(L"TileMapToolScene");
 		}
 	}
 	

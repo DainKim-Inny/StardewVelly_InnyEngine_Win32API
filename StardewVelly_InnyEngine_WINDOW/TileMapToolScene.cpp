@@ -41,23 +41,7 @@ namespace in
 
 		if (Input::GetKey(eKeyCode::MouseLB))
 		{
-			SetVector pos = Input::GetMousePosition();
-			pos = renderer::mainCamera->CalculateTilePosition(pos);
-
-			if (pos.x >= 0.0f && pos.y >= 0.0f)
-			{
-				int idxX = pos.x / TileMapRenderer::TileSize.x;
-				int idxY = pos.y / TileMapRenderer::TileSize.y;
-
-				Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
-				TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
-
-				tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
-				tmr->SetIndex(TileMapRenderer::SelectedIndex);
-
-				tile->SetIndexPosition(idxX, idxY);
-				mTiles.push_back(tile);
-			}
+			createTileObject();
 		}
 
 		if (Input::GetKeyDown(eKeyCode::S))
@@ -73,29 +57,7 @@ namespace in
 	void TileMapToolScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-
-		// 격자 무늬 추가 (기존 size에서 2배 키운 크기로 격자 생성)
-		for (int i = 0; i < 100; i++)
-		{
-			SetVector pos = renderer::mainCamera->CalculatePosition
-			(
-				SetVector(TileMapRenderer::TileSize.x * i, 0.0f)
-			);
-
-			MoveToEx(hdc, pos.x, 0, NULL);
-			LineTo(hdc, pos.x, 5000);
-		}
-
-		for (int i = 0; i < 100; i++)
-		{
-			SetVector pos = renderer::mainCamera->CalculatePosition
-			(
-				SetVector(0.0f, TileMapRenderer::TileSize.y * i)
-			);
-
-			MoveToEx(hdc, 0, pos.y, NULL);
-			LineTo(hdc, 5000, pos.y);
-		}
+		renderGreed(hdc);
 	}
 	
 	void TileMapToolScene::OnEnter()
@@ -210,6 +172,57 @@ namespace in
 		}
 
 		fclose(pFile);
+	}
+
+	void TileMapToolScene::renderGreed(HDC hdc)
+	{
+		// 격자 무늬 추가 (기존 size에서 2배 키운 크기로 격자 생성)
+		for (int i = 0; i < 100; i++)
+		{
+			SetVector pos = renderer::mainCamera->CalculatePosition
+			(
+				SetVector(TileMapRenderer::TileSize.x * i, 0.0f)
+			);
+
+			MoveToEx(hdc, pos.x, 0, NULL);
+			LineTo(hdc, pos.x, 5000);
+		}
+
+		for (int i = 0; i < 100; i++)
+		{
+			SetVector pos = renderer::mainCamera->CalculatePosition
+			(
+				SetVector(0.0f, TileMapRenderer::TileSize.y * i)
+			);
+
+			MoveToEx(hdc, 0, pos.y, NULL);
+			LineTo(hdc, 5000, pos.y);
+		}
+	}
+	
+	void TileMapToolScene::createTileObject()
+	{
+		SetVector pos = Input::GetMousePosition();
+		pos = renderer::mainCamera->CalculateTilePosition(pos);
+
+		if (pos.x >= 0.0f && pos.y >= 0.0f)
+		{
+			int idxX = pos.x / TileMapRenderer::TileSize.x;
+			int idxY = pos.y / TileMapRenderer::TileSize.y;
+
+			Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
+			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+
+			tmr->SetTexture(Resources::Find<Texture>(L"TileMap_SpringFarm"));
+			tmr->SetIndex(TileMapRenderer::SelectedIndex);
+
+			tile->SetIndexPosition(idxX, idxY);
+			mTiles.push_back(tile);
+		}
+		else
+		{
+
+		}
 	}
 }
 
