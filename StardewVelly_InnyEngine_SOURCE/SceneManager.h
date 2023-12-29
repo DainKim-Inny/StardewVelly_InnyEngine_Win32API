@@ -24,6 +24,8 @@ namespace in
 
 		static Scene* LoadScene(const wstring& name);
 		static Scene* GetActiveScene() { return mActiveScene; }
+		static Scene* GetDontDestroyOnLoad() { return mDontDestroyOnLoad; }
+		static vector<GameObject*> GetGameObjects(eLayerType layer);
 
 		static void Initailize();
 		static void Update();
@@ -35,6 +37,7 @@ namespace in
 	private:
 		static map<wstring, Scene*> mScene;
 		static Scene* mActiveScene;
+		static Scene* mDontDestroyOnLoad;
 
 	};
 }

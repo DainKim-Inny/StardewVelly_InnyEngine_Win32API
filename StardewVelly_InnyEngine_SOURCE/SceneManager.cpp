@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "DontDestroyOnLoad.h"
 
 using namespace std;
 
@@ -6,6 +7,7 @@ namespace in
 {
 	map<wstring, Scene*> SceneManager::mScene = {};
 	Scene* SceneManager::mActiveScene = nullptr;
+	Scene* SceneManager::mDontDestroyOnLoad = nullptr;
 
 	Scene* SceneManager::LoadScene(const wstring& name)
 	{
@@ -23,28 +25,46 @@ namespace in
 		return iter->second;
 	}
 
+	vector<GameObject*> SceneManager::GetGameObjects(eLayerType layer)
+	{
+		vector<GameObject*> gameObjects
+			= mActiveScene->GetLayer(layer)->GetGameObjects();
+		vector<GameObject*> dontDestroyOnLoad
+			= mDontDestroyOnLoad->GetLayer(layer)->GetGameObjects();
+
+		gameObjects.insert(gameObjects.end()
+			, dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
+
+		return gameObjects;
+	}
+
 	void SceneManager::Initailize()
 	{
+		mDontDestroyOnLoad = CreateScene<DontDestroyOnLoad>(L"DontDestroyOnLoad");
 	}
 
 	void SceneManager::Update()
 	{
 		mActiveScene->Update();
+		mDontDestroyOnLoad->Update();
 	}
 	
 	void SceneManager::LateUpdate()
 	{
 		mActiveScene->LateUpdate();
+		mDontDestroyOnLoad->LateUpdate();
 	}
 	
 	void SceneManager::Render(HDC hdc)
 	{
 		mActiveScene->Render(hdc);
+		mDontDestroyOnLoad->Render(hdc);
 	}
 
 	void SceneManager::Destroy()
 	{
 		mActiveScene->Destroy();
+		mDontDestroyOnLoad->Destroy();
 	}
 
 	void SceneManager::Release()

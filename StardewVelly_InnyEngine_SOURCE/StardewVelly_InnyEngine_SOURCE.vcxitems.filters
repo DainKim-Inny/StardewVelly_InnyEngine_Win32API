@@ -64,14 +64,14 @@
     <Filter Include="Component\6. Collider\1. BoxCollider2D">
       <UniqueIdentifier>{ff79543f-edc4-43e1-a133-3ff736c2cf6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\6. Collider\2. CircleCollider2D">
-      <UniqueIdentifier>{d99adb81-2c3d-4653-b3e7-1348d0184ae9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\7. CollisionManager">
-      <UniqueIdentifier>{14c1773b-80cd-4944-bf8c-77de7c877772}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\8. TileMapRenderer">
       <UniqueIdentifier>{7cccc2ff-04e1-421b-9938-0c3796d4d4a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer\2. Scene\2. DontDestroyOnLoad">
+      <UniqueIdentifier>{cad407a7-2654-49c2-a404-6e50231c8785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer\4. Destroy">
+      <UniqueIdentifier>{81a1d0b5-1383-4baf-809c-9a4fb7812e74}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -91,9 +91,6 @@
       <Filter>Common\1. Entity</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp">
-      <Filter>Layer\2. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
       <Filter>Layer\2. Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Component.cpp">
@@ -141,14 +138,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BoxCollider2D.cpp">
       <Filter>Component\6. Collider\1. BoxCollider2D</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)CircleCollider2D.cpp">
-      <Filter>Component\6. Collider\2. CircleCollider2D</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp">
       <Filter>Component\6. Collider</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)DontDestroyOnLoad.cpp">
+      <Filter>Layer\2. Scene\2. DontDestroyOnLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Destroy.cpp">
+      <Filter>Layer\4. Destroy</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
+      <Filter>Layer\2. Scene</Filter>
+    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)CollisionManager.cpp">
-      <Filter>Component\7. CollisionManager</Filter>
+      <Filter>Component\6. Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,9 +172,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h">
       <Filter>Common\1. Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
-      <Filter>Layer\2. Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h">
       <Filter>Layer\2. Scene</Filter>
@@ -224,17 +224,23 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BoxCollider2D.h">
       <Filter>Component\6. Collider\1. BoxCollider2D</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CircleCollider2D.h">
-      <Filter>Component\6. Collider\2. CircleCollider2D</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Collider.h">
       <Filter>Component\6. Collider</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionManager.h">
-      <Filter>Component\7. CollisionManager</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Object.h">
       <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)DontDestroyOnLoad.h">
+      <Filter>Layer\2. Scene\2. DontDestroyOnLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Destroy.h">
+      <Filter>Layer\4. Destroy</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
+      <Filter>Layer\2. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionManager.h">
+      <Filter>Component\6. Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

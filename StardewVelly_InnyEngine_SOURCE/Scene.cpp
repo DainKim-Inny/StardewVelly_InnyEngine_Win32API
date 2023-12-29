@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "CollisionManager.h"
 
 namespace in
 {
@@ -77,6 +78,12 @@ namespace in
 		mLayers[(UINT)type]->AddGameObject(gameObject);
 	}
 
+	void Scene::EraseGameObjects(GameObject* gameObj)
+	{
+		eLayerType layerType = gameObj->GetLayerType();
+		mLayers[(UINT)layerType]->EraseGameObject(gameObj);
+	}
+
 	void Scene::CreateLayers()
 	{
 		mLayers.resize((UINT)eLayerType::Max);
@@ -94,6 +101,6 @@ namespace in
 
 	void Scene::OnExit()
 	{
-
+		CollisionManager::Clear();
 	}
 }

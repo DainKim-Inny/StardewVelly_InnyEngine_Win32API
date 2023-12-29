@@ -1,20 +1,21 @@
 #pragma once
-#include "Collider.h"
+#include "Scene.h"
 
 namespace in
 {
-	class CircleCollider2D : public Collider
+	class DontDestroyOnLoad : public Scene
 	{
 	public:
-		CircleCollider2D();
-		~CircleCollider2D();
+		DontDestroyOnLoad();
+		~DontDestroyOnLoad();
 
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-	private:
-		float mRadius;
+		void OnEnter() override;
+		void OnExit() override;
 	};
+
 }

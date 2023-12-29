@@ -64,15 +64,19 @@ namespace in
 		}
 
 		bool IsActive() { return mState == eState::Active; }
-		void Death() { mState = eState::Dead; }
 		bool IsDead() { return mState == eState::Dead; }
-		
+		void Death() { mState = eState::Dead; }
+
+		void SetLayerType(eLayerType layerType) { mLayerType = layerType; }
+		eLayerType GetLayerType() { return mLayerType; }
+
 	private:
 		void initializeTransform();
 
 	private:
 		eState mState;
 		vector<Component*> mComponents;
+		eLayerType mLayerType;
 	};
 
 }

@@ -23,6 +23,7 @@ namespace in
 		virtual void OnExit();
 
 		void AddGameObject(GameObject* gameObject, const eLayerType type);
+		void EraseGameObjects(GameObject* gameObj);
 		Layer* GetLayer(const eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:

@@ -1,6 +1,8 @@
 #include "BoxCollider2D.h"
 #include "Transform.h"
 #include "GameObject.h"
+#include "Renderer.h"
+#include "Camera.h"
 
 namespace in
 {
@@ -24,6 +26,9 @@ namespace in
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		SetVector pos = tr->GetPosition();
+
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
 		SetVector offset = GetOffset();
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "CommonHeader.h"
 #include "BoxCollider2D.h"
-#include "CircleCollider2D.h"
 
 using namespace std;
 
@@ -25,6 +24,7 @@ namespace in
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+		static void Clear();
 
 		// Layer끼리 충돌 Check -> 충돌 여부 True / False Check 가능
 		static void CollisionLayerCheck(eLayerType left, eLayerType right, bool enable);

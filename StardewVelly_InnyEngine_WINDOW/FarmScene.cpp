@@ -55,6 +55,8 @@ namespace in
 		// Player Ãß°¡
 		{
 			mFarm_Player = Object::Instantiate<Player>(eLayerType::Player, SetVector(400.0f, 400.0f));
+			Object::DontDestroyOnLoad(mFarm_Player);
+			
 			PlayerScript* plScript = mFarm_Player->AddComponent<PlayerScript>();
 
 			BoxCollider2D* playerCollider = mFarm_Player->AddComponent<BoxCollider2D>();
